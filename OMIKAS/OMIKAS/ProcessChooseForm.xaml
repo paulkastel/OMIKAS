@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    <!-- Po wybraniu nowego procesu jest to okno wyboru stopow bioracych udzial -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.ProcessChooseForm"
+             BackgroundColor="#FFFFFF"
+             Title="Wybierz stopy metali">
+
+    <!-- Style -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="Styl_lbl" TargetType="Label">
+                <Setter Property="TextColor" Value="#1E1E1E"></Setter>
+                <Setter Property="FontSize" Value="15"></Setter>
+            </Style>
+
+            <Style x:Key="Styl_btn" TargetType="Button">
+                <!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout>
+            <Button Style="{StaticResource Styl_btn}" Text="Dalej" x:Name="btn_addAlloy"></Button>
+            <ListView x:Name="AlloyList" HasUnevenRows="True">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50" />
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Switch IsToggled="False" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0"/>
+                                <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_lbl}" Text="{Binding Name}"></Label>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

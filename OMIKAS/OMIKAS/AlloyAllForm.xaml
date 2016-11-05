@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Strona z lista wszystkich dodanych metali-->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.AlloyAllForm"
+             Title="Stopy metali"
+             BackgroundColor="#FFFFFF">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="ToolbarItem_Clicked"/>
+	</ContentPage.ToolbarItems>
+
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<StackLayout>
+			<Button Style="{StaticResource Styl_btn}" Text="Dodaj" x:Name="btn_addAlloy" Clicked="btn_addAlloy_Clicked"></Button>
+			<ListView x:Name="AlloyList" HasUnevenRows="True">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition Width="40" />
+									<ColumnDefinition Width="40" />
+								</Grid.ColumnDefinitions>
+
+								<Label VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Style="{StaticResource Styl_lbl}" Text="{Binding Name}"></Label>
+								<Button HeightRequest="40" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_btn}" Text="Edytuj" x:Name="btn_editAlloy" Clicked="btn_editAlloy_Clicked"></Button>
+								<Button HeightRequest="40" Grid.Row="0" Grid.Column="2" Style="{StaticResource Styl_btn}" Text="Usun" x:Name="btn_delAlloy" Clicked="btn_delAlloy_Clicked"></Button>
+								<Button HeightRequest="40" Grid.Row="0" Grid.Column="3" Style="{StaticResource Styl_btn}" Text="Info" x:Name="btn_info" Clicked="btn_info_Clicked"></Button>
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+			</ListView>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

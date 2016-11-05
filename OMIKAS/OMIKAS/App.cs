@@ -7,42 +7,58 @@ using Xamarin.Forms;
 
 namespace OMIKAS
 {
-    public class App : Application
-    {
-        public App()
-        {
-            // The root page of your application
-            var content = new ContentPage
-            {
-                Title = "OMIKAS",
-                Content = new StackLayout
-                {
-                    VerticalOptions = LayoutOptions.Center,
-                    Children = {
-                        new Label {
-                            HorizontalTextAlignment = TextAlignment.Center,
-                            Text = "Welcome to Xamarin Forms!"
-                        }
-                    }
-                }
-            };
+	public class App : Application
+	{
+		public static bool IsUserLoggedIn { get; set; }
+		public static void setHomePageApp(string whoEntered)
+		{
+			var x = new MasterDetailPage();
+			x.MasterBehavior = MasterBehavior.Popover;
+			x.Detail = new NavigationPage(new MainForm(whoEntered));
+			x.Master = new MainMenuSliderForm();
+			App.Current.MainPage = x;
+		}
+		public App()
+		{
+			//Uruchom strone zawierajaca MenuSlider czyli MainForm
+			//MainPage = new NavigationPage(new MainMenuSliderForm(""));
+			if(!IsUserLoggedIn)
+			{
+				MainPage = new NavigationPage(new UserLoginForm());
+			}
+			else
+			{
+				MasterDetailPage u = new MasterDetailPage();
+				u.MasterBehavior = MasterBehavior.Popover;
+				u.Title = "nowy master";
+				u.Master = new MainMenuSliderForm();
+				u.Detail = new NavigationPage(new MainForm("xdwa"));
+				MainPage = u;
+			}
 
-            MainPage = new NavigationPage(content);
-        }
+			//------------------Ustawienie koloru naglowka na zielony---------------
+			Current.Resources = new ResourceDictionary();
+			var navigationStyle = new Style(typeof(NavigationPage));
+			var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = Color.FromHex("#00693c") };
+			navigationStyle.Setters.Add(barBackgroundColorSetter);
+			Current.Resources.Add(navigationStyle);
 
-        protected override void OnStart()
-        {
-            // Handle when your app starts
-        }
+			//-----------------------------------------------------------------------
+		}
 
-        protected override void OnSleep()
-        {
-            // Handle when your app sleeps
-        }
+		protected override void OnStart()
+		{
+			// Handle when your app starts
+		}
 
-        protected override void OnResume()
-        {
-            // Handle when your app resumes
-        }
-    }
+		protected override void OnSleep()
+		{
+			// Handle when your app sleeps
+		}
+
+		protected override void OnResume()
+		{
+			// Handle when your app resumes
+		}
+	}
 }

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Okno glowne calej aplikacji -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.MainForm"
+             BackgroundColor="#FFFFFF"
+             Title="Menu Glowne">
+	
+	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+		<Label x:Name="lbl_welcome"></Label>
+	</StackLayout>
+</ContentPage>

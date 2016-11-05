@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.UserLoginForm"
+             BackgroundColor="#FFFFFF"
+             Title="Witaj w OMIKAS">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Rejestracja" Clicked="regi_Clicked" />
+	</ContentPage.ToolbarItems>
+
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="Font" Value="Bold"></Setter>
+				<Setter Property="HorizontalOptions" Value="End"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- Styl ustawia kolor buttona na czerwony i text na bialy-->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="30"></Setter>
+			</Style>
+			<Style x:Key="styl_stackLay" TargetType="StackLayout">
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<ScrollView>
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition Height="60" />
+					<RowDefinition Height="55" />
+					<RowDefinition Height="55" />
+					<RowDefinition Height="*" />
+					<RowDefinition Height="100" />
+					<RowDefinition Height="50" />
+				</Grid.RowDefinitions>
+				<Label Text="Wejdź na istniejące konto" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontSize="20"></Label>
+				<Label Text="Wprowadź adres E-Mail*:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
+				<Entry x:Name="ent_mail" Placeholder="E-Mail" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Label Text="Wprowadź hasło*:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
+				<Entry x:Name="ent_pass" IsPassword="true" Placeholder="Hasło" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Label x:Name="lbl_status" Text="ZStatus msg" TextColor="#A71930" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center"></Label>
+				<Button x:Name="btn_login" Text="Zaloguj się" HeightRequest="100" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  VerticalOptions="End" Style="{StaticResource Styl_btn}" Clicked="btn_login_Clicked"></Button>
+				<Button x:Name="btn_logGuest" Text="Konto gościa" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" Clicked="btn_logGuest_Clicked"/>
+			</Grid>
+		</ScrollView>
+	</ContentPage.Content>
+</ContentPage>

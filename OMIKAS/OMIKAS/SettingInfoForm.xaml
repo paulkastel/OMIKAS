@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.SettingInfoForm"
+             BackgroundColor="#FFFFFF"
+             Title="INFORMACJE">
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+            <Label Text="O PROGRAMIE" HorizontalOptions="Center"></Label>
+            <Label Text="Praca inżynierska Pawła Kastelika 2016/2017"></Label>
+            <Label Text="pod patronatem dr Krzysztofa Sołka"></Label>
+            <Label Text="Optymalizator mieszanek hutniczych OMIKAS"></Label>
+            <Label Text="Akademia Górniczo-Hutnicza WIMiIP Kraków"></Label>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

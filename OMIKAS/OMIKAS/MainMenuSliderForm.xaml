@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Menu boczne wysuwane -->
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+                  xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                  x:Class="OMIKAS.MainMenuSliderForm"
+                  Title="Menu Glowne"
+                  xmlns:formWithMenu="clr-namespace:OMIKAS">
+
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E">
+					<!--czarny-->
+				</Setter>
+				<Setter Property="FontSize" Value="40"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<Setter Property="BackgroundColor" Value="#A71930">
+					<!--zielony-->
+				</Setter>
+				<Setter Property="TextColor" Value="#FFFFFF">
+					<!-- Bialy -->
+				</Setter>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical">
+			<Label  Style="{StaticResource Styl_lbl}" Text="Menu boczne"></Label>
+			<Button Style="{StaticResource Styl_btn}" Text="Obliczenia" x:Name="btn_calc" Clicked="btn_calc_Clicked"></Button>
+			<Button Style="{StaticResource Styl_btn}" Text="Metale" x:Name="btn_alloy" Clicked="btn_alloy_Clicked"></Button>
+			<Button Style="{StaticResource Styl_btn}" Text="Profil" x:Name="btn_profile" Clicked="btn_profile_Clicked"></Button>
+			<Button Style="{StaticResource Styl_btn}" Text="Ustawienia" x:Name="btn_settings" Clicked="btn_settings_Clicked"></Button>
+			<Button Style="{StaticResource Styl_btn}" Text="Wyloguj się" x:Name="btn_logout" Clicked="btn_logout_Clicked"></Button>
+		</StackLayout>
+
+
+	</ContentPage.Content>
+</ContentPage>
