@@ -71,6 +71,7 @@
     <Compile Include="SettingSetForm.xaml.cs">
       <DependentUpon>SettingSetForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="User.cs" />
     <Compile Include="UserLoginForm.xaml.cs">
       <DependentUpon>UserLoginForm.xaml</DependentUpon>
     </Compile>

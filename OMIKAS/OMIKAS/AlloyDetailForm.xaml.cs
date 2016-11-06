@@ -10,7 +10,7 @@ namespace OMIKAS
 {
     public partial class AlloyDetailForm : ContentPage
     {
-        public AlloyDetailForm()
+        public AlloyDetailForm(Alloy metal)
         {
             InitializeComponent();
         }

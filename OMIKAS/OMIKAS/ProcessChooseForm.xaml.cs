@@ -8,17 +8,18 @@ using Xamarin.Forms;
 
 namespace OMIKAS
 {
-    public partial class ProcessChooseForm : ContentPage
-    {
-        public ProcessChooseForm()
-        {
-            InitializeComponent();
-            InitializeComponent();
-            AlloyList.ItemsSource = new List<Alloy> {
-                new Alloy { Name = "stop1" },
-                new Alloy { Name = "stop2" },
-                new Alloy { Name = "stop3" },
-            };
-        }
-    }
+	public partial class ProcessChooseForm : ContentPage
+	{
+		public ProcessChooseForm()
+		{
+			InitializeComponent();
+			InitializeComponent();
+			listMetalView.ItemsSource = App.alloymetals;
+		}
+
+		private void btn_addAlloy_Clicked(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

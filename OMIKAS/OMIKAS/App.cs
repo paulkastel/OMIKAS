@@ -12,28 +12,28 @@ namespace OMIKAS
 		public static bool IsUserLoggedIn { get; set; }
 		public static void setHomePageApp(string whoEntered)
 		{
-			var x = new MasterDetailPage();
+			MasterDetailPage x = new MasterDetailPage();
 			x.MasterBehavior = MasterBehavior.Popover;
 			x.Detail = new NavigationPage(new MainForm(whoEntered));
 			x.Master = new MainMenuSliderForm();
 			App.Current.MainPage = x;
 		}
+
+		public static List<Alloy> alloymetals;
+		public static User userapp;
+		
 		public App()
 		{
-			//Uruchom strone zawierajaca MenuSlider czyli MainForm
-			//MainPage = new NavigationPage(new MainMenuSliderForm(""));
+			userapp = new User();
+			alloymetals = new List<Alloy>();
+
 			if(!IsUserLoggedIn)
 			{
 				MainPage = new NavigationPage(new UserLoginForm());
 			}
 			else
 			{
-				MasterDetailPage u = new MasterDetailPage();
-				u.MasterBehavior = MasterBehavior.Popover;
-				u.Title = "nowy master";
-				u.Master = new MainMenuSliderForm();
-				u.Detail = new NavigationPage(new MainForm("xdwa"));
-				MainPage = u;
+				setHomePageApp("Ktos kto juz tu byl");
 			}
 
 			//------------------Ustawienie koloru naglowka na zielony---------------
@@ -42,7 +42,6 @@ namespace OMIKAS
 			var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = Color.FromHex("#00693c") };
 			navigationStyle.Setters.Add(barBackgroundColorSetter);
 			Current.Resources.Add(navigationStyle);
-
 			//-----------------------------------------------------------------------
 		}
 

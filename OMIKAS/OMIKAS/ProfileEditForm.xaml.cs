@@ -10,9 +10,12 @@ namespace OMIKAS
 {
     public partial class ProfileEditForm : ContentPage
     {
-        public ProfileEditForm()
+		private User profile_edit;
+
+        public ProfileEditForm(User user_profile)
         {
             InitializeComponent();
+			profile_edit = user_profile;
         }
 
         private async void btn_confirmEdit_Clicked(object sender, EventArgs e)

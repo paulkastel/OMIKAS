@@ -20,23 +20,20 @@ namespace OMIKAS
 			var rootPage = Navigation.NavigationStack.FirstOrDefault();
 			if(rootPage != null)
 			{
-				MasterDetailPage x = new MasterDetailPage();
-				x.MasterBehavior = MasterBehavior.Popover;
-				x.Master = new MainMenuSliderForm();
-				x.Detail = new NavigationPage(new MainForm("User ktory zarejestrowal"));
-				App.Current.MainPage = x;
-
+				App.IsUserLoggedIn = true;
+				App.userapp.isUser = true;
+				App.userapp.emailadd = ent_email.Text;
+				App.userapp.password = ent_pswd1.Text;
+				App.userapp.user_surname = ent_surname.Text;
+				App.setHomePageApp(App.userapp.user_name + App.userapp.user_surname);
 				await Navigation.PopToRootAsync();
 			}
 		}
 
         private void btn_logGuest_Clicked(object sender, EventArgs e)
         {
-			MasterDetailPage x = new MasterDetailPage();
-			x.MasterBehavior = MasterBehavior.Popover;
-			x.Master = new MainMenuSliderForm();
-			x.Detail = new NavigationPage(new MainForm("Gosciu z rejest"));
-			App.Current.MainPage = x;
+			App.userapp.isUser = false;
+			App.setHomePageApp("Gościu");
 		}
     }
 }

@@ -40,13 +40,13 @@
 				</Grid.RowDefinitions>
 				<Label Text="Załóż nowe konto w systemie" Grid.Row="0" Grid.ColumnSpan="2" VerticalOptions="Center" HorizontalOptions="Center" VerticalTextAlignment="Center" FontSize="20"></Label>
 				<Label Text="Wprowadź nazwisko:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
-				<Entry Placeholder="Nazwisko" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Entry x:Name="ent_surname" Placeholder="Nazwisko" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Wprowadź adres E-Mail*:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
-				<Entry Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Entry x:Name="ent_email" Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Wprowadź hasło*:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
-				<Entry IsPassword="true" Placeholder="Hasło" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Entry x:Name="ent_pswd1" IsPassword="true" Placeholder="Hasło" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Powtórz hasło*:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
-				<Entry IsPassword="true" Placeholder="Hasło" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Entry x:Name="ent_pswd2" IsPassword="true" Placeholder="Hasło" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="ZStatus msg" TextColor="#A71930" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center"></Label>
 				<Button Text="Zarejestruj się" HeightRequest="100" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="End" Style="{StaticResource Styl_btn}" Clicked="btn_register_Clicked"></Button>
 				<Button Text="Konto gościa" Grid.Row="7" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" Clicked="btn_logGuest_Clicked"/>

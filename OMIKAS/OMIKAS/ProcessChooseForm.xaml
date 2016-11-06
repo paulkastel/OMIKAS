@@ -22,8 +22,8 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Button Style="{StaticResource Styl_btn}" Text="Dalej" x:Name="btn_addAlloy"></Button>
-            <ListView x:Name="AlloyList" HasUnevenRows="True">
+            <Button Style="{StaticResource Styl_btn}" Text="Dalej" x:Name="btn_addAlloy" Clicked="btn_addAlloy_Clicked"></Button>
+            <ListView x:Name="listMetalView" HasUnevenRows="True">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -32,8 +32,8 @@
                                     <ColumnDefinition Width="50" />
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <Switch IsToggled="False" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0"/>
-                                <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_lbl}" Text="{Binding Name}"></Label>
+								<Switch x:Name="switch_add" IsToggled="{Binding isadd}" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0"/>
+								<Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_lbl}" Text="{Binding nameAlloy}"></Label>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

@@ -45,7 +45,7 @@
 				<Entry x:Name="ent_mail" Placeholder="E-Mail" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Wprowadź hasło*:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
 				<Entry x:Name="ent_pass" IsPassword="true" Placeholder="Hasło" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
-				<Label x:Name="lbl_status" Text="ZStatus msg" TextColor="#A71930" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center"></Label>
+				<Label x:Name="lbl_status" TextColor="#A71930" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="Start" HorizontalOptions="Center"></Label>
 				<Button x:Name="btn_login" Text="Zaloguj się" HeightRequest="100" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"  VerticalOptions="End" Style="{StaticResource Styl_btn}" Clicked="btn_login_Clicked"></Button>
 				<Button x:Name="btn_logGuest" Text="Konto gościa" Grid.Row="5" Grid.ColumnSpan="2" HorizontalOptions="Center" VerticalOptions="End" Clicked="btn_logGuest_Clicked"/>
 			</Grid>
