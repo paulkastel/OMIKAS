@@ -1,44 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-    <!-- Po wybraniu nowego procesu jest to okno wyboru stopow bioracych udzial -->
+<!-- Po wybraniu nowego procesu jest to okno wyboru stopow bioracych udzial -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.ProcessChooseForm"
              BackgroundColor="#FFFFFF"
              Title="Wybierz stopy metali">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="btntool_Clicked"/>
+	</ContentPage.ToolbarItems>
 
-    <!-- Style -->
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="Styl_lbl" TargetType="Label">
-                <Setter Property="TextColor" Value="#1E1E1E"></Setter>
-                <Setter Property="FontSize" Value="15"></Setter>
-            </Style>
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+			</Style>
 
-            <Style x:Key="Styl_btn" TargetType="Button">
-                <!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 
-    <ContentPage.Content>
-        <StackLayout>
-            <Button Style="{StaticResource Styl_btn}" Text="Dalej" x:Name="btn_addAlloy" Clicked="btn_addAlloy_Clicked"></Button>
-            <ListView x:Name="listMetalView" HasUnevenRows="True">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="50" />
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
-								<Switch x:Name="switch_add" IsToggled="{Binding isadd}" HorizontalOptions="EndAndExpand" Grid.Row="0" Grid.Column="0"/>
-								<Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_lbl}" Text="{Binding nameAlloy}"></Label>
-                            </Grid>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
-        </StackLayout>
-    </ContentPage.Content>
+	<ContentPage.Content>
+		<StackLayout>
+			<Button x:Name="btn_chooseAlloy" Clicked="btn_chooseAlloy_Clicked" Text="Wybierz metale"></Button>
+			<Label x:Name="lbl_selectedAlloys"></Label>
+			<Button x:Name="btn_chooseSmelt" Clicked="btn_chooseSmelt_Clicked" Text="Wybierz wytopy"></Button>
+			<Label x:Name="lbl_selectedSmelts"></Label>
+			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ"></Button>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>

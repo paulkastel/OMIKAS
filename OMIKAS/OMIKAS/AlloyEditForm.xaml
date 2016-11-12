@@ -52,10 +52,10 @@
 					<RowDefinition Height="50" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="105" />
-					<ColumnDefinition Width="95"/>
+					<ColumnDefinition Width="150" />
+					<ColumnDefinition Width="200"/>
 				</Grid.ColumnDefinitions>
-				<Label Text="NAZWA STOPU:" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="0"></Label>
+				<Label x:Name="lbl_name" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="0"></Label>
 				<Label Text="Fe" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="1"></Label>
 				<Label Text="C" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="2"></Label>
 				<Label Text="Si" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="3"></Label>

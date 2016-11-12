@@ -27,8 +27,6 @@ namespace OMIKAS
 		public double W { get; set; }
 		public double Pb { get; set; }
 
-		private bool isadd { get; set; }
-
 		public static Alloy addNewAlloy(Xamarin.Forms.Page page, string name, string fe, string c, string si, string mn, string p, string s, string cr, string mo, string ni, string al, string co, string cu, string nb, string ti, string v, string w, string pb)
 		{
 			Alloy metal = new Alloy();

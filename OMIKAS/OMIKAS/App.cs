@@ -20,16 +20,18 @@ namespace OMIKAS
 		}
 
 		public static List<Alloy> alloymetals;
+		public static List<Alloy> alloysmelts;
 		public static User userapp;
 		
 		public App()
 		{
-			userapp = new User();
-			alloymetals = new List<Alloy>();
-
 			if(!IsUserLoggedIn)
 			{
+				userapp = new User();
+				alloymetals = new List<Alloy>();
+				alloysmelts = new List<Alloy>();
 				MainPage = new NavigationPage(new UserLoginForm());
+
 			}
 			else
 			{

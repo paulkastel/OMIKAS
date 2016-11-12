@@ -8,11 +8,18 @@ using Xamarin.Forms;
 
 namespace OMIKAS
 {
-    public partial class AlloyDetailForm : ContentPage
-    {
-        public AlloyDetailForm(Alloy metal)
-        {
-            InitializeComponent();
-        }
-    }
+	public partial class AlloyDetailForm : ContentPage
+	{
+		public AlloyDetailForm(Alloy metal)
+		{
+			InitializeComponent();
+
+			this.Title = "Szczegóły " + metal.nameAlloy;
+			lblFe.Text = metal.Fe.ToString();
+			lblC.Text = metal.Fe.ToString();
+			lblSi.Text = metal.Fe.ToString();
+			lblMn.Text = metal.Fe.ToString();
+			lblP.Text = metal.Fe.ToString();
+		}
+	}
 }
