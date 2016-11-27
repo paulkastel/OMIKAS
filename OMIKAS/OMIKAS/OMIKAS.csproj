@@ -52,6 +52,7 @@
     <Compile Include="MainMenuSliderForm.xaml.cs">
       <DependentUpon>MainMenuSliderForm.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ProcessCalcForm.cs" />
     <Compile Include="ProcessChooseForm.xaml.cs">
       <DependentUpon>ProcessChooseForm.xaml</DependentUpon>
     </Compile>

@@ -9,24 +9,45 @@ namespace OMIKAS
 {
 	public class App : Application
 	{
+		/// <summary>
+		/// Zmienna sprawdzająca czy użytkownik jest zalogowany. True jeżeli jest, False jeżeli nie zalogowany
+		/// </summary>
 		public static bool IsUserLoggedIn { get; set; }
+
+		/// <summary>
+		/// Ustawia glowna strone aplikacji z menu
+		/// </summary>
+		/// <param name="whoEntered">Nazwa uzytkownika który uruchomil strone glowna z menu aplikacji</param>
 		public static void setHomePageApp(string whoEntered)
 		{
 			MasterDetailPage x = new MasterDetailPage();
-			x.MasterBehavior = MasterBehavior.Popover;
-			x.Detail = new NavigationPage(new MainForm(whoEntered));
-			x.Master = new MainMenuSliderForm();
-			App.Current.MainPage = x;
+			x.MasterBehavior = MasterBehavior.Popover;		//Zachowanie bocznego panelu
+			x.Detail = new NavigationPage(new MainForm(whoEntered)); //Strona glowna do ktorej jest przypiete menu boczne
+			x.Master = new MainMenuSliderForm();	//MainMenuSliderForm jako boczny panel
+			App.Current.MainPage = x; //Ustawia się strone jako strone glowna aplikacji
 		}
-
+		/// <summary>
+		/// Lista z skladnikami stopowymi przechowujaca wszystkie stopy metali ich dane
+		/// </summary>
 		public static List<Alloy> alloymetals;
+		/// <summary>
+		/// Lista z wytopami i ich danymi
+		/// </summary>
 		public static List<Alloy> alloysmelts;
+
+		/// <summary>
+		/// Uzytkownik aplikacji przechowujacy dane o uzytkowniku
+		/// </summary>
 		public static User userapp;
 		
+		/// <summary>
+		/// Kazdorazowe uruchomienie aplikacji
+		/// </summary>
 		public App()
 		{
 			if(!IsUserLoggedIn)
 			{
+				//Jezeli apka nie zna uzytkownika (nowy user to zainicjalizuj nowe dane i uruchom ekran logowania
 				userapp = new User();
 				alloymetals = new List<Alloy>();
 				alloysmelts = new List<Alloy>();
@@ -35,6 +56,7 @@ namespace OMIKAS
 			}
 			else
 			{
+				//Apka zna uzytownika
 				setHomePageApp("Ktos kto juz tu byl");
 			}
 

@@ -24,11 +24,22 @@
 	</ContentPage.Resources>
 
 	<ContentPage.Content>
-		<StackLayout>
-			<Button x:Name="btn_chooseAlloy" Clicked="btn_chooseAlloy_Clicked" Text="Wybierz metale"></Button>
+		<StackLayout Orientation="Vertical">
+			<Button x:Name="btn_chooseAlloy" Clicked="btn_chooseAlloy_Clicked" Text="Wybierz składniki"></Button>
 			<Label x:Name="lbl_selectedAlloys"></Label>
-			<Button x:Name="btn_chooseSmelt" Clicked="btn_chooseSmelt_Clicked" Text="Wybierz wytopy"></Button>
+			<Button x:Name="btn_chooseSmelt" Clicked="btn_chooseSmelt_Clicked" Text="Wybierz wytop"></Button>
 			<Label x:Name="lbl_selectedSmelts"></Label>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Funkcja kosztów" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center"></Switch>
+				<Label Text="Funkcja masy" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+			</StackLayout>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+				<Label Text="Maksymalizacja" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+				<Switch x:Name="SwitchMinMax" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True"></Switch>
+				<Label Text="Minimalizacja" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+			</StackLayout>
+
 			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ"></Button>
 		</StackLayout>
 	</ContentPage.Content>

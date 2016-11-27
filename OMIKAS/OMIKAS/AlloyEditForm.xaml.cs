@@ -14,7 +14,7 @@ namespace OMIKAS
 		private bool isEdited;
 		//if true then alloys, else smelts
 		private bool itAlloyList;
-
+		//indeks stopu na liscie stopow/wytopow
 		private int indeksOfAlloy;
 
 		public AlloyEditForm(string nameOperation, bool whichList)
@@ -32,6 +32,24 @@ namespace OMIKAS
 			{
 				lbl_name.Text = "NAZWA WYTOPU: ";
 				this.btn_action.Text = this.Title = "Dodaj wytop";
+
+				/*this.entFe.IsEnabled = false;
+				this.entC.IsEnabled = false;
+				this.entSi.IsEnabled = false;
+				this.entMn.IsEnabled = false;
+				this.entP.IsEnabled = false;
+				this.entS.IsEnabled = false;
+				this.entCr.IsEnabled = false;
+				this.entMo.IsEnabled = false;
+				this.entNi.IsEnabled = false;
+				this.entAl.IsEnabled = false;
+				this.entCo.IsEnabled = false;
+				this.entCu.IsEnabled = false;
+				this.entNb.IsEnabled = false;
+				this.entTi.IsEnabled = false;
+				this.entV.IsEnabled = false;
+				this.entW.IsEnabled = false;
+				this.entPb.IsEnabled = false;*/
 			}
 		}
 
@@ -54,6 +72,8 @@ namespace OMIKAS
 			}
 
 			entName.Text = metal.nameAlloy;
+			entPrice.Text = metal.Price.ToString();
+			entWeight.Text = metal.Weight.ToString();
 			entFe.Text = metal.Fe.ToString();
 			entC.Text = metal.C.ToString();
 			entSi.Text = metal.Si.ToString();
@@ -72,31 +92,38 @@ namespace OMIKAS
 			entW.Text = metal.W.ToString();
 			entPb.Text = metal.Pb.ToString();
 		}
-
+		/// <summary>
+		/// Przycisk edytujacy lub dodajacy nowy produkt w zaleznosci od tego jaki jest aktualnie ekran wyswietlany
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_action_Clicked(object sender, EventArgs e)
 		{
+			//Jezeli to ekran edycji i operujemy na liscie skladnikow
 			if(isEdited && itAlloyList)
 			{
-				App.alloymetals.RemoveAt(indeksOfAlloy);
+				App.alloymetals.RemoveAt(indeksOfAlloy); //to usun z listy stopow
 			}
-
+			//jezeli to ekran edycji i operujemy na liscie wytopow
 			if(isEdited && !itAlloyList)
 			{
-				App.alloysmelts.RemoveAt(indeksOfAlloy);
+				App.alloysmelts.RemoveAt(indeksOfAlloy); //to usun z listy wytopow
 			}
 
+			//i edytowane zawartosci z pol zapisz do odpowiedniej listy
 			Alloy met = new Alloy();
 			if(!string.IsNullOrWhiteSpace(entName.Text))
 			{
-				met = Alloy.addNewAlloy(this, entName.Text, entFe.Text, entC.Text, entSi.Text, entMn.Text, entP.Text, entS.Text, entCr.Text, entMo.Text, entNi.Text, entAl.Text, entCo.Text, entCu.Text, entNb.Text, entTi.Text, entV.Text, entW.Text, entPb.Text);
+				//przekazanie wartosci z pol do nowego metalu który
+				met = Alloy.addNewAlloy(this, entName.Text, entPrice.Text, entWeight.Text, entFe.Text, entC.Text, entSi.Text, entMn.Text, entP.Text, entS.Text, entCr.Text, entMo.Text, entNi.Text, entAl.Text, entCo.Text, entCu.Text, entNb.Text, entTi.Text, entV.Text, entW.Text, entPb.Text);
+
 				if(itAlloyList)
 				{
-
-					App.alloymetals.Add(met);
+					App.alloymetals.Add(met); //dodamy do listy skladnikow
 				}
 				else
 				{
-					App.alloysmelts.Add(met);
+					App.alloysmelts.Add(met); //lub listy listy wytopow
 				}
 			}
 			await Navigation.PopAsync();

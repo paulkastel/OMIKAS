@@ -38,7 +38,12 @@ namespace OMIKAS
 		{
 			await Navigation.PushModalAsync(new NavigationPage(new ProcessChooseForm()));
 		}
-
+		
+		/// <summary>
+		/// Wylogowuje z aplikacji, czyszczac listy i powracajac do ekranu logowania
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void btn_logout_Clicked(object sender, EventArgs e)
 		{
 			App.IsUserLoggedIn = false;
@@ -46,7 +51,9 @@ namespace OMIKAS
 			App.alloysmelts.Clear();
 			App.Current.MainPage = new NavigationPage(new UserLoginForm());
 		}
-
+		/// <summary>
+		/// Za kazdym razem kiedy pojawia się ekran sprawdź czy listy stopow i wytopow i dopiero wtedy zezwól na obliczenia
+		/// </summary>
 		protected override void OnAppearing()
 		{
 			if(!App.alloymetals.Any() || !App.alloysmelts.Any())

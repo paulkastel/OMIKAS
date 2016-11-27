@@ -18,7 +18,7 @@ namespace OMIKAS
 			whichList = whatOperation;
 			if(whichList)
 			{
-				Title = "Stopy metali";
+				Title = "Składniki stopowe";
 				alloymetalView.ItemsSource = App.alloymetals;
 			}
 			else
@@ -82,13 +82,18 @@ namespace OMIKAS
 		{
 			await Navigation.PopModalAsync();
 		}
-
+		/// <summary>
+		/// Jak sie pojawia ekran z lista stopow/wytopow to wczytaj odpowiednia liste
+		/// </summary>
 		protected override void OnAppearing()
 		{
+			//Dla poprawnego dzialania zeruje widok listy i
 			alloymetalView.ItemsSource = null;
 			if(whichList)
+				//przypisuje liste stopow
 				alloymetalView.ItemsSource = App.alloymetals;
 			else
+				//przypisuje liste wytopow
 				alloymetalView.ItemsSource = App.alloysmelts;
 		}
 	}

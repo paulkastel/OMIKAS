@@ -10,16 +10,20 @@ namespace OMIKAS
 {
 	public partial class AlloyDetailForm : ContentPage
 	{
+		/// <summary>
+		/// Okno pokazujace szczegoly produktu
+		/// </summary>
+		/// <param name="metal">Konkretny stop/wytop ktory wyswietlamy</param>
 		public AlloyDetailForm(Alloy metal)
 		{
 			InitializeComponent();
 
 			this.Title = "Szczegóły " + metal.nameAlloy;
 			lblFe.Text = metal.Fe.ToString();
-			lblC.Text = metal.Fe.ToString();
-			lblSi.Text = metal.Fe.ToString();
-			lblMn.Text = metal.Fe.ToString();
-			lblP.Text = metal.Fe.ToString();
+			lblC.Text = metal.C.ToString();
+			lblSi.Text = metal.Si.ToString();
+			lblMn.Text = metal.Mn.ToString();
+			lblP.Text = metal.P.ToString();
 		}
 	}
 }
