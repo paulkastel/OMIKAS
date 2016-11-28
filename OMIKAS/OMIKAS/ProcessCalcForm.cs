@@ -13,13 +13,16 @@ namespace OMIKAS
 	public class ProcessCalcForm : ContentPage
 	{
 		private List<Picker> picklist;
-
+		private SimplexSolver solver;
 		public ProcessCalcForm(List<Alloy> selectedAlloys, List<Alloy> selectedSmelts, Boolean isCost, Boolean isMin)
 		{
+			//definiuj solver
+			solver = new SimplexSolver();
+
 			//Inicjalizacja wygladu stronki
 			Title = "Równania";
 			BackgroundColor = Color.White;
-			Grid gridLayout = new Grid();
+			var gridLayout = new Grid();
 			gridLayout.HorizontalOptions = LayoutOptions.Center;
 
 			//Trzy kolumny na rownania lewa strona, operator, prawa strona
@@ -27,8 +30,9 @@ namespace OMIKAS
 			gridLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
 			gridLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
+			int[] tabEq = new int[19];
 			picklist = new List<Picker>();
-			//18 - 17 pierwiastkow + 1 warunek masowy
+			//19: 17 pierwiastkow + 1 warunek masowy + 1 rownanie minimalizujace
 			for(int i = 0; i < 18; i++)
 			{
 				//na kazde rownanie przypada jeden rzad w layoucie
@@ -42,11 +46,21 @@ namespace OMIKAS
 				pick.SelectedIndex = 1;
 				picklist.Add(pick);
 
-				//w kazdym rzedzia na srodku dodaj picker
+				//Ostatnie równannie to warunek masowy
+				if(i == 17)
+					solver.AddRow("war masowy" + i.ToString(), out tabEq[i]);
+				else
+					solver.AddRow("eq" + i.ToString(), out tabEq[i]);
+
+				//w kazdym rzedzie na srodku dodaj picker
 				gridLayout.Children.Add(picklist.ElementAt(i), 1, i);
-
 			}
+			solver.AddRow("koszt", out tabEq[18]);
 
+			int[] tabVar = new int[selectedAlloys.Count];
+			int counter = 0; //licznik
+
+			#region definicja stringow rownan
 			string eqFe = null;
 			string eqC = null;
 			string eqSi = null;
@@ -65,10 +79,12 @@ namespace OMIKAS
 			string eqW = null;
 			string eqPb = null;
 			string eqPrice = null;
+			#endregion
 
 			//Lewa strona
 			foreach(Alloy met in selectedAlloys)
 			{
+				#region Utworz stringi rownan
 				eqFe += met.Fe.ToString() + met.nameAlloy + " ";
 				eqC += met.C.ToString() + met.nameAlloy + " ";
 				eqSi += met.Si.ToString() + met.nameAlloy + " ";
@@ -87,9 +103,14 @@ namespace OMIKAS
 				eqW += met.W.ToString() + met.nameAlloy + " ";
 				eqPb += met.Pb.ToString() + met.nameAlloy + " ";
 				eqPrice += met.Price.ToString() + " ";
-			}
+				#endregion
 
-			//Dodaj z lewej strony
+				//Każdy z stopow to zmienna w rownaniu ktora jest nieujemna
+				solver.AddVariable(met.nameAlloy, out tabVar[counter]);
+				solver.SetBounds(tabVar[counter], 0, Rational.PositiveInfinity);
+				counter++;
+			}
+			#region Dodaj z lewej strony
 			gridLayout.Children.Add(new Label { Text = eqFe }, 0, 0);
 			gridLayout.Children.Add(new Label { Text = eqC }, 0, 1);
 			gridLayout.Children.Add(new Label { Text = eqSi }, 0, 2);
@@ -107,8 +128,10 @@ namespace OMIKAS
 			gridLayout.Children.Add(new Label { Text = eqV }, 0, 14);
 			gridLayout.Children.Add(new Label { Text = eqW }, 0, 15);
 			gridLayout.Children.Add(new Label { Text = eqPb }, 0, 16);
+			gridLayout.Children.Add(new Label { Text = "War masowy" }, 0, 17);
+			#endregion
 
-			//Prawa strona
+			#region Prawa strona
 			eqFe = selectedSmelts.ElementAt(0).Fe.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
 			eqC = selectedSmelts.ElementAt(0).C.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
 			eqSi = selectedSmelts.ElementAt(0).Si.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
@@ -126,8 +149,9 @@ namespace OMIKAS
 			eqV = selectedSmelts.ElementAt(0).V.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
 			eqW = selectedSmelts.ElementAt(0).W.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
 			eqPb = selectedSmelts.ElementAt(0).Pb.ToString() + "*" + selectedSmelts.ElementAt(0).Weight;
+			#endregion
 
-			//Dodaj z prawej strony
+			#region  Dodaj z prawej strony
 			gridLayout.Children.Add(new Label { Text = eqFe }, 2, 0);
 			gridLayout.Children.Add(new Label { Text = eqC }, 2, 1);
 			gridLayout.Children.Add(new Label { Text = eqSi }, 2, 2);
@@ -145,76 +169,35 @@ namespace OMIKAS
 			gridLayout.Children.Add(new Label { Text = eqV }, 2, 14);
 			gridLayout.Children.Add(new Label { Text = eqW }, 2, 15);
 			gridLayout.Children.Add(new Label { Text = eqPb }, 2, 16);
+			gridLayout.Children.Add(new Label { Text = selectedSmelts.ElementAt(0).Weight.ToString() }, 2, 17);
+			#endregion
 
 			//ostatni rzad na button
 			gridLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50) });
-			Label minimal = new Label { Text = "Minimalizacja: " + eqPrice };
+			Label minimal = new Label { Text = "Minimalizacja <-- " + eqPrice };
 			Button btn = new Button { Text = "DO IT" };
 			btn.Clicked += calculate;
 
-			gridLayout.Children.Add(minimal, 0, 17);
-			gridLayout.Children.Add(btn, 0, 18);
+			gridLayout.Children.Add(minimal, 0, 18);
+			gridLayout.Children.Add(btn, 0, 19);
 			Grid.SetColumnSpan(minimal, 3);
 			Grid.SetColumnSpan(btn, 3);
 
-			Content = gridLayout;
-
-			/*
-						//===================================================================================================
-						int a, b, c;
-						SimplexSolver solver = new SimplexSolver();
-						solver.AddVariable(A.nameAlloy, out a);
-						solver.SetBounds(a, 0, Rational.PositiveInfinity);
-						solver.AddVariable(B.nameAlloy, out b);
-						solver.SetBounds(b, 0, Rational.PositiveInfinity);
-						solver.AddVariable(C.nameAlloy, out c);
-						solver.SetBounds(c, 0, Rational.PositiveInfinity);
+			//grid ktory da sie scrollowac
+			var sc = new ScrollView { Content = gridLayout };
+			Content = sc;
 
 
-						int r1, r2, r3, r4, cost, masa;
-						solver.AddRow("r1", out r1);
-						solver.AddRow("r2", out r2);
-						solver.AddRow("r3", out r3);
-						solver.AddRow("r4", out r4);
-						solver.AddRow("cost", out cost);
-						solver.AddRow("masa", out masa);
+			//TODO here
+			for(int i = 0; i < tabEq.Count(); i++)
+			{
+				for(int j = 0; i < tabVar.Count(); j++)
+				{
+					//solver.SetCoefficient(tabEq[i], tabVar[j], selectedAlloys.ElementAt
+				}
+			}
 
-						solver.SetCoefficient(r1, a, A.P);
-						solver.SetCoefficient(r1, b, B.P);
-						solver.SetCoefficient(r1, c, C.P);
-						solver.SetBounds(r1, Wytop.P * Wytop.Weight, Rational.PositiveInfinity);
 
-						solver.SetCoefficient(r2, a, A.C);
-						solver.SetCoefficient(r2, b, B.C);
-						solver.SetCoefficient(r2, c, C.C);
-						solver.SetBounds(r2, 0, Wytop.C * Wytop.Weight);
-
-						solver.SetCoefficient(r3, a, A.Si);
-						solver.SetCoefficient(r3, b, B.Si);
-						solver.SetCoefficient(r3, c, C.Si);
-						solver.SetBounds(r3, 0, Wytop.Si * Wytop.Weight);
-
-						solver.SetCoefficient(r4, a, A.Mn);
-						solver.SetCoefficient(r4, b, B.Mn);
-						solver.SetCoefficient(r4, c, C.Mn);
-						solver.SetBounds(r4, Wytop.Mn * Wytop.Weight, Rational.PositiveInfinity);
-
-						solver.SetCoefficient(masa, a, 1);
-						solver.SetCoefficient(masa, b, 1);
-						solver.SetCoefficient(masa, c, 1);
-						solver.SetBounds(masa, Wytop.Weight, Rational.PositiveInfinity);
-
-						solver.SetCoefficient(cost, a, A.Price);
-						solver.SetCoefficient(cost, b, B.Price);
-						solver.SetCoefficient(cost, c, C.Price);
-						solver.AddGoal(cost, 1, true);
-
-						solver.Solve(new SimplexSolverParams());
-						DisplayAlert("Wynik solvera", solver.GetValue(a).ToDouble().ToString(), "ok");
-						DisplayAlert("Wynik solvera", solver.GetValue(b).ToDouble().ToString(), "ok");
-						DisplayAlert("Wynik solvera", solver.GetValue(c).ToDouble().ToString(), "ok");
-
-				*/
 		}
 
 		private void calculate(object sender, EventArgs e)
