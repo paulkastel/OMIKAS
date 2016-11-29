@@ -10,6 +10,9 @@ namespace OMIKAS
 {
 	public partial class ProcessChooseForm : ContentPage
 	{
+		/// <summary>
+		/// Konstruktor okna
+		/// </summary>
 		public ProcessChooseForm()
 		{
 			InitializeComponent();
@@ -17,7 +20,13 @@ namespace OMIKAS
 			selectedSmelts = new List<Alloy>();
 		}
 
+		/// <summary>
+		/// strona do wyboru stopow
+		/// </summary>
 		private SelectMultipleBasePage<Alloy> multiPageAlloys;
+		/// <summary>
+		/// strona do wyboru wytopow
+		/// </summary>
 		private SelectMultipleBasePage<Alloy> multiPageSmelts;
 
 		private List<Alloy> selectedAlloys;
@@ -54,16 +63,25 @@ namespace OMIKAS
 			else
 			{
 				lbl.Text = "Wybrano: ";
-				return null;
+				List<Alloy> tmp = new List<Alloy>();
+				return tmp;
 			}
 
 		}
-
+		/// <summary>
+		/// Za każdym razem gdy pokaze się okno wczytaj wybrane stopy i wytopy aby przejsc dalej muszą być wybrane conajmniej 1 stop i conajmniej 1 wytop
+		/// </summary>
 		protected override void OnAppearing()
 		{
 			base.OnAppearing();
 			selectedAlloys = WhatisSelected(multiPageAlloys, lbl_selectedAlloys);
 			selectedSmelts = WhatisSelected(multiPageSmelts, lbl_selectedSmelts);
+			if(!selectedAlloys.Any() || !selectedSmelts.Any())
+			{
+				btn_count.IsEnabled = false;
+			}
+			else
+				btn_count.IsEnabled = true;
 		}
 
 		private async void btn_count_Clicked(object sender, EventArgs e)
@@ -72,6 +90,8 @@ namespace OMIKAS
 			{
 				await Navigation.PushAsync(new ProcessCalcForm(selectedAlloys, selectedSmelts, SwitchMinMax.IsToggled, SwitchPriceWeight.IsToggled));
 			}
+			else
+				await DisplayAlert("Error", "Ilość wybranych wytopów musi wynosić 1", "OK");
 		}
 
 		private async void btntool_Clicked(object sender, EventArgs e)

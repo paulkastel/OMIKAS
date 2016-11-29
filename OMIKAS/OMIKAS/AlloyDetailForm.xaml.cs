@@ -17,7 +17,7 @@ namespace OMIKAS
 		public AlloyDetailForm(Alloy metal)
 		{
 			InitializeComponent();
-
+			//TODO: WYŚWIETLANIE WSZYSTKICH DANYCH
 			this.Title = "Szczegóły " + metal.nameAlloy;
 			lblFe.Text = metal.Fe.ToString();
 			lblC.Text = metal.C.ToString();

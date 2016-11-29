@@ -32,8 +32,36 @@ namespace OMIKAS
 		/// <summary>
 		/// Cena stopu/wytopu
 		/// </summary>
-		public double Price {get; set; }
+		public double Price { get; set; }
 		public double Weight { get; set; }
+
+		public double[] tabOfElements;
+
+		private void createTabOfElements()
+		{
+			tabOfElements[0] = this.Fe;
+			tabOfElements[1] = this.C;
+			tabOfElements[2] = this.Si;
+			tabOfElements[3] = this.Mn;
+			tabOfElements[4] = this.P;
+			tabOfElements[5] = this.S;
+			tabOfElements[6] = this.Cr;
+			tabOfElements[7] = this.Mo;
+			tabOfElements[8] = this.Ni;
+			tabOfElements[9] = this.Al;
+			tabOfElements[10] = this.Co;
+			tabOfElements[11] = this.Cu;
+			tabOfElements[12] = this.Nb;
+			tabOfElements[13] = this.Ti;
+			tabOfElements[14] = this.V;
+			tabOfElements[15] = this.W;
+			tabOfElements[16] = this.Pb;
+		}
+
+		public Alloy()
+		{
+			tabOfElements = new double[17];
+		}
 
 		/// <summary>
 		/// Funkcja tworzacy produkt metal z wypelnionymi danymi ktore pobiera z pol tekstowych
@@ -87,9 +115,11 @@ namespace OMIKAS
 			metal.W = metal.parseThatValue(page, w);
 			metal.Pb = metal.parseThatValue(page, pb);
 
+			metal.createTabOfElements();
+
 			return metal;
 		}
-		
+
 		/// <summary>
 		/// Funkcja parsujaca dane i wyswietlajaca error na ekranie jezeli cos jest nie tak
 		/// </summary>

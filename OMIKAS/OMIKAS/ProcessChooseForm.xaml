@@ -31,7 +31,7 @@
 			<Label x:Name="lbl_selectedSmelts"></Label>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
 				<Label Text="Funkcja kosztów" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
-				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center"></Switch>
+				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center"  IsToggled="False"></Switch>
 				<Label Text="Funkcja masy" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
 			</StackLayout>
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
@@ -40,7 +40,7 @@
 				<Label Text="Minimalizacja" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
 			</StackLayout>
 
-			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ"></Button>
+			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="DALEJ" IsEnabled="False"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

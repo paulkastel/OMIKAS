@@ -14,13 +14,23 @@ namespace OMIKAS
 	{
 		private List<Picker> picklist;
 		private SimplexSolver solver;
-		public ProcessCalcForm(List<Alloy> selectedAlloys, List<Alloy> selectedSmelts, Boolean isCost, Boolean isMin)
-		{
-			//definiuj solver
-			solver = new SimplexSolver();
 
-			//Inicjalizacja wygladu stronki
-			Title = "Równania";
+		private List<Alloy> selectedAlloys;
+		private List<Alloy> selectedSmelts;
+		/// <summary>
+		/// if tue then mimimalizuj równanie
+		/// </summary>
+		private bool isMin;
+		/// <summary>
+		/// if true then optymalizacja masy if false optymalizacja kosztów
+		/// </summary>
+		private bool isCost;
+		private int[] tabEq;
+		private int[] tabVar;
+
+		private void prepareCostLayout()
+		{
+			Title = "Optymalizacja kosztów";
 			BackgroundColor = Color.White;
 			var gridLayout = new Grid();
 			gridLayout.HorizontalOptions = LayoutOptions.Center;
@@ -30,7 +40,6 @@ namespace OMIKAS
 			gridLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(50) });
 			gridLayout.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Auto) });
 
-			int[] tabEq = new int[19];
 			picklist = new List<Picker>();
 			//19: 17 pierwiastkow + 1 warunek masowy + 1 rownanie minimalizujace
 			for(int i = 0; i < 18; i++)
@@ -46,38 +55,28 @@ namespace OMIKAS
 				pick.SelectedIndex = 1;
 				picklist.Add(pick);
 
-				//Ostatnie równannie to warunek masowy
-				if(i == 17)
-					solver.AddRow("war masowy" + i.ToString(), out tabEq[i]);
-				else
-					solver.AddRow("eq" + i.ToString(), out tabEq[i]);
-
 				//w kazdym rzedzie na srodku dodaj picker
-				gridLayout.Children.Add(picklist.ElementAt(i), 1, i);
+				gridLayout.Children.Add(picklist.ElementAt(i), 1, i);		
 			}
-			solver.AddRow("koszt", out tabEq[18]);
-
-			int[] tabVar = new int[selectedAlloys.Count];
-			int counter = 0; //licznik
 
 			#region definicja stringow rownan
-			string eqFe = null;
-			string eqC = null;
-			string eqSi = null;
-			string eqMn = null;
-			string eqP = null;
-			string eqS = null;
-			string eqCr = null;
-			string eqMo = null;
-			string eqNi = null;
-			string eqAl = null;
-			string eqCo = null;
-			string eqCu = null;
-			string eqNb = null;
-			string eqTi = null;
-			string eqV = null;
-			string eqW = null;
-			string eqPb = null;
+			string eqFe = "Żelazo: ";
+			string eqC = "Węgiel: ";
+			string eqSi = "Krzem: ";
+			string eqMn = "Mangan: ";
+			string eqP = "Fosfor: ";
+			string eqS = "Siarka: ";
+			string eqCr = "Chrom: ";
+			string eqMo = "Molibden: ";
+			string eqNi = "Nikiel: ";
+			string eqAl = "Aluminium: ";
+			string eqCo = "Kobalt: ";
+			string eqCu = "Miedź: ";
+			string eqNb = "Niob: ";
+			string eqTi = "Tytan: ";
+			string eqV = "Wanad: ";
+			string eqW = "Wolfram: ";
+			string eqPb = "Ołów: ";
 			string eqPrice = null;
 			#endregion
 
@@ -85,31 +84,27 @@ namespace OMIKAS
 			foreach(Alloy met in selectedAlloys)
 			{
 				#region Utworz stringi rownan
-				eqFe += met.Fe.ToString() + met.nameAlloy + " ";
-				eqC += met.C.ToString() + met.nameAlloy + " ";
-				eqSi += met.Si.ToString() + met.nameAlloy + " ";
-				eqMn += met.Mn.ToString() + met.nameAlloy + " ";
-				eqP += met.P.ToString() + met.nameAlloy + " ";
-				eqS += met.S.ToString() + met.nameAlloy + " ";
-				eqCr += met.Cr.ToString() + met.nameAlloy + " ";
-				eqMo += met.Mo.ToString() + met.nameAlloy + " ";
-				eqNi += met.Ni.ToString() + met.nameAlloy + " ";
-				eqAl += met.Al.ToString() + met.nameAlloy + " ";
-				eqCo += met.Co.ToString() + met.nameAlloy + " ";
-				eqCu += met.Cu.ToString() + met.nameAlloy + " ";
-				eqNb += met.Nb.ToString() + met.nameAlloy + " ";
-				eqTi += met.Ti.ToString() + met.nameAlloy + " ";
-				eqV += met.V.ToString() + met.nameAlloy + " ";
-				eqW += met.W.ToString() + met.nameAlloy + " ";
-				eqPb += met.Pb.ToString() + met.nameAlloy + " ";
+				eqFe += met.Fe.ToString() + " ";
+				eqC += met.C.ToString() + " ";
+				eqSi += met.Si.ToString() + " ";
+				eqMn += met.Mn.ToString() + " ";
+				eqP += met.P.ToString() + " ";
+				eqS += met.S.ToString() + " ";
+				eqCr += met.Cr.ToString() + " ";
+				eqMo += met.Mo.ToString() + " ";
+				eqNi += met.Ni.ToString() + " ";
+				eqAl += met.Al.ToString() + " ";
+				eqCo += met.Co.ToString() + " ";
+				eqCu += met.Cu.ToString() + " ";
+				eqNb += met.Nb.ToString() + " ";
+				eqTi += met.Ti.ToString() + " ";
+				eqV += met.V.ToString() + " ";
+				eqW += met.W.ToString() + " ";
+				eqPb += met.Pb.ToString() + " ";
 				eqPrice += met.Price.ToString() + " ";
 				#endregion
-
-				//Każdy z stopow to zmienna w rownaniu ktora jest nieujemna
-				solver.AddVariable(met.nameAlloy, out tabVar[counter]);
-				solver.SetBounds(tabVar[counter], 0, Rational.PositiveInfinity);
-				counter++;
 			}
+
 			#region Dodaj z lewej strony
 			gridLayout.Children.Add(new Label { Text = eqFe }, 0, 0);
 			gridLayout.Children.Add(new Label { Text = eqC }, 0, 1);
@@ -172,10 +167,20 @@ namespace OMIKAS
 			gridLayout.Children.Add(new Label { Text = selectedSmelts.ElementAt(0).Weight.ToString() }, 2, 17);
 			#endregion
 
-			//ostatni rzad na button
+			Label minimal;
 			gridLayout.RowDefinitions.Add(new RowDefinition { Height = new GridLength(50) });
-			Label minimal = new Label { Text = "Minimalizacja <-- " + eqPrice };
-			Button btn = new Button { Text = "DO IT" };
+			if(isMin)
+			{
+				minimal = new Label { Text = "Minimalizacja <-- " + eqPrice };
+			}
+			else
+			{
+				minimal = new Label { Text = "Maksymalizacja <-- " + eqPrice };
+			}
+
+			//ostatni rzad na button
+
+			Button btn = new Button { Text = "OBLICZ" };
 			btn.Clicked += calculate;
 
 			gridLayout.Children.Add(minimal, 0, 18);
@@ -186,23 +191,103 @@ namespace OMIKAS
 			//grid ktory da sie scrollowac
 			var sc = new ScrollView { Content = gridLayout };
 			Content = sc;
+		}
 
 
-			//TODO here
-			for(int i = 0; i < tabEq.Count(); i++)
-			{
-				for(int j = 0; i < tabVar.Count(); j++)
-				{
-					//solver.SetCoefficient(tabEq[i], tabVar[j], selectedAlloys.ElementAt
-				}
-			}
+		private void prepareWeightLayout()
+		{
+			Title = "Optymalizacja masy";
+			BackgroundColor = Color.White;
+			var gridLayout = new Grid();
+			gridLayout.HorizontalOptions = LayoutOptions.Center;
+		}
 
+		public ProcessCalcForm(List<Alloy> selectedAlloys, List<Alloy> selectedSmelts, Boolean isCost, Boolean isMin)
+		{
+			//definiuj solver i przygotuj dane
+			solver = new SimplexSolver();
+			this.selectedSmelts = selectedSmelts;
+			this.selectedAlloys = selectedAlloys;
+			this.isCost = !isCost;
+			this.isMin = isMin;
 
+			//Inicjalizacja wygladu stronki
+			if(isCost)
+				prepareCostLayout();
+			else
+				prepareWeightLayout();
 		}
 
 		private void calculate(object sender, EventArgs e)
 		{
+			tabVar = new int[selectedAlloys.Count];
 
+			for(int i = 0; i < tabVar.Count(); i++)
+			{
+				solver.AddVariable("v" + i.ToString(), out tabVar[i]);
+				solver.SetBounds(tabVar[i], 0, Rational.PositiveInfinity);
+			}
+
+			tabEq = new int[19];
+
+			for(int i = 0; i < tabEq.Count() - 2; i++)
+			{
+				solver.AddRow("p" + i.ToString(), out tabEq[i]);
+				for(int j = 0; j < selectedAlloys.Count; j++)
+				{
+					solver.SetCoefficient(tabEq[i], tabVar[j], selectedAlloys.ElementAt(j).tabOfElements[i]);
+				}
+				if(picklist.ElementAt(i).SelectedIndex == 0) //<=
+				{
+					solver.SetBounds(tabEq[i], 0, selectedSmelts.ElementAt(0).Weight * selectedSmelts.ElementAt(0).tabOfElements[i]);
+				}
+				else if(picklist.ElementAt(i).SelectedIndex == 1)//=
+				{
+					solver.SetBounds(tabEq[i], selectedSmelts.ElementAt(0).Weight * selectedSmelts.ElementAt(0).tabOfElements[i], selectedSmelts.ElementAt(0).Weight * selectedSmelts.ElementAt(0).tabOfElements[i]);
+				}
+				else if(picklist.ElementAt(i).SelectedIndex == 2)//>=
+				{
+					solver.SetBounds(tabEq[i], selectedSmelts.ElementAt(0).Weight * selectedSmelts.ElementAt(0).tabOfElements[i], Rational.PositiveInfinity);
+				}
+				else
+				{
+					DisplayAlert("Error", "zle na: " + i.ToString(), "k");
+				}
+			}
+
+			//warunek masowy
+			solver.AddRow("masowy", out tabEq[17]);
+			solver.AddRow("cost", out tabEq[18]);
+			for(int i = 0; i < selectedAlloys.Count; i++)
+			{
+				solver.SetCoefficient(tabEq[17], tabVar[i], 1);
+				solver.SetCoefficient(tabEq[18], tabVar[i], selectedAlloys.ElementAt(i).Price);
+			}
+
+			if(picklist.ElementAt(picklist.Count - 1).SelectedIndex == 0) //<=
+			{
+				solver.SetBounds(tabEq[17], 0, selectedSmelts.ElementAt(0).Weight);
+			}
+			else if(picklist.ElementAt(picklist.Count - 1).SelectedIndex == 1)//=
+			{
+				solver.SetBounds(tabEq[17], selectedSmelts.ElementAt(0).Weight, selectedSmelts.ElementAt(0).Weight);
+			}
+			else if(picklist.ElementAt(picklist.Count - 1).SelectedIndex == 2)//>=
+			{
+				solver.SetBounds(tabEq[17], selectedSmelts.ElementAt(0).Weight, Rational.PositiveInfinity);
+			}
+			else
+			{
+				DisplayAlert("Error", "zle na masa", "k");
+			}
+
+			solver.AddGoal(tabEq[18], 1, true);
+			solver.Solve(new SimplexSolverParams());
+
+			for(int i = 0; i < tabVar.Count(); i++)
+			{
+				DisplayAlert("Wynik solvera", solver.GetValue(tabVar[i]).ToDouble().ToString(), "ok");
+			}
 		}
 	}
 }

@@ -99,6 +99,9 @@ namespace OMIKAS
 		/// <param name="e"></param>
 		private async void btn_action_Clicked(object sender, EventArgs e)
 		{
+			//TODO: PRZYCISK KTORY DODAJAC NIE POWRACA DO POPRZEDNIEGO EKRANU TYLKO ODPALA SZYBKIE DOAWANIE KOLEJNEGO STOPU/WYTOPU
+			//TODO: SORTOWANIE ALFABETYCZNE CALEJ LISTY PO NAZWACH
+
 			//Jezeli to ekran edycji i operujemy na liscie skladnikow
 			if(isEdited && itAlloyList)
 			{
