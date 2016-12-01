@@ -145,7 +145,7 @@ namespace OMIKAS
 			{
 				//Jezeli liczba to glupoty to wywal error w ktorym pokazesz jaka zawartosc jest zle, a do metalu zwroc NaN
 				page.DisplayAlert("Error", "Nie udało się przetworzyć zawartości: " + element, "OK");
-				return double.NaN;
+				return 0;
 			}
 
 		}
