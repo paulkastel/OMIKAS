@@ -50,15 +50,14 @@
 					<ColumnDefinition Width="30"/>
 					<ColumnDefinition Width="140"/>
 				</Grid.ColumnDefinitions>
-				<Label x:Name="lbl_name" VerticalOptions="Center" HorizontalOptions="Center"			Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
+				<Label Text="NAZWA STOPU:" VerticalOptions="Center" HorizontalOptions="Center"			Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
 				<Entry x:Name="entName" VerticalOptions="Center" HorizontalOptions="FillAndExpand"	Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"></Entry>
-				
+
 				<Label Text="CENA:" VerticalOptions="Center" HorizontalOptions="Center"					Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></Label>
 				<Entry x:Name="entPrice" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"></Entry>
-				
+
 				<Label Text="MASA:" VerticalOptions="Center" HorizontalOptions="Center"					Grid.Column="0"	Grid.Row="2" Grid.ColumnSpan="2"></Label>
 				<Entry x:Name="entWeight" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.Row="2" Grid.ColumnSpan="2"></Entry>
-				
 
 				<Label Text="Fe" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="3"></Label>
 				<Label Text="C" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="4"></Label>
@@ -79,7 +78,7 @@
 				<Entry x:Name="entCr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="9"></Entry>
 				<Entry x:Name="entMo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="10"></Entry>
 				<Entry x:Name="entNi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="11"></Entry>
-				
+
 				<Label Text="Al" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="3"></Label>
 				<Label Text="Co" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="4"></Label>
 				<Label Text="Cu" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="5"></Label>
@@ -88,6 +87,7 @@
 				<Label Text="V" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="8"></Label>
 				<Label Text="W" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="9"></Label>
 				<Label Text="Pb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="10"></Label>
+				<Label Text="Sn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="11"></Label>
 
 				<Entry x:Name="entAl" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="3"></Entry>
 				<Entry x:Name="entCo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="4"></Entry>
@@ -97,8 +97,35 @@
 				<Entry x:Name="entV" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="8"></Entry>
 				<Entry x:Name="entW" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="9"></Entry>
 				<Entry x:Name="entPb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="10"></Entry>
+				<Entry x:Name="entSn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="11"></Entry>
 
-				<Button x:Name="btn_action" Grid.Row="12" Grid.ColumnSpan="4" Clicked="btn_action_Clicked"></Button>
+				<Label Text="B" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="12"></Label>
+				<Label Text="Ca" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="13"></Label>
+				<Label Text="Zr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="14"></Label>
+				<Label Text="As" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="15"></Label>
+				<Label Text="Bi" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="16"></Label>
+
+				<Entry x:Name="entB" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="12"></Entry>
+				<Entry x:Name="entCa" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="13"></Entry>
+				<Entry x:Name="entZr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="14"></Entry>
+				<Entry x:Name="entAs" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="15"></Entry>
+				<Entry x:Name="entBi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="16"></Entry>
+
+				<Label Text="Sb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="12"></Label>
+				<Label Text="Zn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="13"></Label>
+				<Label Text="Mg" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="14"></Label>
+				<Label Text="N" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="15"></Label>
+				<Label Text="H" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="16"></Label>
+				<Label Text="O" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="17"></Label>
+
+				<Entry x:Name="entSb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="12"></Entry>
+				<Entry x:Name="entZn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="13"></Entry>
+				<Entry x:Name="entMg" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="14"></Entry>
+				<Entry x:Name="entN" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="15"></Entry>
+				<Entry x:Name="entH" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="16"></Entry>
+				<Entry x:Name="entO" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="17"></Entry>
+
+				<Button x:Name="btn_action" Grid.Row="18" Grid.ColumnSpan="4" Clicked="btn_action_Clicked"></Button>
 			</Grid>
 		</ScrollView>
 	</ContentPage.Content>

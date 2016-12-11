@@ -33,7 +33,7 @@ namespace OMIKAS
 		/// <summary>
 		/// Lista z wytopami i ich danymi
 		/// </summary>
-		public static List<Alloy> alloysmelts;
+		public static List<Smelt> smeltals;
 
 		/// <summary>
 		/// Uzytkownik aplikacji przechowujacy dane o uzytkowniku
@@ -50,7 +50,7 @@ namespace OMIKAS
 				//Jezeli apka nie zna uzytkownika (nowy user to zainicjalizuj nowe dane i uruchom ekran logowania
 				userapp = new User();
 				alloymetals = new List<Alloy>();
-				alloysmelts = new List<Alloy>();
+				smeltals = new List<Smelt>();
 				MainPage = new NavigationPage(new UserLoginForm());
 
 			}

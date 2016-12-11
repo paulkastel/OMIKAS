@@ -34,14 +34,16 @@ namespace OMIKAS
 					}
 				}
 			}
+
 			public event PropertyChangedEventHandler PropertyChanged = delegate { };
 		}
+
 		public class WrappedItemSelectionTemplate : ViewCell
 		{
 			public WrappedItemSelectionTemplate() : base()
 			{
 				Label name = new Label() { VerticalOptions = LayoutOptions.Center, TextColor = Color.FromHex("#1E1E1E"), FontSize = 15 };
-				name.SetBinding(Label.TextProperty, new Binding("Item.nameAlloy"));
+				name.SetBinding(Label.TextProperty, new Binding("Item.name"));
 				Switch mainSwitch = new Switch() { HorizontalOptions = LayoutOptions.EndAndExpand };
 				mainSwitch.SetBinding(Switch.IsToggledProperty, new Binding("IsSelected"));
 
@@ -54,6 +56,7 @@ namespace OMIKAS
 				View = layout;
 			}
 		}
+
 		public List<WrappedSelection<T>> WrappedItems = new List<WrappedSelection<T>>();
 
 		public SelectMultipleBasePage(List<T> items)
@@ -80,6 +83,10 @@ namespace OMIKAS
 		}
 
 		private bool all;
+
+		/// <summary>
+		/// Funkcja odpowiedzialna za zaznaczanie wszystkich
+		/// </summary>
 		void SelectAll()
 		{
 			all = !all;
@@ -88,6 +95,7 @@ namespace OMIKAS
 				wi.IsSelected = all;
 			}
 		}
+
 		public List<T> GetSelection()
 		{
 			return WrappedItems.Where(item => item.IsSelected).Select(wrappedItem => wrappedItem.Item).ToList();

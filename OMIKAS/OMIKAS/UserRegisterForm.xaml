@@ -42,7 +42,7 @@
 				<Label Text="Wprowadź nazwisko:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
 				<Entry x:Name="ent_surname" Placeholder="Nazwisko" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Wprowadź adres E-Mail*:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
-				<Entry x:Name="ent_email" Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+				<Entry x:Name="ent_email" Keyboard="Email" Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Wprowadź hasło*:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>
 				<Entry x:Name="ent_pswd1" IsPassword="true" Placeholder="Hasło" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
 				<Label Text="Powtórz hasło*:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Style="{StaticResource Styl_lbl}"></Label>

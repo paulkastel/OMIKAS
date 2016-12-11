@@ -24,6 +24,13 @@
 					<RowDefinition Height="40" />
 					<RowDefinition Height="40" />
 					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+					<RowDefinition Height="40" />
+
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="30"/>
@@ -46,6 +53,11 @@
 				<Label Text="Cr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="8"></Label>
 				<Label Text="Mo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="9"></Label>
 				<Label Text="Ni" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="10"></Label>
+				<Label Text="B" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="11"></Label>
+				<Label Text="Ca" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="12"></Label>
+				<Label Text="Zr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="13"></Label>
+				<Label Text="As" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="14"></Label>
+				<Label Text="Bi" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="15"></Label>
 
 				<Label x:Name="lblFe" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="2"></Label>
 				<Label x:Name="lblC" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="3"></Label>
@@ -56,6 +68,11 @@
 				<Label x:Name="lblCr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="8"></Label>
 				<Label x:Name="lblMo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="9"></Label>
 				<Label x:Name="lblNi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="10"></Label>
+				<Label x:Name="lblB" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="11"></Label>
+				<Label x:Name="lblCa" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="12"></Label>
+				<Label x:Name="lblZr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="13"></Label>
+				<Label x:Name="lblAs" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="14"></Label>
+				<Label x:Name="lblBi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="15"></Label>
 				
 				<Label Text="Al" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="2"></Label>
 				<Label Text="Co" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="3"></Label>
@@ -65,7 +82,14 @@
 				<Label Text="V" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="7"></Label>
 				<Label Text="W" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="8"></Label>
 				<Label Text="Pb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="9"></Label>
-
+				<Label Text="Sn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="10"></Label>
+				<Label Text="Sb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="11"></Label>
+				<Label Text="Zn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="12"></Label>
+				<Label Text="Mg" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="13"></Label>
+				<Label Text="N" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="14"></Label>
+				<Label Text="H" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="15"></Label>
+				<Label Text="O" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="16"></Label>
+				
 				<Label x:Name="lblAl" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="2"></Label>
 				<Label x:Name="lblCo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="3"></Label>
 				<Label x:Name="lblCu" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="4"></Label>
@@ -74,6 +98,13 @@
 				<Label x:Name="lblV" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="7"></Label>
 				<Label x:Name="lblW" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="8"></Label>
 				<Label x:Name="lblPb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="9"></Label>
+				<Label x:Name="lblSn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="10"></Label>
+				<Label x:Name="lblSb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="11"></Label>
+				<Label x:Name="lblZn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="12"></Label>
+				<Label x:Name="lblMg" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="13"></Label>
+				<Label x:Name="lblN" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="14"></Label>
+				<Label x:Name="lblH" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="15"></Label>
+				<Label x:Name="lblO" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="16"></Label>
 			</Grid>
 		</ScrollView>
 	</ContentPage.Content>

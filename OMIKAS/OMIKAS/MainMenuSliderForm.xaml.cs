@@ -21,12 +21,12 @@ namespace OMIKAS
 
 		private async void btn_alloy_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new AlloyAllForm(true)));
+			await Navigation.PushModalAsync(new NavigationPage(new AlloyAllForm()));
 		}
 
 		private async void btn_smelts_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushModalAsync(new NavigationPage(new AlloyAllForm(false)));
+			await Navigation.PushModalAsync(new NavigationPage(new SmeltAllForm()));
 		}
 
 		private async void btn_settings_Clicked(object sender, EventArgs e)
@@ -48,7 +48,7 @@ namespace OMIKAS
 		{
 			App.IsUserLoggedIn = false;
 			App.alloymetals.Clear();
-			App.alloysmelts.Clear();
+			App.smeltals.Clear();
 			App.Current.MainPage = new NavigationPage(new UserLoginForm());
 		}
 		/// <summary>
@@ -56,7 +56,7 @@ namespace OMIKAS
 		/// </summary>
 		protected override void OnAppearing()
 		{
-			if(!App.alloymetals.Any() || !App.alloysmelts.Any())
+			if(!App.alloymetals.Any() || !App.smeltals.Any())
 			{
 				btn_calc.IsEnabled = false;
 			}

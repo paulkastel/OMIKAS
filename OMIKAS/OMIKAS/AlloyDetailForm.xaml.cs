@@ -18,7 +18,7 @@ namespace OMIKAS
 		{
 			InitializeComponent();
 			//TODO: WYŚWIETLANIE WSZYSTKICH DANYCH
-			this.Title = "Szczegóły " + metal.nameAlloy;
+			this.Title = "Szczegóły " + metal.name;
 			lblFe.Text = metal.Fe.ToString();
 			lblC.Text = metal.C.ToString();
 			lblSi.Text = metal.Si.ToString();

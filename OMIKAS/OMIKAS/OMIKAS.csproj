@@ -52,7 +52,6 @@
     <Compile Include="MainMenuSliderForm.xaml.cs">
       <DependentUpon>MainMenuSliderForm.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ProcessCalcForm.cs" />
     <Compile Include="ProcessChooseForm.xaml.cs">
       <DependentUpon>ProcessChooseForm.xaml</DependentUpon>
     </Compile>
@@ -72,6 +71,16 @@
     </Compile>
     <Compile Include="SettingSetForm.xaml.cs">
       <DependentUpon>SettingSetForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Smelt.cs" />
+    <Compile Include="SmeltAllForm.xaml.cs">
+      <DependentUpon>SmeltAllForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmeltDetailForm.xaml.cs">
+      <DependentUpon>SmeltDetailForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SmeltEditForm.xaml.cs">
+      <DependentUpon>SmeltEditForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="User.cs" />
     <Compile Include="UserLoginForm.xaml.cs">
@@ -181,6 +190,24 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="ProcessChooseForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SmeltAllForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SmeltDetailForm.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SmeltEditForm.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

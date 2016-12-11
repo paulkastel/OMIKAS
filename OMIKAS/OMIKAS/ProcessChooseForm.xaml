@@ -34,13 +34,12 @@
 				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center"  IsToggled="False"></Switch>
 				<Label Text="Funkcja masy" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
 			</StackLayout>
-			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Label Text="Maksymalizacja" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
-				<Switch x:Name="SwitchMinMax" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="True"></Switch>
-				<Label Text="Minimalizacja" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+			<StackLayout Orientation="Horizontal">
+				<Label Text="Podaj masę wytopu:" HorizontalOptions="End" VerticalOptions="Center"></Label>
+				<Entry x:Name="entWeight" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
 			</StackLayout>
 
-			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="DALEJ" IsEnabled="False"></Button>
+			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ" IsEnabled="False"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

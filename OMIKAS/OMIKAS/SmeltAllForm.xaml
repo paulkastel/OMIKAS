@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!-- Strona z lista wszystkich dodanych metali-->
+<!-- Strona z lista wszystkich dodanych wytopow-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OMIKAS.AlloyAllForm"
-             BackgroundColor="#FFFFFF"
-			 Title="Lista składników">
+             x:Class="OMIKAS.SmeltAllForm"
+			BackgroundColor="#FFFFFF"
+			 Title="Lista wytopów">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="ToolbarItem_Clicked"/>
 	</ContentPage.ToolbarItems>
@@ -22,11 +22,10 @@
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
-
 	<ContentPage.Content>
 		<StackLayout>
-			<Button Style="{StaticResource Styl_btn}" Text="Dodaj" x:Name="btn_addAlloy" Clicked="btn_addAlloy_Clicked"></Button>
-			<ListView x:FieldModifier="public" x:Name="alloymetalView" HasUnevenRows="True">
+			<Button Style="{StaticResource Styl_btn}" Text="Dodaj wytop" x:Name="btn_addSmelt" Clicked="btn_addSmelt_Clicked"></Button>
+			<ListView x:FieldModifier="public" x:Name="smeltsmetalView" HasUnevenRows="True">
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
@@ -39,8 +38,8 @@
 								</Grid.ColumnDefinitions>
 
 								<Label VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Style="{StaticResource Styl_lbl}" Text="{Binding name}"></Label>
-								<Button HeightRequest="40" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_btn}" Text="Edytuj" x:Name="btn_editAlloy" Clicked="btn_editAlloy_Clicked"></Button>
-								<Button HeightRequest="40" Grid.Row="0" Grid.Column="2" Style="{StaticResource Styl_btn}" Text="Usun" x:Name="btn_delAlloy" Clicked="btn_delAlloy_Clicked"></Button>
+								<Button HeightRequest="40" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_btn}" Text="Edytuj" x:Name="btn_editSmelt" Clicked="btn_editSmelt_Clicked"></Button>
+								<Button HeightRequest="40" Grid.Row="0" Grid.Column="2" Style="{StaticResource Styl_btn}" Text="Usun" x:Name="btn_delSmelt" Clicked="btn_delSmelt_Clicked"></Button>
 								<Button HeightRequest="40" Grid.Row="0" Grid.Column="3" Style="{StaticResource Styl_btn}" Text="Info" x:Name="btn_info" Clicked="btn_info_Clicked"></Button>
 							</Grid>
 						</ViewCell>

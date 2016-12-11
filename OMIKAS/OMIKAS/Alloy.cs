@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ namespace OMIKAS
 		/// <summary>
 		/// Nazwa produktu (stopu lub wytopu
 		/// </summary>
-		public string nameAlloy { get; set; }
+		public string name { get; set; }
 		public double Fe { get; private set; }
 		public double C { get; set; }
 		public double Si { get; set; }
@@ -29,6 +30,21 @@ namespace OMIKAS
 		public double V { get; set; }
 		public double W { get; set; }
 		public double Pb { get; set; }
+
+		public double Sn { get; set; }
+		public double B { get; set; }
+		public double Ca { get; set; }
+		public double Zr { get; set; }
+		public double As { get; set; }
+		public double Bi { get; set; }
+		public double Sb { get; set; }
+		public double Zn { get; set; }
+		public double Mg { get; set; }
+		public double N { get; set; }
+		public double H { get; set; }
+		public double O { get; set; }
+
+
 		/// <summary>
 		/// Cena stopu/wytopu
 		/// </summary>
@@ -36,7 +52,9 @@ namespace OMIKAS
 		public double Weight { get; set; }
 
 		public double[] tabOfElements;
-
+		/// <summary>
+		/// Wypelnia tabOFElements wszystkimi pierwiastkami
+		/// </summary>
 		private void createTabOfElements()
 		{
 			tabOfElements[0] = this.Fe;
@@ -56,12 +74,26 @@ namespace OMIKAS
 			tabOfElements[14] = this.V;
 			tabOfElements[15] = this.W;
 			tabOfElements[16] = this.Pb;
+
+			tabOfElements[17] = this.Sn;
+			tabOfElements[18] = this.B;
+			tabOfElements[19] = this.Ca;
+			tabOfElements[20] = this.Zr;
+			tabOfElements[21] = this.As;
+			tabOfElements[22] = this.Bi;
+			tabOfElements[23] = this.Sb;
+			tabOfElements[24] = this.Zn;
+			tabOfElements[25] = this.Mg;
+			tabOfElements[26] = this.N;
+			tabOfElements[27] = this.H;
+			tabOfElements[28] = this.O;
 		}
 
 		public Alloy()
 		{
-			tabOfElements = new double[17];
+			tabOfElements = new double[29];
 		}
+
 
 		/// <summary>
 		/// Funkcja tworzacy produkt metal z wypelnionymi danymi ktore pobiera z pol tekstowych
@@ -88,34 +120,53 @@ namespace OMIKAS
 		/// <param name="w"></param>
 		/// <param name="pb">zawartosc olowiu w produkcie</param>
 		/// <returns>Gotowy metal z wypelnionymi danymi</returns>
-		public static Alloy addNewAlloy(Xamarin.Forms.Page page, string name, string price, string weight, string fe, string c, string si, string mn, string p, string s, string cr, string mo, string ni, string al, string co, string cu, string nb, string ti, string v, string w, string pb)
+		public static Alloy addNewAlloy(Xamarin.Forms.Page page, string name, string price, string weight, string fe, string c, string si, string mn, string p, string s, string cr, string mo, string ni, string al, string co, string cu, string nb, string ti, string v, string w, string pb, string sn, string b, string ca, string zr, string aas, string bi, string sb, string zn, string mg, string n, string h, string o)
 		{
 			Alloy metal = new Alloy();
 			//parsuj najwazniejsze dane
-			metal.nameAlloy = name;
-			metal.Price = metal.parseThatValue(page, price);
-			metal.Weight = metal.parseThatValue(page, weight);
+			try
+			{
+				metal.name = name;
+				metal.Price = metal.parseThatValue(page, price);
+				metal.Weight = metal.parseThatValue(page, weight);
 
-			//parsuj dane skladnikow
-			metal.Fe = metal.parseThatValue(page, fe);
-			metal.C = metal.parseThatValue(page, c);
-			metal.Si = metal.parseThatValue(page, si);
-			metal.Mn = metal.parseThatValue(page, mn);
-			metal.P = metal.parseThatValue(page, p);
-			metal.S = metal.parseThatValue(page, s);
-			metal.Cr = metal.parseThatValue(page, cr);
-			metal.Mo = metal.parseThatValue(page, mo);
-			metal.Ni = metal.parseThatValue(page, ni);
-			metal.Al = metal.parseThatValue(page, al);
-			metal.Co = metal.parseThatValue(page, co);
-			metal.Cu = metal.parseThatValue(page, cu);
-			metal.Nb = metal.parseThatValue(page, nb);
-			metal.Ti = metal.parseThatValue(page, ti);
-			metal.V = metal.parseThatValue(page, v);
-			metal.W = metal.parseThatValue(page, w);
-			metal.Pb = metal.parseThatValue(page, pb);
+				//parsuj dane skladnikow
+				metal.Fe = metal.parseThatValue(page, fe);
+				metal.C = metal.parseThatValue(page, c);
+				metal.Si = metal.parseThatValue(page, si);
+				metal.Mn = metal.parseThatValue(page, mn);
+				metal.P = metal.parseThatValue(page, p);
+				metal.S = metal.parseThatValue(page, s);
+				metal.Cr = metal.parseThatValue(page, cr);
+				metal.Mo = metal.parseThatValue(page, mo);
+				metal.Ni = metal.parseThatValue(page, ni);
+				metal.Al = metal.parseThatValue(page, al);
+				metal.Co = metal.parseThatValue(page, co);
+				metal.Cu = metal.parseThatValue(page, cu);
+				metal.Nb = metal.parseThatValue(page, nb);
+				metal.Ti = metal.parseThatValue(page, ti);
+				metal.V = metal.parseThatValue(page, v);
+				metal.W = metal.parseThatValue(page, w);
+				metal.Pb = metal.parseThatValue(page, pb);
+				metal.Sn = metal.parseThatValue(page, sn);
+				metal.B = metal.parseThatValue(page, b);
+				metal.Ca = metal.parseThatValue(page, ca);
+				metal.Zr = metal.parseThatValue(page, zr);
+				metal.As = metal.parseThatValue(page, aas);
+				metal.Bi = metal.parseThatValue(page, bi);
+				metal.Sb = metal.parseThatValue(page, sb);
+				metal.Zn = metal.parseThatValue(page, zn);
+				metal.Mg = metal.parseThatValue(page, mg);
+				metal.N = metal.parseThatValue(page, n);
+				metal.H = metal.parseThatValue(page, h);
+				metal.O = metal.parseThatValue(page, o);
 
-			metal.createTabOfElements();
+				metal.createTabOfElements();
+			}
+			catch(Exception ex)
+			{
+				page.DisplayAlert("Dziwny error", ex.ToString(), "OK");
+			}
 
 			return metal;
 		}
@@ -137,9 +188,9 @@ namespace OMIKAS
 			//W innym razie sproboj przeparsowac liczbe
 			else if(Double.TryParse(element, out num))
 			{
-				//Jezeli jest ok to zwroc do produktu poprawna liczbe z zamienionymi przecinkami na kropki
-				//dzieki temu zabiegowi mozna dawac kropki i przecinki i jest fajnie
-				return double.Parse(element.Replace(",", "."));
+				//Jezeli jest ok to zwroc do produktu poprawna liczbe
+				//TODO: Sprobowac znalezc sposb na poprawienie . i ,
+				return double.Parse(element, NumberStyles.AllowDecimalPoint);
 			}
 			else
 			{
@@ -147,7 +198,6 @@ namespace OMIKAS
 				page.DisplayAlert("Error", "Nie udało się przetworzyć zawartości: " + element, "OK");
 				return 0;
 			}
-
 		}
 	}
 }
