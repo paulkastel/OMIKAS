@@ -15,6 +15,8 @@ namespace OMIKAS
 		//indeks stopu na liscie stopow/wytopow
 		private int indeksOfSmelt;
 
+		private Smelt sml;
+
 		public SmeltEditForm()
 		{
 			InitializeComponent();
@@ -26,6 +28,7 @@ namespace OMIKAS
 		{
 			InitializeComponent();
 			isEdited = true;
+			sml = metal;
 
 			this.indeksOfSmelt = indeks;
 			this.btn_action.Text = this.Title = "Edytuj wytop";
@@ -133,11 +136,12 @@ namespace OMIKAS
 		{
 			if(isEdited)
 			{
-				App.smeltals.RemoveAt(indeksOfSmelt);
+				//App.smeltals.RemoveAt(indeksOfSmelt);
+				App.DAUtil.DeleteSmelt(sml);
 			}
 
 			Smelt met = new Smelt();
-
+			
 			Smelt sm = new Smelt();
 			if(!string.IsNullOrWhiteSpace(entName.Text))
 			{
@@ -172,7 +176,8 @@ namespace OMIKAS
 					H_min.Text, H_max.Text, H_evo.Text, 
 					O_min.Text, O_max.Text, O_evo.Text);
 
-				App.smeltals.Add(sm);
+				//App.smeltals.Add(sm);
+				App.DAUtil.SaveSmelt(sm);
 			}
 			await Navigation.PopAsync();
 

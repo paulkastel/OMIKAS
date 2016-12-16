@@ -40,7 +40,7 @@ namespace OMIKAS
 		private async void btn_chooseAlloy_Clicked(object sender, EventArgs e)
 		{
 			if(multiPageAlloys == null)
-				multiPageAlloys = new SelectMultipleBasePage<Alloy>(App.alloymetals) { Title = "Metale do obliczeń" };
+				multiPageAlloys = new SelectMultipleBasePage<Alloy>(App.DAUtil.GetAllAlloys()) { Title = "Metale do obliczeń" };
 
 			await Navigation.PushAsync(multiPageAlloys);
 		}
@@ -48,7 +48,7 @@ namespace OMIKAS
 		private async void btn_chooseSmelt_Clicked(object sender, EventArgs e)
 		{
 			if(multiPageSmelts == null)
-				multiPageSmelts = new SelectMultipleBasePage<Smelt>(App.smeltals) { Title = "Wytopy do obliczeń" };
+				multiPageSmelts = new SelectMultipleBasePage<Smelt>(App.DAUtil.GetAllSmelts()) { Title = "Wytopy do obliczeń" };
 
 			await Navigation.PushAsync(multiPageSmelts);
 		}

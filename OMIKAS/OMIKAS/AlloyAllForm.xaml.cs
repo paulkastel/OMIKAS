@@ -11,10 +11,12 @@ namespace OMIKAS
 {
 	public partial class AlloyAllForm : ContentPage
 	{
+
 		public AlloyAllForm()
 		{
 			InitializeComponent();
-			alloymetalView.ItemsSource = App.alloymetals;
+			//alloymetalView.ItemsSource = App.alloymetals;
+			alloymetalView.ItemsSource = App.DAUtil.GetAllAlloys();
 		}
 
 		private async void btn_info_Clicked(object sender, EventArgs e)
@@ -22,6 +24,7 @@ namespace OMIKAS
 			var signal = sender as Button;
 			var metal = signal.BindingContext as Alloy;
 			await Navigation.PushAsync(new AlloyDetailForm(metal));
+			//await Navigation.PushAsync(new AlloyDetailForm(App.DAUtil.ge));
 		}
 
 		private async void btn_delAlloy_Clicked(object sender, EventArgs e)
@@ -31,7 +34,8 @@ namespace OMIKAS
 			var answer = await DisplayAlert("Usun", "Na pewno usunac " + metal.name + "?", "Tak", "Nie");
 			if(answer)
 			{
-				App.alloymetals.RemoveAt(App.alloymetals.IndexOf(metal));
+				//App.alloymetals.RemoveAt(App.alloymetals.IndexOf(metal));
+				App.DAUtil.DeleteAlloy(metal);
 			}
 			OnAppearing();
 		}
@@ -60,7 +64,7 @@ namespace OMIKAS
 		{
 			//Dla poprawnego dzialania zeruje widok listy i
 			alloymetalView.ItemsSource = null;
-			alloymetalView.ItemsSource = App.alloymetals;
+			alloymetalView.ItemsSource = App.DAUtil.GetAllAlloys();
 		}
 	}
 }

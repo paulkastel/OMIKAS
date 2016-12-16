@@ -4,11 +4,16 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
+using SQLite.Net.Attributes;
 
 namespace OMIKAS
 {
 	public class Smelt
 	{
+		[PrimaryKey, AutoIncrement]
+		public int ID {get; set; }
+
 		public string name { get; set; }
 		public double Weight { get; set; }
 

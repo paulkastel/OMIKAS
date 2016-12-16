@@ -14,7 +14,7 @@ namespace OMIKAS
 		private bool isEdited;
 		//indeks stopu na liscie stopow/wytopow
 		private int indeksOfAlloy;
-
+		private Alloy al;
 		public AlloyEditForm()
 		{
 			InitializeComponent();
@@ -27,6 +27,7 @@ namespace OMIKAS
 			InitializeComponent();
 			isEdited = true;
 
+			al = metal;
 			this.indeksOfAlloy = indeks;
 			this.btn_action.Text = this.Title = "Edytuj stop";
 
@@ -82,7 +83,8 @@ namespace OMIKAS
 			//Jezeli to ekran edycji i operujemy na liscie skladnikow
 			if(isEdited)
 			{
-				App.alloymetals.RemoveAt(indeksOfAlloy); //to usun z listy stopow
+				//App.alloymetals.RemoveAt(indeksOfAlloy); //to usun z listy stopow
+				App.DAUtil.DeleteAlloy(al);
 			}
 
 			//i edytowane zawartosci z pol zapisz do odpowiedniej listy
@@ -91,7 +93,8 @@ namespace OMIKAS
 			{
 				//przekazanie wartosci z pol do nowego metalu który
 				met = Alloy.addNewAlloy(this, entName.Text, entPrice.Text, entWeight.Text, entFe.Text, entC.Text, entSi.Text, entMn.Text, entP.Text, entS.Text, entCr.Text, entMo.Text, entNi.Text, entAl.Text, entCo.Text, entCu.Text, entNb.Text, entTi.Text, entV.Text, entW.Text, entPb.Text, entSn.Text, entB.Text, entCa.Text, entZr.Text, entAs.Text, entBi.Text, entSb.Text, entZn.Text, entMg.Text, entN.Text, entH.Text, entO.Text);
-				App.alloymetals.Add(met); //dodamy do listy skladnikow
+				App.DAUtil.SaveAlloy(met);
+				//App.alloymetals.Add(met); //dodamy do listy skladnikow
 			}
 			await Navigation.PopAsync();
 		}

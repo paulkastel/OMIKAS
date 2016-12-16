@@ -1,19 +1,24 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite.Net.Attributes;
 
 namespace OMIKAS
 {
 	public class Alloy
 	{
+		[PrimaryKey, AutoIncrement]
+		public int ID { get; set; }
+
 		/// <summary>
 		/// Nazwa produktu (stopu lub wytopu
 		/// </summary>
 		public string name { get; set; }
-		public double Fe { get; private set; }
+		public double Fe { get; set; }
 		public double C { get; set; }
 		public double Si { get; set; }
 		public double Mn { get; set; }

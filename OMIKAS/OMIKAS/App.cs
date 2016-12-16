@@ -14,6 +14,20 @@ namespace OMIKAS
 		/// </summary>
 		public static bool IsUserLoggedIn { get; set; }
 
+		public static DataAccess dbUtils;
+
+		public static DataAccess DAUtil
+		{
+			get
+			{
+				if(dbUtils == null)
+				{
+					dbUtils = new DataAccess();
+				}
+				return dbUtils;
+			}
+		}
+
 		/// <summary>
 		/// Ustawia glowna strone aplikacji z menu
 		/// </summary>
@@ -21,9 +35,9 @@ namespace OMIKAS
 		public static void setHomePageApp(string whoEntered)
 		{
 			MasterDetailPage x = new MasterDetailPage();
-			x.MasterBehavior = MasterBehavior.Popover;		//Zachowanie bocznego panelu
+			x.MasterBehavior = MasterBehavior.Popover;      //Zachowanie bocznego panelu
 			x.Detail = new NavigationPage(new MainForm(whoEntered)); //Strona glowna do ktorej jest przypiete menu boczne
-			x.Master = new MainMenuSliderForm();	//MainMenuSliderForm jako boczny panel
+			x.Master = new MainMenuSliderForm();    //MainMenuSliderForm jako boczny panel
 			App.Current.MainPage = x; //Ustawia się strone jako strone glowna aplikacji
 		}
 		/// <summary>
@@ -39,7 +53,7 @@ namespace OMIKAS
 		/// Uzytkownik aplikacji przechowujacy dane o uzytkowniku
 		/// </summary>
 		public static User userapp;
-		
+
 		/// <summary>
 		/// Kazdorazowe uruchomienie aplikacji
 		/// </summary>

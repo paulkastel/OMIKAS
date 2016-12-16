@@ -13,7 +13,8 @@ namespace OMIKAS
 		public SmeltAllForm()
 		{
 			InitializeComponent();
-			smeltsmetalView.ItemsSource = App.smeltals;
+			//smeltsmetalView.ItemsSource = App.smeltals;
+			smeltsmetalView.ItemsSource = App.DAUtil.GetAllSmelts();
 		}
 		private async void btn_info_Clicked(object sender, EventArgs e)
 		{
@@ -28,7 +29,8 @@ namespace OMIKAS
 			var answer = await DisplayAlert("Usun", "Na pewno usunac " + smelt.name + "?", "Tak", "Nie");
 			if(answer)
 			{
-				App.smeltals.RemoveAt(App.smeltals.IndexOf(smelt));
+				//App.smeltals.RemoveAt(App.smeltals.IndexOf(smelt));
+				App.DAUtil.DeleteSmelt(smelt);
 			}
 			OnAppearing();
 		}
@@ -54,7 +56,8 @@ namespace OMIKAS
 		{
 			//Dla poprawnego dzialania zeruje widok listy i
 			smeltsmetalView.ItemsSource = null;
-			smeltsmetalView.ItemsSource = App.smeltals;
+			//smeltsmetalView.ItemsSource = App.smeltals;
+			smeltsmetalView.ItemsSource = App.DAUtil.GetAllSmelts();
 		}
 	}
 }
