@@ -48,5 +48,17 @@ namespace OMIKAS
 		{
 			return dbConn.Delete(smelt);
 		}
+
+		public int SmeltsCount()
+		{
+			var tb = dbConn.GetTableInfo("Smelt");
+			return tb.Count;
+		}
+
+		public int AlloysCount()
+		{
+			var tb = dbConn.GetTableInfo("Alloy");
+			return tb.Count;
+		}
 	}
 }

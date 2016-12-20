@@ -9,11 +9,6 @@ namespace OMIKAS
 {
 	public class App : Application
 	{
-		/// <summary>
-		/// Zmienna sprawdzająca czy użytkownik jest zalogowany. True jeżeli jest, False jeżeli nie zalogowany
-		/// </summary>
-		public static bool IsUserLoggedIn { get; set; }
-
 		public static DataAccess dbUtils;
 
 		public static DataAccess DAUtil
@@ -59,20 +54,12 @@ namespace OMIKAS
 		/// </summary>
 		public App()
 		{
-			if(!IsUserLoggedIn)
-			{
-				//Jezeli apka nie zna uzytkownika (nowy user to zainicjalizuj nowe dane i uruchom ekran logowania
-				userapp = new User();
-				alloymetals = new List<Alloy>();
-				smeltals = new List<Smelt>();
-				MainPage = new NavigationPage(new UserLoginForm());
 
-			}
-			else
-			{
-				//Apka zna uzytownika
-				setHomePageApp("Ktos kto juz tu byl");
-			}
+			//Jezeli apka nie zna uzytkownika (nowy user to zainicjalizuj nowe dane i uruchom ekran logowania
+			userapp = new User();
+			alloymetals = new List<Alloy>();
+			smeltals = new List<Smelt>();
+			setHomePageApp("");
 
 			//------------------Ustawienie koloru naglowka na zielony---------------
 			Current.Resources = new ResourceDictionary();

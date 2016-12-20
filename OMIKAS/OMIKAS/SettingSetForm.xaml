@@ -4,5 +4,10 @@
              x:Class="OMIKAS.SettingSetForm"
              BackgroundColor="#FFFFFF"
              Title="Ustawienia">
-	<Label Text="USTAWIENIA" VerticalOptions="Center" HorizontalOptions="Center" />
+	<ContentPage.Content>
+		<StackLayout>
+			<Button Text="Importuj dane" x:Name="btn_importData" Clicked="btn_importData_Clicked"></Button>
+			<Button Text="Eksportuj dane" x:Name="btn_exportData" Clicked="btn_exportData_Clicked"></Button>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>

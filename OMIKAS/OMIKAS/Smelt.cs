@@ -128,106 +128,106 @@ namespace OMIKAS
 			evoporation = new double[29];
 		}
 
-		private void createTabofMaxNorm()
+		public void createTabofMaxNorm(Smelt s)
 		{
-			max_Norm[0] = this.Fe_max;
-			max_Norm[1] = this.C_max;
-			max_Norm[2] = this.Si_max;
-			max_Norm[3] = this.Mn_max;
-			max_Norm[4] = this.P_max;
-			max_Norm[5] = this.S_max;
-			max_Norm[6] = this.Cr_max;
-			max_Norm[7] = this.Mo_max;
-			max_Norm[8] = this.Ni_max;
-			max_Norm[9] = this.Al_max;
-			max_Norm[10] = this.Co_max;
-			max_Norm[11] = this.Cu_max;
-			max_Norm[12] = this.Nb_max;
-			max_Norm[13] = this.Ti_max;
-			max_Norm[14] = this.V_max;
-			max_Norm[15] = this.W_max;
-			max_Norm[16] = this.Pb_max;
+			max_Norm[0] = s.Fe_max;
+			max_Norm[1] = s.C_max;
+			max_Norm[2] = s.Si_max;
+			max_Norm[3] = s.Mn_max;
+			max_Norm[4] = s.P_max;
+			max_Norm[5] = s.S_max;
+			max_Norm[6] = s.Cr_max;
+			max_Norm[7] = s.Mo_max;
+			max_Norm[8] = s.Ni_max;
+			max_Norm[9] = s.Al_max;
+			max_Norm[10] = s.Co_max;
+			max_Norm[11] = s.Cu_max;
+			max_Norm[12] = s.Nb_max;
+			max_Norm[13] = s.Ti_max;
+			max_Norm[14] = s.V_max;
+			max_Norm[15] = s.W_max;
+			max_Norm[16] = s.Pb_max;
 
-			max_Norm[17] = this.Sn_max;
-			max_Norm[18] = this.B_max;
-			max_Norm[19] = this.Ca_max;
-			max_Norm[20] = this.Zr_max;
-			max_Norm[21] = this.As_max;
-			max_Norm[22] = this.Bi_max;
-			max_Norm[23] = this.Sb_max;
-			max_Norm[24] = this.Zn_max;
-			max_Norm[25] = this.Mg_max;
-			max_Norm[26] = this.N_max;
-			max_Norm[27] = this.H_max;
-			max_Norm[28] = this.O_max;
+			max_Norm[17] = s.Sn_max;
+			max_Norm[18] = s.B_max;
+			max_Norm[19] = s.Ca_max;
+			max_Norm[20] = s.Zr_max;
+			max_Norm[21] = s.As_max;
+			max_Norm[22] = s.Bi_max;
+			max_Norm[23] = s.Sb_max;
+			max_Norm[24] = s.Zn_max;
+			max_Norm[25] = s.Mg_max;
+			max_Norm[26] = s.N_max;
+			max_Norm[27] = s.H_max;
+			max_Norm[28] = s.O_max;
 		}
 
-		private void createTabofMinNorm()
+		public void createTabofMinNorm(Smelt s)
 		{
-			min_Norm[0] = this.Fe_min;
-			min_Norm[1] = this.C_min;
-			min_Norm[2] = this.Si_min;
-			min_Norm[3] = this.Mn_min;
-			min_Norm[4] = this.P_min;
-			min_Norm[5] = this.S_min;
-			min_Norm[6] = this.Cr_min;
-			min_Norm[7] = this.Mo_min;
-			min_Norm[8] = this.Ni_min;
-			min_Norm[9] = this.Al_min;
-			min_Norm[10] = this.Co_min;
-			min_Norm[11] = this.Cu_min;
-			min_Norm[12] = this.Nb_min;
-			min_Norm[13] = this.Ti_min;
-			min_Norm[14] = this.V_min;
-			min_Norm[15] = this.W_min;
-			min_Norm[16] = this.Pb_min;
+			min_Norm[0] = s.Fe_min;
+			min_Norm[1] = s.C_min;
+			min_Norm[2] = s.Si_min;
+			min_Norm[3] = s.Mn_min;
+			min_Norm[4] = s.P_min;
+			min_Norm[5] = s.S_min;
+			min_Norm[6] = s.Cr_min;
+			min_Norm[7] = s.Mo_min;
+			min_Norm[8] = s.Ni_min;
+			min_Norm[9] = s.Al_min;
+			min_Norm[10] = s.Co_min;
+			min_Norm[11] = s.Cu_min;
+			min_Norm[12] = s.Nb_min;
+			min_Norm[13] = s.Ti_min;
+			min_Norm[14] = s.V_min;
+			min_Norm[15] = s.W_min;
+			min_Norm[16] = s.Pb_min;
 
-			min_Norm[17] = this.Sn_min;
-			min_Norm[18] = this.B_min;
-			min_Norm[19] = this.Ca_min;
-			min_Norm[20] = this.Zr_min;
-			min_Norm[21] = this.As_min;
-			min_Norm[22] = this.Bi_min;
-			min_Norm[23] = this.Sb_min;
-			min_Norm[24] = this.Zn_min;
-			min_Norm[25] = this.Mg_min;
-			min_Norm[26] = this.N_min;
-			min_Norm[27] = this.H_min;
-			min_Norm[28] = this.O_min;
+			min_Norm[17] = s.Sn_min;
+			min_Norm[18] = s.B_min;
+			min_Norm[19] = s.Ca_min;
+			min_Norm[20] = s.Zr_min;
+			min_Norm[21] = s.As_min;
+			min_Norm[22] = s.Bi_min;
+			min_Norm[23] = s.Sb_min;
+			min_Norm[24] = s.Zn_min;
+			min_Norm[25] = s.Mg_min;
+			min_Norm[26] = s.N_min;
+			min_Norm[27] = s.H_min;
+			min_Norm[28] = s.O_min;
 		}
 
-		private void createTabofEvoporation()
+		public void createTabofEvoporation(Smelt s)
 		{
-			evoporation[0] = this.Fe_evo;
-			evoporation[1] = this.C_evo;
-			evoporation[2] = this.Si_evo;
-			evoporation[3] = this.Mn_evo;
-			evoporation[4] = this.P_evo;
-			evoporation[5] = this.S_evo;
-			evoporation[6] = this.Cr_evo;
-			evoporation[7] = this.Mo_evo;
-			evoporation[8] = this.Ni_evo;
-			evoporation[9] = this.Al_evo;
-			evoporation[10] = this.Co_evo;
-			evoporation[11] = this.Cu_evo;
-			evoporation[12] = this.Nb_evo;
-			evoporation[13] = this.Ti_evo;
-			evoporation[14] = this.V_evo;
-			evoporation[15] = this.W_evo;
-			evoporation[16] = this.Pb_evo;
+			evoporation[0] = s.Fe_evo;
+			evoporation[1] = s.C_evo;
+			evoporation[2] = s.Si_evo;
+			evoporation[3] = s.Mn_evo;
+			evoporation[4] = s.P_evo;
+			evoporation[5] = s.S_evo;
+			evoporation[6] = s.Cr_evo;
+			evoporation[7] = s.Mo_evo;
+			evoporation[8] = s.Ni_evo;
+			evoporation[9] = s.Al_evo;
+			evoporation[10] = s.Co_evo;
+			evoporation[11] = s.Cu_evo;
+			evoporation[12] = s.Nb_evo;
+			evoporation[13] = s.Ti_evo;
+			evoporation[14] = s.V_evo;
+			evoporation[15] = s.W_evo;
+			evoporation[16] = s.Pb_evo;
 
-			evoporation[17] = this.Sn_evo;
-			evoporation[18] = this.B_evo;
-			evoporation[19] = this.Ca_evo;
-			evoporation[20] = this.Zr_evo;
-			evoporation[21] = this.As_evo;
-			evoporation[22] = this.Bi_evo;
-			evoporation[23] = this.Sb_evo;
-			evoporation[24] = this.Zn_evo;
-			evoporation[25] = this.Mg_evo;
-			evoporation[26] = this.N_evo;
-			evoporation[27] = this.H_evo;
-			evoporation[28] = this.O_evo;
+			evoporation[17] = s.Sn_evo;
+			evoporation[18] = s.B_evo;
+			evoporation[19] = s.Ca_evo;
+			evoporation[20] = s.Zr_evo;
+			evoporation[21] = s.As_evo;
+			evoporation[22] = s.Bi_evo;
+			evoporation[23] = s.Sb_evo;
+			evoporation[24] = s.Zn_evo;
+			evoporation[25] = s.Mg_evo;
+			evoporation[26] = s.N_evo;
+			evoporation[27] = s.H_evo;
+			evoporation[28] = s.O_evo;
 		}
 
 		public static Smelt addNewSmelt(Xamarin.Forms.Page page, string name,
@@ -382,15 +382,28 @@ namespace OMIKAS
 				sm.O_evo = sm.parseThatValue(page, oevo);
 
 
-				sm.createTabofMinNorm();
-				sm.createTabofMaxNorm();
-				sm.createTabofEvoporation();
+				sm.createTabofMinNorm(sm);
+				sm.createTabofMaxNorm(sm);
+				sm.checkifNormOK(page);
+				sm.createTabofEvoporation(sm);
+				
 			}
 			catch(Exception ex)
 			{
 				page.DisplayAlert("Dziwny error", ex.ToString(), "OK");
 			}
 			return sm;
+		}
+
+		private void checkifNormOK(Xamarin.Forms.Page page)
+		{
+			for(int i=0; i<min_Norm.Count(); i++)
+			{
+				if(min_Norm[i] > max_Norm[i])
+				{
+					page.DisplayAlert("Warning!","W "+(i+1).ToString()+" pierwiastku norma minimalna jest większa od maksymalnej.","Zrozumiałem");
+				}
+			}
 		}
 
 		private Double parseThatValue(Xamarin.Forms.Page page, string element)

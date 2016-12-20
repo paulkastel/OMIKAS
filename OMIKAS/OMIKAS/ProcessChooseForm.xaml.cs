@@ -121,9 +121,33 @@ namespace OMIKAS
 					selectedSmelts.ElementAt(0).Weight = double.Parse(entWeight.Text);
 
 					if(SwitchPriceWeight.IsToggled == false)
-						calculate_price(selectedAlloys, selectedSmelts);
+					{
+						foreach(Alloy xd in selectedAlloys)
+						{
+							xd.createTabOfElements(xd);
+						}
+						foreach(Smelt xd in selectedSmelts)
+						{
+							xd.createTabofEvoporation(xd);
+							xd.createTabofMaxNorm(xd);
+							xd.createTabofMinNorm(xd);
+						}
+						calculate_price(selectedAlloys, selectedSmelts);//<<<=========================================
+					}
 					else
+					{
+						foreach(Alloy xd in selectedAlloys)
+						{
+							xd.createTabOfElements(xd);
+						}
+						foreach(Smelt xd in selectedSmelts)
+						{
+							xd.createTabofEvoporation(xd);
+							xd.createTabofMaxNorm(xd);
+							xd.createTabofMinNorm(xd);
+						}
 						calculate_weight(selectedAlloys, selectedSmelts);
+					}
 				}
 				else
 					await DisplayAlert("Error", "Popraw masę wytopu", "OK");
@@ -137,7 +161,7 @@ namespace OMIKAS
 			await Navigation.PopModalAsync();
 		}
 
-		private void calculate_price(List<Alloy> alloys, List<Smelt> smelt)
+		private async void calculate_price(List<Alloy> alloys, List<Smelt> smelt)
 		{
 			int[] tabVar = new int[alloys.Count]; //il stopow w wytopie
 			int[] tabEq = new int[31]; //il pierwiastkow + war + f. celu
@@ -158,7 +182,7 @@ namespace OMIKAS
 					for(int j = 0; j < selectedAlloys.Count; j++)
 					{
 						//zmienna, kazda zawartosc pierwiastka x jego wsp. parowania
-						solver.SetCoefficient(tabEq[i], tabVar[j], selectedAlloys.ElementAt(j).tabOfElements[i] * (1 - smelt.ElementAt(0).evoporation[i]/100));
+						solver.SetCoefficient(tabEq[i], tabVar[j], selectedAlloys.ElementAt(j).tabOfElements[i] * (1 - smelt.ElementAt(0).evoporation[i] / 100));
 					}
 					solver.SetBounds(tabEq[i], smelt.ElementAt(0).min_Norm[i] * smelt.ElementAt(0).Weight, smelt.ElementAt(0).max_Norm[i] * smelt.ElementAt(0).Weight);
 				}
@@ -175,18 +199,18 @@ namespace OMIKAS
 				solver.AddGoal(tabEq[30], 1, true);
 
 				solver.Solve(new SimplexSolverParams());
-
-				DisplayAlert("Optymalizacja kosztów", "Koszt wynosi: " + solver.GetValue(tabEq[30]).ToDouble(), "OK");
+				await DisplayAlert("Optymalizacja kosztów", "Koszt wynosi: " + solver.GetValue(tabEq[30]).ToDouble(), "OK");
 
 				for(int i = 0; i < tabVar.Count(); i++)
 				{
-					DisplayAlert("Wynik zmiennych", "x" + i.ToString() + ": " + solver.GetValue(tabVar[i]).ToDouble().ToString(), "OK");
+					await DisplayAlert("Wynik zmiennych", "x" + i.ToString() + ": " + solver.GetValue(tabVar[i]).ToDouble().ToString(), "OK");
 				}
+				await Navigation.PushModalAsync(new NavigationPage(new ProcessResults(alloys, smelt)));
 
 			}
 			catch(Exception ex)
 			{
-				DisplayAlert("Error", "Cos w solverze nie tak:\n" + ex.ToString(), "OK");
+				await DisplayAlert("Error", "Cos w solverze nie tak:\n" + ex.ToString(), "OK");
 			}
 		}
 
@@ -221,7 +245,7 @@ namespace OMIKAS
 				solver.SetBounds(M, smelt.ElementAt(0).Weight, selectedSmelts.ElementAt(0).Weight);
 
 				solver.AddRow("weight", out tabEq[29]);
-				for(int i=0; i<alloys.Count; i++)
+				for(int i = 0; i < alloys.Count; i++)
 				{
 					solver.SetCoefficient(tabEq[29], tabVar[i], 1);
 				}

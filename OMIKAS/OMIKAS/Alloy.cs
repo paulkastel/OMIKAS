@@ -60,38 +60,38 @@ namespace OMIKAS
 		/// <summary>
 		/// Wypelnia tabOFElements wszystkimi pierwiastkami
 		/// </summary>
-		private void createTabOfElements()
+		public void createTabOfElements(Alloy m)
 		{
-			tabOfElements[0] = this.Fe;
-			tabOfElements[1] = this.C;
-			tabOfElements[2] = this.Si;
-			tabOfElements[3] = this.Mn;
-			tabOfElements[4] = this.P;
-			tabOfElements[5] = this.S;
-			tabOfElements[6] = this.Cr;
-			tabOfElements[7] = this.Mo;
-			tabOfElements[8] = this.Ni;
-			tabOfElements[9] = this.Al;
-			tabOfElements[10] = this.Co;
-			tabOfElements[11] = this.Cu;
-			tabOfElements[12] = this.Nb;
-			tabOfElements[13] = this.Ti;
-			tabOfElements[14] = this.V;
-			tabOfElements[15] = this.W;
-			tabOfElements[16] = this.Pb;
+			tabOfElements[0] = m.Fe;
+			tabOfElements[1] = m.C;
+			tabOfElements[2] = m.Si;
+			tabOfElements[3] = m.Mn;
+			tabOfElements[4] = m.P;
+			tabOfElements[5] = m.S;
+			tabOfElements[6] = m.Cr;
+			tabOfElements[7] = m.Mo;
+			tabOfElements[8] = m.Ni;
+			tabOfElements[9] = m.Al;
+			tabOfElements[10] = m.Co;
+			tabOfElements[11] = m.Cu;
+			tabOfElements[12] = m.Nb;
+			tabOfElements[13] = m.Ti;
+			tabOfElements[14] = m.V;
+			tabOfElements[15] = m.W;
+			tabOfElements[16] = m.Pb;
 
-			tabOfElements[17] = this.Sn;
-			tabOfElements[18] = this.B;
-			tabOfElements[19] = this.Ca;
-			tabOfElements[20] = this.Zr;
-			tabOfElements[21] = this.As;
-			tabOfElements[22] = this.Bi;
-			tabOfElements[23] = this.Sb;
-			tabOfElements[24] = this.Zn;
-			tabOfElements[25] = this.Mg;
-			tabOfElements[26] = this.N;
-			tabOfElements[27] = this.H;
-			tabOfElements[28] = this.O;
+			tabOfElements[17] = m.Sn;
+			tabOfElements[18] = m.B;
+			tabOfElements[19] = m.Ca;
+			tabOfElements[20] = m.Zr;
+			tabOfElements[21] = m.As;
+			tabOfElements[22] = m.Bi;
+			tabOfElements[23] = m.Sb;
+			tabOfElements[24] = m.Zn;
+			tabOfElements[25] = m.Mg;
+			tabOfElements[26] = m.N;
+			tabOfElements[27] = m.H;
+			tabOfElements[28] = m.O;
 		}
 
 		public Alloy()
@@ -166,7 +166,8 @@ namespace OMIKAS
 				metal.H = metal.parseThatValue(page, h);
 				metal.O = metal.parseThatValue(page, o);
 
-				metal.createTabOfElements();
+				metal.createTabOfElements(metal);
+				metal.checkIfOK(page);
 			}
 			catch(Exception ex)
 			{
@@ -174,6 +175,18 @@ namespace OMIKAS
 			}
 
 			return metal;
+		}
+
+		private void checkIfOK(Xamarin.Forms.Page page)
+		{
+			double suma=0;
+			foreach(double x in tabOfElements)
+			{
+				suma = suma + x;
+			}
+			if(suma > 100)
+				page.DisplayAlert("Warning!", "Suma procentowa wszystkich elementów przekracza 100%", "Zrozumialem");
+
 		}
 
 		/// <summary>

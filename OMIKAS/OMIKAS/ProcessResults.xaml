@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OMIKAS.ProcessResults">
+	<ContentPage.Content>
+		<StackLayout>
+			<Label x:Name="lbl1"></Label>
+			<Label x:Name="lbl2"></Label>
+			<Label x:Name="lbl3"></Label>
+			<Label x:Name="lbl4"></Label>
+			<Label x:Name="lbl5"></Label>
+			<Label x:Name="lbl6"></Label>
+			<Label x:Name="lbl7"></Label>
+			<Label x:Name="lbl8"></Label>
+			<Label x:Name="lbl9"></Label>
+			<Label x:Name="lbl10"></Label>
+			<Label x:Name="lbl11"></Label>
+			<Label x:Name="lbl12"></Label>
+			<Label x:Name="lbl13"></Label>
+			<Label x:Name="lbl14"></Label>
+			<Label x:Name="lbl15"></Label>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

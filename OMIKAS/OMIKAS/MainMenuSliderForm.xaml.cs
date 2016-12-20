@@ -40,22 +40,12 @@ namespace OMIKAS
 		}
 		
 		/// <summary>
-		/// Wylogowuje z aplikacji, czyszczac listy i powracajac do ekranu logowania
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		private void btn_logout_Clicked(object sender, EventArgs e)
-		{
-			App.IsUserLoggedIn = false;
-			App.alloymetals.Clear();
-			App.smeltals.Clear();
-			App.Current.MainPage = new NavigationPage(new UserLoginForm());
-		}
-		/// <summary>
 		/// Za kazdym razem kiedy pojawia się ekran sprawdź czy listy stopow i wytopow i dopiero wtedy zezwól na obliczenia
 		/// </summary>
 		protected override void OnAppearing()
 		{
+			App.alloymetals = App.DAUtil.GetAllAlloys();
+			App.smeltals = App.DAUtil.GetAllSmelts();
 			if(!App.alloymetals.Any() || !App.smeltals.Any())
 			{
 				btn_calc.IsEnabled = false;

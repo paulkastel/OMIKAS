@@ -35,7 +35,6 @@
 			<Button Style="{StaticResource Styl_btn}" Text="Wytopy" x:Name="btn_smelts" Clicked="btn_smelts_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Profil" x:Name="btn_profile" Clicked="btn_profile_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Ustawienia" x:Name="btn_settings" Clicked="btn_settings_Clicked"></Button>
-			<Button Style="{StaticResource Styl_btn}" Text="Wyloguj się" x:Name="btn_logout" Clicked="btn_logout_Clicked"></Button>
 		</StackLayout>
 
 

@@ -14,5 +14,15 @@ namespace OMIKAS
         {
             InitializeComponent();
         }
-    }
+
+		private void btn_importData_Clicked(object sender, EventArgs e)
+		{
+
+		}
+
+		private void btn_exportData_Clicked(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

@@ -154,7 +154,7 @@ namespace OMIKAS
 					S_min.Text, S_max.Text, S_evo.Text, 
 					Cr_min.Text, Cr_max.Text, Cr_evo.Text, 
 					Mo_min.Text, Mo_max.Text, Mo_evo.Text, 
-					Ni_min.Text, Ni_min.Text, Ni_evo.Text, 
+					Ni_min.Text, Ni_max.Text, Ni_evo.Text, 
 					Al_min.Text, Al_max.Text, Al_evo.Text, 
 					Co_min.Text, Co_max.Text, Co_evo.Text, 
 					Cu_min.Text, Cu_max.Text, Cu_evo.Text, 
