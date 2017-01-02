@@ -1,12 +1,30 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<!-- Okno glowne calej aplikacji -->
+<!-- Okno glowne calej aplikacji, to pierwsze okno jakie widzi user -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.MainForm"
              BackgroundColor="#FFFFFF"
              Title="OMIKAS">
-	
-	<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-		<Label x:Name="lbl_welcome"></Label>
-	</StackLayout>
+
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<!-- Kazdy label jest czarny, wielki na 19 i jest na środku. -->
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="19"></Setter>
+				<Setter Property="HorizontalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
+	<ContentPage.Content>
+		<!-- Stacklayout - elementy jeden pod drugim na srodku -->
+		<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
+			<Label x:Name="lbl_welcome" Style="{StaticResource Styl_lbl}"></Label>
+			<Label x:Name="lbl_all_stat" Style="{StaticResource Styl_lbl}"></Label>
+			<Label x:Name="lbl_smel_stat" Style="{StaticResource Styl_lbl}"></Label>
+		</StackLayout>
+	</ContentPage.Content>
 </ContentPage>

@@ -45,26 +45,26 @@ namespace OMIKAS
 		public static List<Smelt> smeltals;
 
 		/// <summary>
-		/// Uzytkownik aplikacji przechowujacy dane o uzytkowniku
-		/// </summary>
-		public static User userapp;
-
-		/// <summary>
 		/// Kazdorazowe uruchomienie aplikacji
 		/// </summary>
 		public App()
 		{
-
 			//Jezeli apka nie zna uzytkownika (nowy user to zainicjalizuj nowe dane i uruchom ekran logowania
-			userapp = new User();
-			alloymetals = new List<Alloy>();
-			smeltals = new List<Smelt>();
-			setHomePageApp("");
+			alloymetals = DAUtil.GetAllAlloys();
+			smeltals = DAUtil.GetAllSmelts();
+			if(!DAUtil.GetUser().Any())
+			{
+				DAUtil.SaveUser(new User { user_name = " - uzupelnij dane profilu", user_surname = "", emailadd = "" });
+				setHomePageApp("");
+				
+			}
+			else
+				setHomePageApp(DAUtil.GetUser().ElementAt(0).user_name);
 
 			//------------------Ustawienie koloru naglowka na zielony---------------
 			Current.Resources = new ResourceDictionary();
 			var navigationStyle = new Style(typeof(NavigationPage));
-			var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = Color.FromHex("#00693c") };
+			var barBackgroundColorSetter = new Setter { Property = NavigationPage.BarBackgroundColorProperty, Value = Color.FromHex("#00693C") };
 			navigationStyle.Setters.Add(barBackgroundColorSetter);
 			Current.Resources.Add(navigationStyle);
 			//-----------------------------------------------------------------------

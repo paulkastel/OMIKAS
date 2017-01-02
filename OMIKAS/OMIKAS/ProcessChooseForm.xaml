@@ -4,7 +4,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.ProcessChooseForm"
              BackgroundColor="#FFFFFF"
-             Title="Wybierz stopy metali">
+             Title="Obliczenia">
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="btntool_Clicked"/>
 	</ContentPage.ToolbarItems>

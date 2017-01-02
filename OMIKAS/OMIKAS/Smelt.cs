@@ -12,7 +12,7 @@ namespace OMIKAS
 	public class Smelt
 	{
 		[PrimaryKey, AutoIncrement]
-		public int ID {get; set; }
+		public int ID { get; set; }
 
 		public string name { get; set; }
 		public double Weight { get; set; }
@@ -265,128 +265,128 @@ namespace OMIKAS
 			try
 			{
 				sm.name = name;
-				sm.Fe_min = sm.parseThatValue(page, femin);
-				sm.Fe_max = sm.parseThatValue(page, femax);
-				sm.Fe_evo = sm.parseThatValue(page, feevo);
+				sm.Fe_min = sm.parseThatValue(page, femin, false);
+				sm.Fe_max = sm.parseThatValue(page, femax, true);
+				sm.Fe_evo = sm.parseThatValue(page, feevo, false);
 
-				sm.C_min = sm.parseThatValue(page, cmin);
-				sm.C_max = sm.parseThatValue(page, cmax);
-				sm.C_evo = sm.parseThatValue(page, cevo);
+				sm.C_min = sm.parseThatValue(page, cmin, false);
+				sm.C_max = sm.parseThatValue(page, cmax, true);
+				sm.C_evo = sm.parseThatValue(page, cevo, false);
 
-				sm.Si_min = sm.parseThatValue(page, simin);
-				sm.Si_max = sm.parseThatValue(page, simax);
-				sm.Si_evo = sm.parseThatValue(page, sievo);
+				sm.Si_min = sm.parseThatValue(page, simin, false);
+				sm.Si_max = sm.parseThatValue(page, simax, true);
+				sm.Si_evo = sm.parseThatValue(page, sievo, false);
 
-				sm.Mn_min = sm.parseThatValue(page, mnmin);
-				sm.Mn_max = sm.parseThatValue(page, mnmax);
-				sm.Mn_evo = sm.parseThatValue(page, mnevo);
+				sm.Mn_min = sm.parseThatValue(page, mnmin, false);
+				sm.Mn_max = sm.parseThatValue(page, mnmax, true);
+				sm.Mn_evo = sm.parseThatValue(page, mnevo, false);
 
-				sm.P_min = sm.parseThatValue(page, pmin);
-				sm.P_max = sm.parseThatValue(page, pmax);
-				sm.P_evo = sm.parseThatValue(page, pevo);
+				sm.P_min = sm.parseThatValue(page, pmin, false);
+				sm.P_max = sm.parseThatValue(page, pmax, true);
+				sm.P_evo = sm.parseThatValue(page, pevo, false);
 
-				sm.S_min = sm.parseThatValue(page, smin);
-				sm.S_max = sm.parseThatValue(page, smax);
-				sm.S_evo = sm.parseThatValue(page, sevo);
+				sm.S_min = sm.parseThatValue(page, smin, false);
+				sm.S_max = sm.parseThatValue(page, smax, true);
+				sm.S_evo = sm.parseThatValue(page, sevo, false);
 
-				sm.Cr_min = sm.parseThatValue(page, crmin);
-				sm.Cr_max = sm.parseThatValue(page, crmax);
-				sm.Cr_evo = sm.parseThatValue(page, crevo);
+				sm.Cr_min = sm.parseThatValue(page, crmin, false);
+				sm.Cr_max = sm.parseThatValue(page, crmax, true);
+				sm.Cr_evo = sm.parseThatValue(page, crevo, false);
 
-				sm.Mo_min = sm.parseThatValue(page, momin);
-				sm.Mo_max = sm.parseThatValue(page, momax);
-				sm.Mo_evo = sm.parseThatValue(page, moevo);
+				sm.Mo_min = sm.parseThatValue(page, momin, false);
+				sm.Mo_max = sm.parseThatValue(page, momax, true);
+				sm.Mo_evo = sm.parseThatValue(page, moevo, false);
 
-				sm.Ni_min = sm.parseThatValue(page, nimin);
-				sm.Ni_max = sm.parseThatValue(page, nimax);
-				sm.Ni_evo = sm.parseThatValue(page, nievo);
+				sm.Ni_min = sm.parseThatValue(page, nimin, false);
+				sm.Ni_max = sm.parseThatValue(page, nimax, true);
+				sm.Ni_evo = sm.parseThatValue(page, nievo, false);
 
-				sm.Al_min = sm.parseThatValue(page, almin);
-				sm.Al_max = sm.parseThatValue(page, almax);
-				sm.Al_evo = sm.parseThatValue(page, alevo);
+				sm.Al_min = sm.parseThatValue(page, almin, false);
+				sm.Al_max = sm.parseThatValue(page, almax, true);
+				sm.Al_evo = sm.parseThatValue(page, alevo, false);
 
-				sm.Co_min = sm.parseThatValue(page, comin);
-				sm.Co_max = sm.parseThatValue(page, comax);
-				sm.Co_evo = sm.parseThatValue(page, coevo);
+				sm.Co_min = sm.parseThatValue(page, comin, false);
+				sm.Co_max = sm.parseThatValue(page, comax, true);
+				sm.Co_evo = sm.parseThatValue(page, coevo, false);
 
-				sm.Cu_min = sm.parseThatValue(page, cumin);
-				sm.Cu_max = sm.parseThatValue(page, cumax);
-				sm.Cu_evo = sm.parseThatValue(page, cuevo);
+				sm.Cu_min = sm.parseThatValue(page, cumin, false);
+				sm.Cu_max = sm.parseThatValue(page, cumax, true);
+				sm.Cu_evo = sm.parseThatValue(page, cuevo, false);
 
-				sm.Nb_min = sm.parseThatValue(page, nbmin);
-				sm.Nb_max = sm.parseThatValue(page, nbmax);
-				sm.Nb_evo = sm.parseThatValue(page, nbevo);
+				sm.Nb_min = sm.parseThatValue(page, nbmin, false);
+				sm.Nb_max = sm.parseThatValue(page, nbmax, true);
+				sm.Nb_evo = sm.parseThatValue(page, nbevo, false);
 
-				sm.Ti_min = sm.parseThatValue(page, timin);
-				sm.Ti_max = sm.parseThatValue(page, timax);
-				sm.Ti_evo = sm.parseThatValue(page, tievo);
+				sm.Ti_min = sm.parseThatValue(page, timin, false);
+				sm.Ti_max = sm.parseThatValue(page, timax, true);
+				sm.Ti_evo = sm.parseThatValue(page, tievo, false);
 
-				sm.V_min = sm.parseThatValue(page, vmin);
-				sm.V_max = sm.parseThatValue(page, vmax);
-				sm.V_evo = sm.parseThatValue(page, vevo);
+				sm.V_min = sm.parseThatValue(page, vmin, false);
+				sm.V_max = sm.parseThatValue(page, vmax, true);
+				sm.V_evo = sm.parseThatValue(page, vevo, false);
 
-				sm.W_min = sm.parseThatValue(page, wmin);
-				sm.W_max = sm.parseThatValue(page, wmax);
-				sm.W_evo = sm.parseThatValue(page, wevo);
+				sm.W_min = sm.parseThatValue(page, wmin, false);
+				sm.W_max = sm.parseThatValue(page, wmax, true);
+				sm.W_evo = sm.parseThatValue(page, wevo, false);
 
-				sm.Pb_min = sm.parseThatValue(page, pbmin);
-				sm.Pb_max = sm.parseThatValue(page, pbmax);
-				sm.Pb_evo = sm.parseThatValue(page, pbevo);
+				sm.Pb_min = sm.parseThatValue(page, pbmin, false);
+				sm.Pb_max = sm.parseThatValue(page, pbmax, true);
+				sm.Pb_evo = sm.parseThatValue(page, pbevo, false);
 
-				sm.Sn_min = sm.parseThatValue(page, snmin);
-				sm.Sn_max = sm.parseThatValue(page, snmax);
-				sm.Sn_evo = sm.parseThatValue(page, snevo);
+				sm.Sn_min = sm.parseThatValue(page, snmin, false);
+				sm.Sn_max = sm.parseThatValue(page, snmax, true);
+				sm.Sn_evo = sm.parseThatValue(page, snevo, false);
 
-				sm.B_min = sm.parseThatValue(page, bmin);
-				sm.B_max = sm.parseThatValue(page, bmax);
-				sm.B_evo = sm.parseThatValue(page, bevo);
+				sm.B_min = sm.parseThatValue(page, bmin, false);
+				sm.B_max = sm.parseThatValue(page, bmax, true);
+				sm.B_evo = sm.parseThatValue(page, bevo, false);
 
-				sm.Ca_min = sm.parseThatValue(page, camin);
-				sm.Ca_max = sm.parseThatValue(page, camax);
-				sm.Ca_evo = sm.parseThatValue(page, caevo);
+				sm.Ca_min = sm.parseThatValue(page, camin, false);
+				sm.Ca_max = sm.parseThatValue(page, camax, true);
+				sm.Ca_evo = sm.parseThatValue(page, caevo, false);
 
-				sm.Zr_min = sm.parseThatValue(page, zrmin);
-				sm.Zr_max = sm.parseThatValue(page, zrmax);
-				sm.Zr_evo = sm.parseThatValue(page, zrevo);
+				sm.Zr_min = sm.parseThatValue(page, zrmin, false);
+				sm.Zr_max = sm.parseThatValue(page, zrmax, true);
+				sm.Zr_evo = sm.parseThatValue(page, zrevo, false);
 
-				sm.As_min = sm.parseThatValue(page, asmin);
-				sm.As_max = sm.parseThatValue(page, asmax);
-				sm.As_evo = sm.parseThatValue(page, asevo);
+				sm.As_min = sm.parseThatValue(page, asmin, false);
+				sm.As_max = sm.parseThatValue(page, asmax, true);
+				sm.As_evo = sm.parseThatValue(page, asevo, false);
 
-				sm.Bi_min = sm.parseThatValue(page, bimin);
-				sm.Bi_max = sm.parseThatValue(page, bimax);
-				sm.Bi_evo = sm.parseThatValue(page, bievo);
+				sm.Bi_min = sm.parseThatValue(page, bimin, false);
+				sm.Bi_max = sm.parseThatValue(page, bimax, true);
+				sm.Bi_evo = sm.parseThatValue(page, bievo, false);
 
-				sm.Sb_min = sm.parseThatValue(page, sbmin);
-				sm.Sb_max = sm.parseThatValue(page, sbmax);
-				sm.Sb_evo = sm.parseThatValue(page, sbevo);
+				sm.Sb_min = sm.parseThatValue(page, sbmin, false);
+				sm.Sb_max = sm.parseThatValue(page, sbmax, true);
+				sm.Sb_evo = sm.parseThatValue(page, sbevo, false);
 
-				sm.Zn_min = sm.parseThatValue(page, znmin);
-				sm.Zn_max = sm.parseThatValue(page, znmax);
-				sm.Zn_evo = sm.parseThatValue(page, znevo);
+				sm.Zn_min = sm.parseThatValue(page, znmin, false);
+				sm.Zn_max = sm.parseThatValue(page, znmax, true);
+				sm.Zn_evo = sm.parseThatValue(page, znevo, false);
 
-				sm.Mg_min = sm.parseThatValue(page, mgmin);
-				sm.Mg_max = sm.parseThatValue(page, mgmax);
-				sm.Mg_evo = sm.parseThatValue(page, mgevo);
+				sm.Mg_min = sm.parseThatValue(page, mgmin, false);
+				sm.Mg_max = sm.parseThatValue(page, mgmax, true);
+				sm.Mg_evo = sm.parseThatValue(page, mgevo, false);
 
-				sm.N_min = sm.parseThatValue(page, nmin);
-				sm.N_max = sm.parseThatValue(page, nmax);
-				sm.N_evo = sm.parseThatValue(page, nevo);
+				sm.N_min = sm.parseThatValue(page, nmin, false);
+				sm.N_max = sm.parseThatValue(page, nmax, true);
+				sm.N_evo = sm.parseThatValue(page, nevo, false);
 
-				sm.H_min = sm.parseThatValue(page, hmin);
-				sm.H_max = sm.parseThatValue(page, hmax);
-				sm.H_evo = sm.parseThatValue(page, hevo);
+				sm.H_min = sm.parseThatValue(page, hmin, false);
+				sm.H_max = sm.parseThatValue(page, hmax, true);
+				sm.H_evo = sm.parseThatValue(page, hevo, false);
 
-				sm.O_min = sm.parseThatValue(page, omin);
-				sm.O_max = sm.parseThatValue(page, omax);
-				sm.O_evo = sm.parseThatValue(page, oevo);
+				sm.O_min = sm.parseThatValue(page, omin, false);
+				sm.O_max = sm.parseThatValue(page, omax, true);
+				sm.O_evo = sm.parseThatValue(page, oevo, false);
 
 
 				sm.createTabofMinNorm(sm);
 				sm.createTabofMaxNorm(sm);
 				sm.checkifNormOK(page);
 				sm.createTabofEvoporation(sm);
-				
+
 			}
 			catch(Exception ex)
 			{
@@ -397,22 +397,25 @@ namespace OMIKAS
 
 		private void checkifNormOK(Xamarin.Forms.Page page)
 		{
-			for(int i=0; i<min_Norm.Count(); i++)
+			for(int i = 0; i < min_Norm.Count(); i++)
 			{
 				if(min_Norm[i] > max_Norm[i])
 				{
-					page.DisplayAlert("Warning!","W "+(i+1).ToString()+" pierwiastku norma minimalna jest większa od maksymalnej.","Zrozumiałem");
+					page.DisplayAlert("Warning!", "W " + (i + 1).ToString() + " pierwiastku norma minimalna jest większa od maksymalnej.", "Zrozumiałem");
 				}
 			}
 		}
 
-		private Double parseThatValue(Xamarin.Forms.Page page, string element)
+		private Double parseThatValue(Xamarin.Forms.Page page, string element, bool isMax)
 		{
 			double num = 0;
 			//Jezeli string nic nie zawiera to zwroc po prostu zero
 			if(string.IsNullOrWhiteSpace(element))
 			{
-				return 0;
+				if(isMax)
+					return 100;
+				else
+					return 0;
 			}
 			//W innym razie sproboj przeparsowac liczbe
 			else if(Double.TryParse(element, out num))
@@ -420,7 +423,10 @@ namespace OMIKAS
 				//Jezeli jest ok to zwroc do produktu poprawna liczbe
 				//TODO: Sprobowac znalezc sposb na poprawienie . i ,
 				//TODO: Wartosci nieujemne i mniejsze od 100
-				return double.Parse(element, NumberStyles.AllowDecimalPoint);
+				double tmp = double.Parse(element, NumberStyles.AllowDecimalPoint);
+				if(tmp > 100)
+					page.DisplayAlert("Warning!", "Wartość " + tmp + "przekracza 100%!", "Zrozumiałem");
+				return tmp;
 			}
 			else
 			{

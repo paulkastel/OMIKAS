@@ -10,34 +10,30 @@ namespace OMIKAS
 {
 	public partial class ProfileForm : ContentPage
 	{
-		private User user_profile;
 		public ProfileForm()
 		{
 			InitializeComponent();
-			user_profile = App.userapp;
-			if(user_profile.isUser)
-			{
-				lbl_surname.Text = user_profile.user_surname;
-				lbl_name.Text = user_profile.user_name;
-				lbl_email.Text = user_profile.emailadd;
-			}
-			else
-			{
-				lbl_name.Text = "Gość";
-				lbl_surname.Text = "Gość";
-				lbl_email.Text = "";
-				btn_editprofile.IsEnabled = user_profile.isUser;
-			}
+			lbl_email.Text = App.DAUtil.GetUser().ElementAt(0).emailadd;
+			lbl_name.Text = App.DAUtil.GetUser().ElementAt(0).user_name;
+			lbl_surname.Text = App.DAUtil.GetUser().ElementAt(0).user_surname;
 		}
 
 		private async void btn_editprofile_Clicked(object sender, EventArgs e)
 		{
-			await Navigation.PushAsync(new ProfileEditForm(user_profile));
+			await Navigation.PushAsync(new ProfileEditForm(App.DAUtil.GetUser().ElementAt(0)));
 		}
 
 		private async void ToolbarItem_Clicked(object sender, EventArgs e)
 		{
 			await Navigation.PopModalAsync();
+		}
+
+		protected override void OnAppearing()
+		{
+			base.OnAppearing();
+			lbl_email.Text = App.DAUtil.GetUser().ElementAt(0).emailadd;
+			lbl_name.Text = App.DAUtil.GetUser().ElementAt(0).user_name;
+			lbl_surname.Text = App.DAUtil.GetUser().ElementAt(0).user_surname;
 		}
 	}
 }

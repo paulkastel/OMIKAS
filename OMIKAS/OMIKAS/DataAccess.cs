@@ -60,5 +60,20 @@ namespace OMIKAS
 			var tb = dbConn.GetTableInfo("Alloy");
 			return tb.Count;
 		}
+
+		public List<User> GetUser()
+		{
+			return dbConn.Query<User>("Select * From [User]");
+		}
+
+		public int SaveUser(User usr)
+		{
+			return dbConn.Insert(usr);
+		}
+
+		public int UpdateUser(User usr)
+		{
+			return dbConn.Update(usr);
+		}
 	}
 }

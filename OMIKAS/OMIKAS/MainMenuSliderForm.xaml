@@ -4,39 +4,38 @@
                   xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                   x:Class="OMIKAS.MainMenuSliderForm"
                   Title="Menu Glowne"
+				  BackgroundColor="#FFFFFF"
                   xmlns:formWithMenu="clr-namespace:OMIKAS">
 
-	<!-- Style -->
+	<!-- Style label naglowek i buttony menu -->
 	<ContentPage.Resources>
 		<ResourceDictionary>
 			<Style x:Key="Styl_lbl" TargetType="Label">
-				<Setter Property="TextColor" Value="#1E1E1E">
-					<!--czarny-->
-				</Setter>
+				<!--czarny-->
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
 				<Setter Property="FontSize" Value="40"></Setter>
+				<Setter Property="HorizontalOptions" Value="Center"></Setter>
+				<Setter Property="FontAttributes" Value="Bold"></Setter>
 			</Style>
-
+			<!-- przyciski są czerwone z bialym teksem o rozmiarze 17-->
 			<Style x:Key="Styl_btn" TargetType="Button">
-				<Setter Property="BackgroundColor" Value="#A71930">
-					<!--zielony-->
-				</Setter>
-				<Setter Property="TextColor" Value="#FFFFFF">
-					<!-- Bialy -->
-				</Setter>
+				<!-- burgund AGH -->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<!-- Bialy -->
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="17"></Setter>
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
 
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical">
-			<Label  Style="{StaticResource Styl_lbl}" Text="Menu boczne"></Label>
+			<Label  Style="{StaticResource Styl_lbl}" Text="OPERACJE"></Label>
 			<Button Style="{StaticResource Styl_btn}" Text="Obliczenia" x:Name="btn_calc" Clicked="btn_calc_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Składniki stopowe" x:Name="btn_alloy" Clicked="btn_alloy_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Wytopy" x:Name="btn_smelts" Clicked="btn_smelts_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Profil" x:Name="btn_profile" Clicked="btn_profile_Clicked"></Button>
 			<Button Style="{StaticResource Styl_btn}" Text="Ustawienia" x:Name="btn_settings" Clicked="btn_settings_Clicked"></Button>
 		</StackLayout>
-
-
 	</ContentPage.Content>
 </ContentPage>

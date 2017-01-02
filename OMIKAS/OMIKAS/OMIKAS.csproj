@@ -47,6 +47,7 @@
       <DependentUpon>AlloyEditForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.cs" />
+    <Compile Include="ISave.cs" />
     <Compile Include="ISQLite.cs" />
     <Compile Include="MainForm.xaml.cs">
       <DependentUpon>MainForm.xaml</DependentUpon>

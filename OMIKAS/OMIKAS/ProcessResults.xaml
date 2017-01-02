@@ -1,24 +1,44 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OMIKAS.ProcessResults">
+             x:Class="OMIKAS.ProcessResults"
+			 BackgroundColor="#FFFFFF"
+			 Title="Rozwiązanie">
+
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<StackLayout>
-			<Label x:Name="lbl1"></Label>
-			<Label x:Name="lbl2"></Label>
-			<Label x:Name="lbl3"></Label>
-			<Label x:Name="lbl4"></Label>
-			<Label x:Name="lbl5"></Label>
-			<Label x:Name="lbl6"></Label>
-			<Label x:Name="lbl7"></Label>
-			<Label x:Name="lbl8"></Label>
-			<Label x:Name="lbl9"></Label>
-			<Label x:Name="lbl10"></Label>
-			<Label x:Name="lbl11"></Label>
-			<Label x:Name="lbl12"></Label>
-			<Label x:Name="lbl13"></Label>
-			<Label x:Name="lbl14"></Label>
-			<Label x:Name="lbl15"></Label>
+			<Label x:Name="lblintro" VerticalOptions="Center"  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"></Label>
+			<ListView x:FieldModifier="public" x:Name="solutionView" HasUnevenRows="True">
+				
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<Grid>
+								<Label VerticalOptions="Center" HorizontalOptions="End" Grid.Row="1" Grid.Column="0" Text="{Binding name}"></Label>
+								<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Text="{Binding solTxt}"></Label>
+								<Label VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" Grid.Column="2" Text="[g]"></Label>	
+								
+							</Grid>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+				
+			</ListView>
+			<Label x:Name="lblTotal"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
+			<Button VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="raport" x:Name="btn_raport" Clicked="btn_raport_Clicked"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

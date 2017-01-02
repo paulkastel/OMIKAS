@@ -1,53 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-    <!-- Okno edycji profilu użytkownika-->
+<!-- Okno edycji profilu użytkownika-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.ProfileEditForm"
              BackgroundColor="#FFFFFF"
              Title="Edytuj Profil">
 
-    <!-- Style -->
-    <ContentPage.Resources>
-        <ResourceDictionary>
-            <Style x:Key="Styl_lbl" TargetType="Label">
-                <Setter Property="TextColor" Value="#1E1E1E"></Setter>
-                <Setter Property="FontSize" Value="15"></Setter>
-                <Setter Property="Font" Value="Bold"></Setter>
-            </Style>
+	<!-- Style -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="Font" Value="Bold"></Setter>
+			</Style>
 
-            <Style x:Key="Styl_btn" TargetType="Button">
-                <!-- Styl ustawia kolor buttona na czerwony i text na bialy-->
-                <Setter Property="BackgroundColor" Value="#A71930"></Setter>
-                <Setter Property="TextColor" Value="#FFFFFF"></Setter>
-                <Setter Property="FontSize" Value="30"></Setter>
-            </Style>
-            <Style x:Key="styl_stackLay" TargetType="StackLayout">
-            </Style>
-        </ResourceDictionary>
-    </ContentPage.Resources>
-    <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="55" />
-                <RowDefinition Height="55" />
-                <RowDefinition Height="55" />
-                <RowDefinition Height="55" />
-                <RowDefinition Height="55" />
-                <RowDefinition Height="55" />
-            </Grid.RowDefinitions>
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- Styl ustawia kolor buttona na czerwony i text na bialy-->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="30"></Setter>
+			</Style>
+			<Style x:Key="styl_stackLay" TargetType="StackLayout">
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="55" />
+				<RowDefinition Height="55" />
+				<RowDefinition Height="55" />
+				<RowDefinition Height="55" />
+				<RowDefinition Height="55" />
+				<RowDefinition Height="55" />
+			</Grid.RowDefinitions>
 
-            <Label Text="Imię:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-            <Entry Placeholder="Imię" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
-            <Label Text="Nazwisko:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-            <Entry Placeholder="Nazwisko" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
-            <Label Text="Adres E-Mail:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-            <Entry Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand" ></Entry>
-            <Label Text="Hasło:" Grid.Row="3" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-            <Entry Placeholder="Hasło" Grid.Row="3" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
-            <Label Text="Powtórz hasło:" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-            <Entry Placeholder="Powtórz hasło" Grid.Row="4" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
-            <Button Text="OK" x:Name="btn_confirmEdit" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End" Clicked="btn_confirmEdit_Clicked"/>
-        </Grid>
+			<Label Text="Imię:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
+			<Entry Placeholder="Imię" Grid.Row="0" Grid.Column="1" x:Name="txtname" VerticalOptions="Center" Text="{Binding profile_edit.user_name}" HorizontalOptions="FillAndExpand"></Entry>
+			<Label Text="Nazwisko:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
+			<Entry Placeholder="Nazwisko" Grid.Row="1" Grid.Column="1" x:Name="txtsurname" VerticalOptions="Center" HorizontalOptions="FillAndExpand"></Entry>
+			<Label Text="Adres E-Mail:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
+			<Entry Placeholder="E-Mail" Grid.Row="2" Grid.Column="1" x:Name="txtmail" VerticalOptions="Center" HorizontalOptions="FillAndExpand" ></Entry>
+			<Button Text="OK" x:Name="btn_confirmEdit" Grid.Row="5" Grid.ColumnSpan="2" VerticalOptions="End" Clicked="btn_confirmEdit_Clicked"/>
+		</Grid>
 
-    </ContentPage.Content>
+	</ContentPage.Content>
 </ContentPage>

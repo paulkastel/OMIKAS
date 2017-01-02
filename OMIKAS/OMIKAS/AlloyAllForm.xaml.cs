@@ -11,58 +11,93 @@ namespace OMIKAS
 {
 	public partial class AlloyAllForm : ContentPage
 	{
-
+		/// <summary>
+		/// Konstruktor okna z lista skladnikow stopowych
+		/// </summary>
 		public AlloyAllForm()
 		{
 			InitializeComponent();
-			//alloymetalView.ItemsSource = App.alloymetals;
+			//Wypelnij liste na ekranie wszystkimi stopami jakie sa w bazie
 			alloymetalView.ItemsSource = App.DAUtil.GetAllAlloys();
 		}
 
+		/// <summary>
+		/// Pokazuje okno z informacja o konkretnym skladniku stopowym
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_info_Clicked(object sender, EventArgs e)
 		{
+			//Klikniety przycisk jest sygnalem ktory powiazuje kontekts z skladnikiem stopowym z listy
 			var signal = sender as Button;
 			var metal = signal.BindingContext as Alloy;
+
+			//odpal ta strone z informacja o skladniku
 			await Navigation.PushAsync(new AlloyDetailForm(metal));
-			//await Navigation.PushAsync(new AlloyDetailForm(App.DAUtil.ge));
 		}
 
+		/// <summary>
+		/// Wyswietla komunikat z zapytaniem czy usunac skladnik
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_delAlloy_Clicked(object sender, EventArgs e)
 		{
+			//Klikniety przycisk jest sygnalem ktory powiazuje kontekts z skladnikiem stopowym z listy
 			var signal = sender as Button;
 			var metal = signal.BindingContext as Alloy;
+
+			//Na podstawie odpowiedzi usun skladnik z bazy
 			var answer = await DisplayAlert("Usun", "Na pewno usunac " + metal.name + "?", "Tak", "Nie");
 			if(answer)
 			{
-				//App.alloymetals.RemoveAt(App.alloymetals.IndexOf(metal));
 				App.DAUtil.DeleteAlloy(metal);
 			}
-			OnAppearing();
+			OnAppearing(); //A nastepnie uruchom funkcje odswiezajaca ekran
 		}
 
+		/// <summary>
+		/// Pokazuje okno dodania nowego elementu do skladnikow
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_addAlloy_Clicked(object sender, EventArgs e)
 		{
-			//ustawic argumenty w AlloyEditForm tak aby rozorznial czy wywolala go edycja czy add
+			//Konstruktor okna bez argumentow = dodaj nowy element
 			await Navigation.PushAsync(new AlloyEditForm());
 		}
-
+		/// <summary>
+		/// Pokazuje okno edycji skladnika stopowego
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_editAlloy_Clicked(object sender, EventArgs e)
 		{
+			//Klikniety przycisk jest sygnalem ktory powiazuje kontekts z skladnikiem stopowym z listy
 			var signal = sender as Button;
 			var metal = signal.BindingContext as Alloy;
+
+			//Konstruktor okna z dwoma elementami = edycja istniejacego elementu
 			await Navigation.PushAsync(new AlloyEditForm(metal, App.alloymetals.IndexOf(metal)));
 		}
 
+		/// <summary>
+		/// Powrot do poprzedniego okna
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void ToolbarItem_Clicked(object sender, EventArgs e)
 		{
+			//Schowaj ten ekran
 			await Navigation.PopModalAsync();
 		}
+
 		/// <summary>
 		/// Jak sie pojawia ekran z lista stopow/wytopow to wczytaj odpowiednia liste
 		/// </summary>
 		protected override void OnAppearing()
 		{
-			//Dla poprawnego dzialania zeruje widok listy i
+			//Dla poprawnego dzialania zeruje widok listy i cala liste laduje z bazy
 			alloymetalView.ItemsSource = null;
 			alloymetalView.ItemsSource = App.DAUtil.GetAllAlloys();
 		}
