@@ -10,30 +10,50 @@ namespace OMIKAS
 {
 	public partial class SmeltEditForm : ContentPage
 	{
-		//if true then add, else edit
+		/// <summary>
+		/// if true then add, else edit Używane w momencie wciśnięcia przycisku "Dodaj"
+		/// </summary>
 		private bool isEdited;
-		//indeks stopu na liscie stopow/wytopow
+
+		/// <summary>
+		/// indeks wytopu na liscie wytopow
+		/// </summary>
 		private int indeksOfSmelt;
 
+		/// <summary>
+		/// Pomocniczy wytop ktory jest edytowany
+		/// </summary>
 		private Smelt sml;
 
+		/// <summary>
+		/// Konstruktor okna z formularzem dodającym
+		/// </summary>
 		public SmeltEditForm()
 		{
 			InitializeComponent();
 			isEdited = false;
-			this.btn_action.Text= this.Title = "Dodaj wytop";
+			this.btn_action.Text = this.Title = "Dodaj wytop";
 		}
 
+		/// <summary>
+		/// Konstruktor okna z formularzem edytujacym wytop
+		/// </summary>
+		/// <param name="metal">wytop ktory jest edytowany</param>
+		/// <param name="indeks">Jego indeks na liscie</param>
 		public SmeltEditForm(Smelt metal, int indeks)
 		{
 			InitializeComponent();
 			isEdited = true;
+
 			sml = metal;
 
 			this.indeksOfSmelt = indeks;
-			this.btn_action.Text = this.Title = "Edytuj wytop";
-			this.entName.Text = metal.name.ToString();
+			this.btn_action.Text = "Edytuj wytop";
+			this.Title = "Edytuj \"" + metal.name + "\"";
 
+			this.entName.Text = metal.name;
+
+			//w inputach normy minimalne
 			#region minWypelnij
 			Fe_min.Text = metal.Fe_min.ToString();
 			C_min.Text = metal.C_min.ToString();
@@ -66,6 +86,7 @@ namespace OMIKAS
 			O_min.Text = metal.O_min.ToString();
 			#endregion
 
+			//w inputach normy max
 			#region maxWypelnij
 			Fe_max.Text = metal.Fe_max.ToString();
 			C_max.Text = metal.C_max.ToString();
@@ -98,6 +119,7 @@ namespace OMIKAS
 			O_max.Text = metal.O_max.ToString();
 			#endregion
 
+			//w inputach wspolcznniki parowania
 			#region evoWypelnij
 			Fe_evo.Text = metal.Fe_evo.ToString();
 			C_evo.Text = metal.C_evo.ToString();
@@ -132,55 +154,59 @@ namespace OMIKAS
 
 		}
 
+		/// <summary>
+		/// Funkcja edytujaca lub dodajaca nowy wytop po wcisnieciu przycisku
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private async void btn_action_Clicked(object sender, EventArgs e)
 		{
-			if(isEdited)
-			{
-				//App.smeltals.RemoveAt(indeksOfSmelt);
-				App.DAUtil.DeleteSmelt(sml);
-			}
-
-			Smelt met = new Smelt();
-			
-			Smelt sm = new Smelt();
+			//nie mozna zapisac wytopu bez nazwy
 			if(!string.IsNullOrWhiteSpace(entName.Text))
 			{
-				sm = Smelt.addNewSmelt(this, entName.Text, 
-					Fe_min.Text, Fe_max.Text, Fe_evo.Text, 
-					C_min.Text, C_max.Text, C_evo.Text, 
-					Si_min.Text, Si_max.Text, Si_evo.Text, 
-					Mn_min.Text, Mn_max.Text, Mn_evo.Text, 
-					P_min.Text, P_max.Text, P_evo.Text, 
-					S_min.Text, S_max.Text, S_evo.Text, 
-					Cr_min.Text, Cr_max.Text, Cr_evo.Text, 
-					Mo_min.Text, Mo_max.Text, Mo_evo.Text, 
-					Ni_min.Text, Ni_max.Text, Ni_evo.Text, 
-					Al_min.Text, Al_max.Text, Al_evo.Text, 
-					Co_min.Text, Co_max.Text, Co_evo.Text, 
-					Cu_min.Text, Cu_max.Text, Cu_evo.Text, 
-					Nb_min.Text, Nb_max.Text, Nb_evo.Text, 
-					Ti_min.Text, Ti_max.Text, Ti_evo.Text,
-					V_min.Text, V_max.Text, V_evo.Text, 
-					W_min.Text, W_max.Text, W_evo.Text, 
-					Pb_min.Text, Pb_max.Text, Pb_evo.Text, 
-					Sn_min.Text, Sn_max.Text, Sn_evo.Text, 
-					B_min.Text, B_max.Text, B_evo.Text, 
-					Ca_min.Text, Ca_max.Text, Ca_evo.Text, 
-					Zr_min.Text, Zr_max.Text, Zr_evo.Text, 
-					As_min.Text, As_max.Text, As_evo.Text, 
-					Bi_min.Text, Bi_max.Text, Bi_evo.Text, 
-					Sb_min.Text, Sb_max.Text, Sb_evo.Text, 
-					Zn_min.Text, Zn_max.Text, Zn_evo.Text, 
-					Mg_min.Text, Mg_max.Text, Mg_evo.Text, 
-					N_min.Text, N_max.Text, N_evo.Text, 
-					H_min.Text, H_max.Text, H_evo.Text, 
-					O_min.Text, O_max.Text, O_evo.Text);
+				if(isEdited)
+				{
+					//jak edytuje to
+					App.DAUtil.DeleteSmelt(sml);    //usuwam
+				}
+				Smelt smel = new Smelt();       //tworze nowy
 
-				//App.smeltals.Add(sm);
-				App.DAUtil.SaveSmelt(sm);
+				smel = Smelt.addNewSmelt(this, entName.Text,
+				Fe_min.Text, Fe_max.Text, Fe_evo.Text,
+				C_min.Text, C_max.Text, C_evo.Text,
+				Si_min.Text, Si_max.Text, Si_evo.Text,
+				Mn_min.Text, Mn_max.Text, Mn_evo.Text,
+				P_min.Text, P_max.Text, P_evo.Text,
+				S_min.Text, S_max.Text, S_evo.Text,
+				Cr_min.Text, Cr_max.Text, Cr_evo.Text,
+				Mo_min.Text, Mo_max.Text, Mo_evo.Text,
+				Ni_min.Text, Ni_max.Text, Ni_evo.Text,
+				Al_min.Text, Al_max.Text, Al_evo.Text,
+				Co_min.Text, Co_max.Text, Co_evo.Text,
+				Cu_min.Text, Cu_max.Text, Cu_evo.Text,
+				Nb_min.Text, Nb_max.Text, Nb_evo.Text,
+				Ti_min.Text, Ti_max.Text, Ti_evo.Text,
+				V_min.Text, V_max.Text, V_evo.Text,
+				W_min.Text, W_max.Text, W_evo.Text,
+				Pb_min.Text, Pb_max.Text, Pb_evo.Text,
+				Sn_min.Text, Sn_max.Text, Sn_evo.Text,
+				B_min.Text, B_max.Text, B_evo.Text,
+				Ca_min.Text, Ca_max.Text, Ca_evo.Text,
+				Zr_min.Text, Zr_max.Text, Zr_evo.Text,
+				As_min.Text, As_max.Text, As_evo.Text,
+				Bi_min.Text, Bi_max.Text, Bi_evo.Text,
+				Sb_min.Text, Sb_max.Text, Sb_evo.Text,
+				Zn_min.Text, Zn_max.Text, Zn_evo.Text,
+				Mg_min.Text, Mg_max.Text, Mg_evo.Text,
+				N_min.Text, N_max.Text, N_evo.Text,
+				H_min.Text, H_max.Text, H_evo.Text,
+				O_min.Text, O_max.Text, O_evo.Text);
+
+				App.DAUtil.SaveSmelt(smel); //zapisuje do bazy
+				await Navigation.PopAsync();
 			}
-			await Navigation.PopAsync();
-
+			else
+				await DisplayAlert("Error", "Nie można stworzyć wytopu bez nazwy!", "OK");
 		}
 	}
 }

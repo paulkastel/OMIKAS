@@ -1,4 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Ekran z wynikami obliczeń i możliwością eksportu danych-->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.ProcessResults"
@@ -11,34 +12,45 @@
 			<Style x:Key="Styl_lbl" TargetType="Label">
 				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
 				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="FontAttributes" Value="None"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="Center"></Setter>
 			</Style>
 
 			<Style x:Key="Styl_btn" TargetType="Button">
-				<!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+				<!-- bialy napis na czerwonym przycisku -->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="17"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
+
+	<!-- Zawartość strony -->
 	<ContentPage.Content>
 		<StackLayout>
-			<Label x:Name="lblintro" VerticalOptions="Center"  HorizontalOptions="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"></Label>
+			<Label x:Name="lblintro" Style="{StaticResource Styl_lbl}" HorizontalTextAlignment="Center" Grid.Row="0" Grid.Column="0" Grid.RowSpan="3"></Label>
 			<ListView x:FieldModifier="public" x:Name="solutionView" HasUnevenRows="True">
-				
 				<ListView.ItemTemplate>
 					<DataTemplate>
 						<ViewCell>
 							<Grid>
-								<Label VerticalOptions="Center" HorizontalOptions="End" Grid.Row="1" Grid.Column="0" Text="{Binding name}"></Label>
-								<Label VerticalOptions="Center" HorizontalOptions="Center" Grid.Row="1" Grid.Column="1" Text="{Binding solTxt}"></Label>
-								<Label VerticalOptions="Center" HorizontalOptions="Start" Grid.Row="1" Grid.Column="2" Text="[g]"></Label>	
-								
+								<Grid.RowDefinitions>
+									<RowDefinition Height="5"></RowDefinition>
+								</Grid.RowDefinitions>
+
+								<Label Style="{StaticResource Styl_lbl}" Grid.Row="1" Grid.Column="0" Text="{Binding name}"></Label>
+								<Label Style="{StaticResource Styl_lbl}" Grid.Row="1" Grid.Column="1" Text="{Binding solTxt}"></Label>
+								<Label Style="{StaticResource Styl_lbl}" Grid.Row="1" Grid.Column="2" Text="[g]"></Label>
 							</Grid>
 						</ViewCell>
 					</DataTemplate>
 				</ListView.ItemTemplate>
-				
 			</ListView>
-			<Label x:Name="lblTotal"  VerticalOptions="Center" HorizontalOptions="Center"></Label>
-			<Button VerticalOptions="Center" HorizontalOptions="FillAndExpand" Text="raport" x:Name="btn_raport" Clicked="btn_raport_Clicked"></Button>
+			<Label x:Name="lblTotal" Style="{StaticResource Styl_lbl}"></Label>
+			<Button Text="Wygeneruj szczegółowy raport" x:Name="btn_raport" Clicked="btn_raport_Clicked" Style="{StaticResource Styl_btn}"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

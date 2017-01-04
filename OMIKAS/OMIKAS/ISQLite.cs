@@ -7,8 +7,15 @@ using SQLite.Net;
 
 namespace OMIKAS
 {
+	/// <summary>
+	/// Interfejs do tworzenia połaczeń z bazą SQLite
+	/// </summary>
 	public interface ISQLite
 	{
+		/// <summary>
+		/// Tworzy bazę SQLite na telefonie
+		/// </summary>
+		/// <returns></returns>
 		SQLiteConnection GetConnection();
 	}
 }

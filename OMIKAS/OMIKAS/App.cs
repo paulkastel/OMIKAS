@@ -11,6 +11,9 @@ namespace OMIKAS
 	{
 		public static DataAccess dbUtils;
 
+		/// <summary>
+		/// Zmienna zapewniajaca dostep do funkcji operujących na bazie
+		/// </summary>
 		public static DataAccess DAUtil
 		{
 			get
@@ -35,10 +38,12 @@ namespace OMIKAS
 			x.Master = new MainMenuSliderForm();    //MainMenuSliderForm jako boczny panel
 			App.Current.MainPage = x; //Ustawia się strone jako strone glowna aplikacji
 		}
+
 		/// <summary>
 		/// Lista z skladnikami stopowymi przechowujaca wszystkie stopy metali ich dane
 		/// </summary>
 		public static List<Alloy> alloymetals;
+
 		/// <summary>
 		/// Lista z wytopami i ich danymi
 		/// </summary>

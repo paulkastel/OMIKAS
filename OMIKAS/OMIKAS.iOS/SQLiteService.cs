@@ -6,8 +6,15 @@ using OMIKAS.iOS;
 [assembly: Dependency(typeof(SQLiteService))]
 namespace OMIKAS.iOS
 {
+	/// <summary>
+	/// Tworzy baze SQLite w systemie iOS
+	/// </summary>
 	public class SQLiteService : ISQLite
 	{
+		/// <summary>
+		/// Tworzy plik SQLite i sie z nim laczy
+		/// </summary>
+		/// <returns></returns>
 		public SQLite.Net.SQLiteConnection GetConnection()
 		{
 			var filename = "OMIKAS.db3";

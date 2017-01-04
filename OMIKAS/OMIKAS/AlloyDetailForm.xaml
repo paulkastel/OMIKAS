@@ -5,106 +5,122 @@
              x:Class="OMIKAS.AlloyDetailForm"
              BackgroundColor="#FFFFFF">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Edytuj"/>
+		<ToolbarItem Text="Edytuj" Clicked="ToolbarItem_Clicked"/>
 	</ContentPage.ToolbarItems>
 
+	<!-- Style etykiet -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl1" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="FontAttributes" Value="Bold"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="End"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_lbl2" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="FontAttributes" Value="None"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="FillAndExpand"></Setter>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView>
 			<Grid HorizontalOptions="Center">
 				<Grid.RowDefinitions>
 					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
+					<RowDefinition Height="30" />
 				</Grid.RowDefinitions>
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="30"/>
-					<ColumnDefinition Width="140"/>
+					<ColumnDefinition Width="80"/>
 					<ColumnDefinition Width="30"/>
-					<ColumnDefinition Width="140"/>
+					<ColumnDefinition Width="80"/>
+					<ColumnDefinition Width="30"/>
+					<ColumnDefinition Width="80"/>
 				</Grid.ColumnDefinitions>
-				<Label Text="CENA:" VerticalOptions="Center" HorizontalOptions="Center"					Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
-				<Label x:Name="lblPrice" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"></Label>
-				
-				<Label Text="MASA:" VerticalOptions="Center" HorizontalOptions="Center"					Grid.Column="0"	Grid.Row="1" Grid.ColumnSpan="2"></Label>
-				<Label x:Name="lblWeight" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="2"></Label>
-				
-				<Label Text="Fe" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="2"></Label>
-				<Label Text="C" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="3"></Label>
-				<Label Text="Si" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="4"></Label>
-				<Label Text="Mn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="5"></Label>
-				<Label Text="P" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="6"></Label>
-				<Label Text="S" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="7"></Label>
-				<Label Text="Cr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="8"></Label>
-				<Label Text="Mo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="9"></Label>
-				<Label Text="Ni" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="10"></Label>
-				<Label Text="B" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="11"></Label>
-				<Label Text="Ca" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="12"></Label>
-				<Label Text="Zr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="13"></Label>
-				<Label Text="As" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="14"></Label>
-				<Label Text="Bi" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="15"></Label>
+				<Label Text="CENA:" Style="{StaticResource Styl_lbl1}" HorizontalTextAlignment="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
+				<Label x:Name="lblPrice" Style="{StaticResource Styl_lbl2}" HorizontalTextAlignment="Center" HorizontalOptions="Center"  Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"></Label>
 
-				<Label x:Name="lblFe" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="2"></Label>
-				<Label x:Name="lblC" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="3"></Label>
-				<Label x:Name="lblSi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="4"></Label>
-				<Label x:Name="lblMn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="5"></Label>
-				<Label x:Name="lblP" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="6"></Label>
-				<Label x:Name="lblS" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="7"></Label>
-				<Label x:Name="lblCr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="8"></Label>
-				<Label x:Name="lblMo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="9"></Label>
-				<Label x:Name="lblNi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="1" Grid.Row="10"></Label>
-				<Label x:Name="lblB" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="11"></Label>
-				<Label x:Name="lblCa" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="12"></Label>
-				<Label x:Name="lblZr" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="13"></Label>
-				<Label x:Name="lblAs" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="14"></Label>
-				<Label x:Name="lblBi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="15"></Label>
+				<Label Text="Zawartości procentowe pierwiastków w stopie" Style="{StaticResource Styl_lbl1}" HorizontalTextAlignment="Center" HorizontalOptions="Center" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="6"></Label>
+
+				<Label Text="Fe" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="2"></Label>
+				<Label Text="C" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="3"></Label>
+				<Label Text="Si" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="4"></Label>
+				<Label Text="Mn" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="5"></Label>
+				<Label Text="P" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="6"></Label>
+				<Label Text="S" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="7"></Label>
+				<Label Text="Cr" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="8"></Label>
+				<Label Text="Mo" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="9"></Label>
+				<Label Text="Ni" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="10"></Label>
+				<Label Text="Al" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="11"></Label>
+
+				<Label x:Name="lblFe" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="2"></Label>
+				<Label x:Name="lblC" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="3"></Label>
+				<Label x:Name="lblSi" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="4"></Label>
+				<Label x:Name="lblMn" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="5"></Label>
+				<Label x:Name="lblP" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="6"></Label>
+				<Label x:Name="lblS" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="7"></Label>
+				<Label x:Name="lblCr" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="8"></Label>
+				<Label x:Name="lblMo" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="9"></Label>
+				<Label x:Name="lblNi" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="10"></Label>
+				<Label x:Name="lblAl" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="11"></Label>
+
+				<Label Text="Co" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="2"></Label>
+				<Label Text="Cu" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="3"></Label>
+				<Label Text="Nb" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="4"></Label>
+				<Label Text="Ti" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="5"></Label>
+				<Label Text="V" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="6"></Label>
+				<Label Text="W" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="7"></Label>
+				<Label Text="Pb" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="8"></Label>
+				<Label Text="Sn" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="9"></Label>
+				<Label Text="B" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="10"></Label>
+				<Label Text="Ca" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="11"></Label>
+
+				<Label x:Name="lblCo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="2"></Label>
+				<Label x:Name="lblCu" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="3"></Label>
+				<Label x:Name="lblNb" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="4"></Label>
+				<Label x:Name="lblTi" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="5"></Label>
+				<Label x:Name="lblV" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="6"></Label>
+				<Label x:Name="lblW" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="7"></Label>
+				<Label x:Name="lblPb" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="8"></Label>
+				<Label x:Name="lblSn" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="9"></Label>
+				<Label x:Name="lblB" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="10"></Label>
+				<Label x:Name="lblCa" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="11"></Label>
 				
-				<Label Text="Al" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="2"></Label>
-				<Label Text="Co" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="3"></Label>
-				<Label Text="Cu" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="4"></Label>
-				<Label Text="Nb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="5"></Label>
-				<Label Text="Ti" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="6"></Label>
-				<Label Text="V" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="7"></Label>
-				<Label Text="W" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="8"></Label>
-				<Label Text="Pb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="9"></Label>
-				<Label Text="Sn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="10"></Label>
-				<Label Text="Sb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="11"></Label>
-				<Label Text="Zn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="12"></Label>
-				<Label Text="Mg" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="13"></Label>
-				<Label Text="N" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="14"></Label>
-				<Label Text="H" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="15"></Label>
-				<Label Text="O" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="16"></Label>
-				
-				<Label x:Name="lblAl" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="2"></Label>
-				<Label x:Name="lblCo" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="3"></Label>
-				<Label x:Name="lblCu" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="4"></Label>
-				<Label x:Name="lblNb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="5"></Label>
-				<Label x:Name="lblTi" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="6"></Label>
-				<Label x:Name="lblV" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="7"></Label>
-				<Label x:Name="lblW" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="8"></Label>
-				<Label x:Name="lblPb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="9"></Label>
-				<Label x:Name="lblSn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="10"></Label>
-				<Label x:Name="lblSb" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="11"></Label>
-				<Label x:Name="lblZn" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="12"></Label>
-				<Label x:Name="lblMg" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="13"></Label>
-				<Label x:Name="lblN" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="14"></Label>
-				<Label x:Name="lblH" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="15"></Label>
-				<Label x:Name="lblO" VerticalOptions="Center" HorizontalOptions="FillAndExpand" Grid.Column="3" Grid.Row="16"></Label>
+				<Label Text="Zr" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="2"></Label>
+				<Label Text="As" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="3"></Label>
+				<Label Text="Bi" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="4"></Label>
+				<Label Text="Sb" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="5"></Label>
+				<Label Text="Zn" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="6"></Label>
+				<Label Text="Mg" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="7"></Label>
+				<Label Text="N" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="8"></Label>
+				<Label Text="H" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="9"></Label>
+				<Label Text="O" Style="{StaticResource Styl_lbl1}" Grid.Column="4" Grid.Row="10"></Label>
+
+				<Label x:Name="lblZr" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="2"></Label>
+				<Label x:Name="lblAs" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="3"></Label>
+				<Label x:Name="lblBi" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="4"></Label>
+				<Label x:Name="lblSb" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="5"></Label>
+				<Label x:Name="lblZn" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="6"></Label>
+				<Label x:Name="lblMg" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="7"></Label>
+				<Label x:Name="lblN" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="8"></Label>
+				<Label x:Name="lblH" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="9"></Label>
+				<Label x:Name="lblO" Style="{StaticResource Styl_lbl2}" Grid.Column="5" Grid.Row="10"></Label>
 			</Grid>
 		</ScrollView>
 	</ContentPage.Content>

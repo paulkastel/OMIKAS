@@ -4,10 +4,23 @@
              x:Class="OMIKAS.SettingSetForm"
              BackgroundColor="#FFFFFF"
              Title="Ustawienia">
+
+	<!-- Styl przyciskow -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_btn" TargetType="Button">
+				<!-- bialy napis na czerwonym przycisku -->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="17"></Setter>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+
 	<ContentPage.Content>
-		<StackLayout>
-			<Button Text="Importuj dane" x:Name="btn_importData" Clicked="btn_importData_Clicked"></Button>
-			<Button Text="Eksportuj dane" x:Name="btn_exportData" Clicked="btn_exportData_Clicked"></Button>
+		<StackLayout Orientation="Vertical">
+			<Button Text="Importuj dane" x:Name="btn_importData" Clicked="btn_importData_Clicked" Style="{StaticResource Styl_btn}"></Button>
+			<Button Text="Eksportuj dane" x:Name="btn_exportData" Clicked="btn_exportData_Clicked" Style="{StaticResource Styl_btn}"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

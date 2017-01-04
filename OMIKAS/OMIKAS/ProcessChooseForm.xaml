@@ -14,32 +14,41 @@
 		<ResourceDictionary>
 			<Style x:Key="Styl_lbl" TargetType="Label">
 				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
-				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="FontSize" Value="13"></Setter>
+				<Setter Property="FontAttributes" Value="None"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="Start"></Setter>
 			</Style>
 
 			<Style x:Key="Styl_btn" TargetType="Button">
-				<!-- <Setter Property="BackgroundColor" Value="#A71930"></Setter> -->
+				<!-- bialy napis na czerwonym przycisku -->
+				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
+				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
+				<Setter Property="FontSize" Value="17"></Setter>
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
 
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical">
-			<Button x:Name="btn_chooseAlloy" Clicked="btn_chooseAlloy_Clicked" Text="Wybierz składniki"></Button>
-			<Label x:Name="lbl_selectedAlloys"></Label>
-			<Button x:Name="btn_chooseSmelt" Clicked="btn_chooseSmelt_Clicked" Text="Wybierz wytop"></Button>
-			<Label x:Name="lbl_selectedSmelts"></Label>
+			<Button x:Name="btn_chooseAlloy" Clicked="btn_chooseAlloy_Clicked" Text="Wybierz składniki" Style="{StaticResource Styl_btn}"></Button>
+			<Label x:Name="lbl_selectedAlloys" Style="{StaticResource Styl_lbl}"></Label>
+
+			<Button x:Name="btn_chooseSmelt" Clicked="btn_chooseSmelt_Clicked" Text="Wybierz wytop" Style="{StaticResource Styl_btn}"></Button>
+			<Label x:Name="lbl_selectedSmelts" Style="{StaticResource Styl_lbl}"></Label>
+			
 			<StackLayout Orientation="Horizontal" HorizontalOptions="Center">
-				<Label Text="Funkcja kosztów" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
-				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center"  IsToggled="False"></Switch>
-				<Label Text="Funkcja masy" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"></Label>
+				<Label Text="Funkcja kosztów" Style="{StaticResource Styl_lbl}" FontSize="15"></Label>
+				<Switch x:Name="SwitchPriceWeight" HorizontalOptions="Center" VerticalOptions="Center" IsToggled="False"></Switch>
+				<Label Text="Funkcja masy" Style="{StaticResource Styl_lbl}" FontSize="15"></Label>
 			</StackLayout>
+			
 			<StackLayout Orientation="Horizontal">
-				<Label Text="Podaj masę wytopu:" HorizontalOptions="End" VerticalOptions="Center"></Label>
-				<Entry x:Name="entWeight" HorizontalOptions="FillAndExpand" VerticalOptions="Center"></Entry>
+				<Label Text="Podaj masę wytopu:" Style="{StaticResource Styl_lbl}" FontSize="15"></Label>
+				<Entry x:Name="entWeight" HorizontalOptions="FillAndExpand" VerticalOptions="Center" Placeholder="Masa [g]"></Entry>
 			</StackLayout>
 
-			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ" IsEnabled="False"></Button>
+			<Button x:Name="btn_count" Clicked="btn_count_Clicked" Text="OBLICZ" IsEnabled="False"  Style="{StaticResource Styl_btn}"></Button>
 		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>

@@ -4,45 +4,59 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.ProfileForm"
              BackgroundColor="#FFFFFF"
-             Title="Twoj Profil">
+             Title="Twój Profil">
+
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="ToolbarItem_Clicked"/>
 	</ContentPage.ToolbarItems>
 
 	<ContentPage.Resources>
 		<ResourceDictionary>
-			<Style x:Key="Styl_lbl" TargetType="Label">
+			<Style x:Key="Styl_lbl1" TargetType="Label">
 				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
-				<Setter Property="FontSize" Value="15"></Setter>
-				<Setter Property="Font" Value="Bold"></Setter>
+				<Setter Property="FontSize" Value="16"></Setter>
+				<Setter Property="FontAttributes" Value="Bold"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="End"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_lbl2" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="16"></Setter>
+				<Setter Property="FontAttributes" Value="None"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="Start"></Setter>
 			</Style>
 
 			<Style x:Key="Styl_btn" TargetType="Button">
-				<!-- Styl ustawia kolor buttona na czerwony i text na bialy-->
+				<!-- bialy napis na czerwonym przycisku -->
 				<Setter Property="BackgroundColor" Value="#A71930"></Setter>
 				<Setter Property="TextColor" Value="#FFFFFF"></Setter>
-				<Setter Property="FontSize" Value="30"></Setter>
-			</Style>
-			<Style x:Key="styl_stackLay" TargetType="StackLayout">
+				<Setter Property="FontSize" Value="20"></Setter>
+				<Setter Property="VerticalOptions" Value="FillAndExpand"></Setter>
 			</Style>
 		</ResourceDictionary>
 	</ContentPage.Resources>
+
 	<ContentPage.Content>
 		<Grid>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="40" />
-				<RowDefinition Height="40" />
-				<RowDefinition Height="40" />
-				<RowDefinition Height="50" />
+				<RowDefinition Height="35" />
+				<RowDefinition Height="35" />
+				<RowDefinition Height="35" />
+				<RowDefinition Height="70" />
 			</Grid.RowDefinitions>
 
-			<Label Text="Imię:" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-			<Label x:Name="lbl_name" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource Styl_lbl}"></Label>
-			<Label Text="Nazwisko:" Grid.Row="1" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-			<Label x:Name="lbl_surname" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource Styl_lbl}"></Label>
-			<Label Text="Adres e-mail:" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" HorizontalOptions="End" Style="{StaticResource Styl_lbl}"></Label>
-			<Label x:Name="lbl_email" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" HorizontalOptions="Start" Style="{StaticResource Styl_lbl}"></Label>
-			<Button Text="Edytuj profil" x:Name="btn_editprofile" Grid.Row="3" Grid.ColumnSpan="2" VerticalOptions="End" Clicked="btn_editprofile_Clicked"/>
+			<Label Text="Imię:" Grid.Row="0" Grid.Column="0" Style="{StaticResource Styl_lbl1}"></Label>
+			<Label x:Name="lbl_name" Grid.Row="0" Grid.Column="1" Style="{StaticResource Styl_lbl2}"></Label>
+
+			<Label Text="Nazwisko:" Grid.Row="1" Grid.Column="0" Style="{StaticResource Styl_lbl1}"></Label>
+			<Label x:Name="lbl_surname" Grid.Row="1" Grid.Column="1" Style="{StaticResource Styl_lbl2}"></Label>
+
+			<Label Text="Adres e-mail:" Grid.Row="2" Grid.Column="0" Style="{StaticResource Styl_lbl1}"></Label>
+			<Label x:Name="lbl_email" Grid.Row="2" Grid.Column="1" Style="{StaticResource Styl_lbl2}"></Label>
+
+			<Button Text="Edytuj profil" x:Name="btn_editprofile" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Style="{StaticResource Styl_btn}" Clicked="btn_editprofile_Clicked"/>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

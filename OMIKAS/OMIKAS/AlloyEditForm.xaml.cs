@@ -10,11 +10,24 @@ namespace OMIKAS
 {
 	public partial class AlloyEditForm : ContentPage
 	{
-		//if true then add, else edit
+		/// <summary>
+		/// if true then add, else edit. Używane w momencie wciśnięcia przycisku "Dodaj"
+		/// </summary>
 		private bool isEdited;
-		//indeks stopu na liscie stopow/wytopow
+
+		/// <summary>
+		/// indeks stopu na liscie stopow
+		/// </summary>
 		private int indeksOfAlloy;
+
+		/// <summary>
+		/// Pomocniczy stop ktory jest edytowany
+		/// </summary>
 		private Alloy al;
+
+		/// <summary>
+		/// Konstruktor okna z formularzem dodającym
+		/// </summary>
 		public AlloyEditForm()
 		{
 			InitializeComponent();
@@ -22,6 +35,11 @@ namespace OMIKAS
 			this.btn_action.Text = this.Title = "Dodaj stop";
 		}
 
+		/// <summary>
+		/// Konstruktor okna z formularzem edytujacym stop
+		/// </summary>
+		/// <param name="metal">Konkretny stop ktory jest edytowany</param>
+		/// <param name="indeks">Jego indeks na liscie</param>
 		public AlloyEditForm(Alloy metal, int indeks)
 		{
 			InitializeComponent();
@@ -29,15 +47,14 @@ namespace OMIKAS
 
 			al = metal;
 			this.indeksOfAlloy = indeks;
-			this.btn_action.Text = this.Title = "Edytuj stop";
+			this.btn_action.Text = "Edytuj stop";
+			this.Title = "Edytuj \"" + metal.name + "\"";
 
+			//W inputy wstaw nazwę i cenę
 			entName.Text = metal.name;
 			entPrice.Text = metal.Price.ToString();
 
-			//TODO: W stopach masa jest nie potrzebna, albo usunac albo zrobic jakas funkcje zliczajaca ilosc stopow w magazynie.
-			entWeight.Text = metal.Weight.ToString();
-
-
+			//W inputy wstaw zawartości chemiczne stopu
 			entFe.Text = metal.Fe.ToString();
 			entC.Text = metal.C.ToString();
 			entSi.Text = metal.Si.ToString();
@@ -69,34 +86,30 @@ namespace OMIKAS
 			entO.Text = metal.O.ToString();
 		}
 
-
 		/// <summary>
-		/// Przycisk edytujacy lub dodajacy nowy produkt w zaleznosci od tego jaki jest aktualnie ekran wyswietlany
+		/// Funkcja edytujaca lub dodajacy nowy produkt (po wcisnieciu btn) w zaleznosci od tego jaki jest aktualnie ekran wyswietlany
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		private async void btn_action_Clicked(object sender, EventArgs e)
 		{
-			//TODO: PRZYCISK KTORY DODAJAC NIE POWRACA DO POPRZEDNIEGO EKRANU TYLKO ODPALA SZYBKIE DOAWANIE KOLEJNEGO STOPU/WYTOPU
-			//TODO: SORTOWANIE ALFABETYCZNE CALEJ LISTY PO NAZWACH
-
-			//Jezeli to ekran edycji i operujemy na liscie skladnikow
-			if(isEdited)
-			{
-				//App.alloymetals.RemoveAt(indeksOfAlloy); //to usun z listy stopow
-				App.DAUtil.DeleteAlloy(al);
-			}
-
-			//i edytowane zawartosci z pol zapisz do odpowiedniej listy
-			Alloy met = new Alloy();
+			//Czy nazwa jest pusta
 			if(!string.IsNullOrWhiteSpace(entName.Text))
 			{
+				if(isEdited)
+				{
+					App.DAUtil.DeleteAlloy(al); //to usun z listy stopow
+				}
+
+				Alloy met = new Alloy();
 				//przekazanie wartosci z pol do nowego metalu który
-				met = Alloy.addNewAlloy(this, entName.Text, entPrice.Text, entWeight.Text, entFe.Text, entC.Text, entSi.Text, entMn.Text, entP.Text, entS.Text, entCr.Text, entMo.Text, entNi.Text, entAl.Text, entCo.Text, entCu.Text, entNb.Text, entTi.Text, entV.Text, entW.Text, entPb.Text, entSn.Text, entB.Text, entCa.Text, entZr.Text, entAs.Text, entBi.Text, entSb.Text, entZn.Text, entMg.Text, entN.Text, entH.Text, entO.Text);
+				met = Alloy.addNewAlloy(this, entName.Text, entPrice.Text, entFe.Text, entC.Text, entSi.Text, entMn.Text, entP.Text, entS.Text, entCr.Text, entMo.Text, entNi.Text, entAl.Text, entCo.Text, entCu.Text, entNb.Text, entTi.Text, entV.Text, entW.Text, entPb.Text, entSn.Text, entB.Text, entCa.Text, entZr.Text, entAs.Text, entBi.Text, entSb.Text, entZn.Text, entMg.Text, entN.Text, entH.Text, entO.Text);
+				//Dodaj do bazy
 				App.DAUtil.SaveAlloy(met);
-				//App.alloymetals.Add(met); //dodamy do listy skladnikow
+				await Navigation.PopAsync();
 			}
-			await Navigation.PopAsync();
+			else
+				await DisplayAlert("Error", "Nie można stworzyć stopu bez nazwy!", "OK");
 		}
 	}
 }

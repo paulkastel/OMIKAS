@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="Save_iOS.cs" />
     <Compile Include="SQLiteService.cs" />
     <None Include="app.config" />
     <None Include="Entitlements.plist" />

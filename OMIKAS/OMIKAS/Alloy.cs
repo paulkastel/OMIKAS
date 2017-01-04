@@ -9,15 +9,19 @@ using SQLite.Net.Attributes;
 
 namespace OMIKAS
 {
+	/// <summary>
+	/// Skladnik stopowy (stop metalu)
+	/// </summary>
 	public class Alloy
 	{
 		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
 
 		/// <summary>
-		/// Nazwa produktu (stopu lub wytopu
+		/// Nazwa stopu
 		/// </summary>
 		public string name { get; set; }
+
 		public double Fe { get; set; }
 		public double C { get; set; }
 		public double Si { get; set; }
@@ -35,7 +39,6 @@ namespace OMIKAS
 		public double V { get; set; }
 		public double W { get; set; }
 		public double Pb { get; set; }
-
 		public double Sn { get; set; }
 		public double B { get; set; }
 		public double Ca { get; set; }
@@ -49,17 +52,20 @@ namespace OMIKAS
 		public double H { get; set; }
 		public double O { get; set; }
 
-
 		/// <summary>
 		/// Cena stopu/wytopu
 		/// </summary>
 		public double Price { get; set; }
-		public double Weight { get; set; }
 
+		/// <summary>
+		/// Lista wszystkich pierwiastkow w kolejnosci
+		/// </summary>
 		public double[] tabOfElements;
+
 		/// <summary>
 		/// Wypelnia tabOFElements wszystkimi pierwiastkami
 		/// </summary>
+		/// <param name="m">Konkretny stop z ktorego pobierane sa dane do tab</param>
 		public void createTabOfElements(Alloy m)
 		{
 			tabOfElements[0] = m.Fe;
@@ -94,11 +100,13 @@ namespace OMIKAS
 			tabOfElements[28] = m.O;
 		}
 
+		/// <summary>
+		/// Konstruktor stopu. Inicjalizuje tabOfElements
+		/// </summary>
 		public Alloy()
 		{
 			tabOfElements = new double[29];
 		}
-
 
 		/// <summary>
 		/// Funkcja tworzacy produkt metal z wypelnionymi danymi ktore pobiera z pol tekstowych
@@ -106,11 +114,10 @@ namespace OMIKAS
 		/// <param name="page">Strona na ktorej moze sie pojawic error</param>
 		/// <param name="name">nazwa produktu</param>
 		/// <param name="price">cena produktu</param>
-		/// <param name="weight">masa produktu</param>
 		/// <param name="fe">zawartosc zelaza w produkcie</param>
 		/// <param name="c">zawartosc wegla w produkcie</param>
 		/// <param name="si">zawartosc krzemu w produkcie</param>
-		/// <param name="mn"></param>
+		/// <param name="mn">zawartosc manganu</param>
 		/// <param name="p">zawartosc fosforu w produkcie</param>
 		/// <param name="s"></param>
 		/// <param name="cr"></param>
@@ -125,7 +132,7 @@ namespace OMIKAS
 		/// <param name="w"></param>
 		/// <param name="pb">zawartosc olowiu w produkcie</param>
 		/// <returns>Gotowy metal z wypelnionymi danymi</returns>
-		public static Alloy addNewAlloy(Xamarin.Forms.Page page, string name, string price, string weight, string fe, string c, string si, string mn, string p, string s, string cr, string mo, string ni, string al, string co, string cu, string nb, string ti, string v, string w, string pb, string sn, string b, string ca, string zr, string aas, string bi, string sb, string zn, string mg, string n, string h, string o)
+		public static Alloy addNewAlloy(Xamarin.Forms.Page page, string name, string price, string fe, string c, string si, string mn, string p, string s, string cr, string mo, string ni, string al, string co, string cu, string nb, string ti, string v, string w, string pb, string sn, string b, string ca, string zr, string aas, string bi, string sb, string zn, string mg, string n, string h, string o)
 		{
 			Alloy metal = new Alloy();
 			//parsuj najwazniejsze dane
@@ -133,7 +140,6 @@ namespace OMIKAS
 			{
 				metal.name = name;
 				metal.Price = metal.parseThatValue(page, price);
-				metal.Weight = metal.parseThatValue(page, weight);
 
 				//parsuj dane skladnikow
 				metal.Fe = metal.parseThatValue(page, fe);
@@ -166,8 +172,8 @@ namespace OMIKAS
 				metal.H = metal.parseThatValue(page, h);
 				metal.O = metal.parseThatValue(page, o);
 
-				metal.createTabOfElements(metal);
-				metal.checkIfOK(page);
+				metal.createTabOfElements(metal); //Wszystkie pierwiastki leca do tablicy
+				metal.checkIfOK(page); //Sprawdzam czy suma wszystkich stopow nie przekaracza 100%
 			}
 			catch(Exception ex)
 			{
@@ -176,7 +182,11 @@ namespace OMIKAS
 
 			return metal;
 		}
-
+		
+		/// <summary>
+		/// Sprawdzenie czy suma wszystkich pierwiastkow nie jest większa niż 100%
+		/// </summary>
+		/// <param name="page">Strona na ktorej pojawi się ewentualny komunikat o błędzie</param>
 		private void checkIfOK(Xamarin.Forms.Page page)
 		{
 			double suma=0;
@@ -186,7 +196,6 @@ namespace OMIKAS
 			}
 			if(suma > 100)
 				page.DisplayAlert("Warning!", "Suma procentowa wszystkich elementów przekracza 100%", "Zrozumialem");
-
 		}
 
 		/// <summary>
@@ -194,7 +203,7 @@ namespace OMIKAS
 		/// </summary>
 		/// <param name="page">Strona na ktorej wyswietli sie error</param>
 		/// <param name="element">liczba ktora chcemy przekonwertowac na double</param>
-		/// <returns></returns>
+		/// <returns>Wartosc zalezna od stringu</returns>
 		private Double parseThatValue(Xamarin.Forms.Page page, string element)
 		{
 			double num = 0;

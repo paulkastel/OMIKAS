@@ -1,176 +1,200 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-	<!-- Okno ze szczegolami dot kliknietego stopu metali -->
+<!-- Okno ze szczegolami dot kliknietego stopu metali -->
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="OMIKAS.SmeltDetailForm"
 			 BackgroundColor="#FFFFFF">
 	<ContentPage.ToolbarItems>
-		<ToolbarItem Text="Edytuj"/>
+		<ToolbarItem Text="Edytuj" Clicked="ToolbarItem_Clicked"/>
 	</ContentPage.ToolbarItems>
+
+	<!-- Style etykiet -->
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="Styl_lbl1" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="17"></Setter>
+				<Setter Property="FontAttributes" Value="Bold"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalTextAlignment" Value="Center"></Setter>
+			</Style>
+
+			<Style x:Key="Styl_lbl2" TargetType="Label">
+				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
+				<Setter Property="FontSize" Value="15"></Setter>
+				<Setter Property="FontAttributes" Value="None"></Setter>
+				<Setter Property="VerticalOptions" Value="Center"></Setter>
+				<Setter Property="HorizontalOptions" Value="Center"></Setter>
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
 	<ContentPage.Content>
 		<ScrollView>
 			<Grid HorizontalOptions="Center">
+				<!-- Rozmiary siatki -->
 				<Grid.RowDefinitions>
 					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
-					<RowDefinition Height="40" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
+					<RowDefinition Height="25" />
 					<RowDefinition Height="40" />
 				</Grid.RowDefinitions>
-				
 				<Grid.ColumnDefinitions>
 					<ColumnDefinition Width="30"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
-					<ColumnDefinition Width="*"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
+					<ColumnDefinition Width="100"/>
 				</Grid.ColumnDefinitions>
-				
-				<Label Text="MIN" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="0"></Label>
-				<Label Text="MAX" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="0"></Label>
-				<Label Text="WSP" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="0"></Label>
 
-				<Label Text="Fe" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="1"></Label>
-				<Label Text="C" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="2"></Label>
-				<Label Text="Si" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="3"></Label>
-				<Label Text="Mn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="4"></Label>
-				<Label Text="P" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="5"></Label>
-				<Label Text="S" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="6"></Label>
-				<Label Text="Cr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="7"></Label>
-				<Label Text="Mo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="8"></Label>
-				<Label Text="Ni" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="9"></Label>
-				<Label Text="Al" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="10"></Label>
-				<Label Text="Co" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="11"></Label>
-				<Label Text="Cu" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="12"></Label>
-				<Label Text="Nb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="13"></Label>
-				<Label Text="Ti" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="14"></Label>
-				<Label Text="V" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="15"></Label>
-				<Label Text="W" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="16"></Label>
-				<Label Text="Pb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="17"></Label>
-				<Label Text="Sn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="18"></Label>
-				<Label Text="B" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="19"></Label>
-				<Label Text="Ca" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="20"></Label>
-				<Label Text="Zr" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="21"></Label>
-				<Label Text="As" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="22"></Label>
-				<Label Text="Bi" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="23"></Label>
-				<Label Text="Sb" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="24"></Label>
-				<Label Text="Zn" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="25"></Label>
-				<Label Text="Mg" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="26"></Label>
-				<Label Text="N" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="27"></Label>
-				<Label Text="H" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="28"></Label>
-				<Label Text="O" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="0" Grid.Row="29"></Label>
+				<Label Text="Zaw. min. [%]" Style="{StaticResource Styl_lbl1}" Grid.Column="1" Grid.Row="0"></Label>
+				<Label Text="Zaw. maks. [%]" Style="{StaticResource Styl_lbl1}" Grid.Column="2" Grid.Row="0"></Label>
+				<Label Text="Wsp. parowania" Style="{StaticResource Styl_lbl1}" Grid.Column="3" Grid.Row="0"></Label>
 
-				<Label x:Name="Fe_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="1"></Label>
-				<Label x:Name="C_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="2"></Label>
-				<Label x:Name="Si_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="3"></Label>
-				<Label x:Name="Mn_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="4"></Label>
-				<Label x:Name="P_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="5"></Label>
-				<Label x:Name="S_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="6"></Label>
-				<Label x:Name="Cr_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="7"></Label>
-				<Label x:Name="Mo_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="8"></Label>
-				<Label x:Name="Ni_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="9"></Label>
-				<Label x:Name="Al_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="10"></Label>
-				<Label x:Name="Co_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="11"></Label>
-				<Label x:Name="Cu_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="12"></Label>
-				<Label x:Name="Nb_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="13"></Label>
-				<Label x:Name="Ti_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="14"></Label>
-				<Label x:Name="V_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="15"></Label>
-				<Label x:Name="W_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="16"></Label>
-				<Label x:Name="Pb_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="17"></Label>
-				<Label x:Name="Sn_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="18"></Label>
-				<Label x:Name="B_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="19"></Label>
-				<Label x:Name="Ca_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="20"></Label>
-				<Label x:Name="Zr_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="21"></Label>
-				<Label x:Name="As_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="22"></Label>
-				<Label x:Name="Bi_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="23"></Label>
-				<Label x:Name="Sb_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="24"></Label>
-				<Label x:Name="Zn_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="25"></Label>
-				<Label x:Name="Mg_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="26"></Label>
-				<Label x:Name="N_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="27"></Label>
-				<Label x:Name="H_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="28"></Label>
-				<Label x:Name="O_min" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="1" Grid.Row="29"></Label>
+				<Label Text="Fe" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="1"></Label>
+				<Label Text="C" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="2"></Label>
+				<Label Text="Si" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="3"></Label>
+				<Label Text="Mn" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="4"></Label>
+				<Label Text="P" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="5"></Label>
+				<Label Text="S" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="6"></Label>
+				<Label Text="Cr" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="7"></Label>
+				<Label Text="Mo" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="8"></Label>
+				<Label Text="Ni" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="9"></Label>
+				<Label Text="Al" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="10"></Label>
+				<Label Text="Co" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="11"></Label>
+				<Label Text="Cu" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="12"></Label>
+				<Label Text="Nb" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="13"></Label>
+				<Label Text="Ti" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="14"></Label>
+				<Label Text="V" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="15"></Label>
+				<Label Text="W" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="16"></Label>
+				<Label Text="Pb" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="17"></Label>
+				<Label Text="Sn" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="18"></Label>
+				<Label Text="B" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="19"></Label>
+				<Label Text="Ca" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="20"></Label>
+				<Label Text="Zr" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="21"></Label>
+				<Label Text="As" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="22"></Label>
+				<Label Text="Bi" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="23"></Label>
+				<Label Text="Sb" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="24"></Label>
+				<Label Text="Zn" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="25"></Label>
+				<Label Text="Mg" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="26"></Label>
+				<Label Text="N" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="27"></Label>
+				<Label Text="H" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="28"></Label>
+				<Label Text="O" Style="{StaticResource Styl_lbl1}" Grid.Column="0" Grid.Row="29"></Label>
 
-				<Label x:Name="Fe_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="1"></Label>
-				<Label x:Name="C_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="2"></Label>
-				<Label x:Name="Si_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="3"></Label>
-				<Label x:Name="Mn_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="4"></Label>
-				<Label x:Name="P_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="5"></Label>
-				<Label x:Name="S_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="6"></Label>
-				<Label x:Name="Cr_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="7"></Label>
-				<Label x:Name="Mo_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="8"></Label>
-				<Label x:Name="Ni_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="9"></Label>
-				<Label x:Name="Al_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="10"></Label>
-				<Label x:Name="Co_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="11"></Label>
-				<Label x:Name="Cu_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="12"></Label>
-				<Label x:Name="Nb_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="13"></Label>
-				<Label x:Name="Ti_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="14"></Label>
-				<Label x:Name="V_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="15"></Label>
-				<Label x:Name="W_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="16"></Label>
-				<Label x:Name="Pb_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="17"></Label>
-				<Label x:Name="Sn_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="18"></Label>
-				<Label x:Name="B_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="19"></Label>
-				<Label x:Name="Ca_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="20"></Label>
-				<Label x:Name="Zr_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="21"></Label>
-				<Label x:Name="As_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="22"></Label>
-				<Label x:Name="Bi_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="23"></Label>
-				<Label x:Name="Sb_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="24"></Label>
-				<Label x:Name="Zn_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="25"></Label>
-				<Label x:Name="Mg_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="26"></Label>
-				<Label x:Name="N_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="27"></Label>
-				<Label x:Name="H_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="28"></Label>
-				<Label x:Name="O_max" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="2" Grid.Row="29"></Label>
+				<Label x:Name="Fe_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="1"></Label>
+				<Label x:Name="C_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="2"></Label>
+				<Label x:Name="Si_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="3"></Label>
+				<Label x:Name="Mn_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="4"></Label>
+				<Label x:Name="P_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="5"></Label>
+				<Label x:Name="S_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="6"></Label>
+				<Label x:Name="Cr_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="7"></Label>
+				<Label x:Name="Mo_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="8"></Label>
+				<Label x:Name="Ni_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="9"></Label>
+				<Label x:Name="Al_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="10"></Label>
+				<Label x:Name="Co_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="11"></Label>
+				<Label x:Name="Cu_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="12"></Label>
+				<Label x:Name="Nb_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="13"></Label>
+				<Label x:Name="Ti_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="14"></Label>
+				<Label x:Name="V_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="15"></Label>
+				<Label x:Name="W_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="16"></Label>
+				<Label x:Name="Pb_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="17"></Label>
+				<Label x:Name="Sn_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="18"></Label>
+				<Label x:Name="B_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="19"></Label>
+				<Label x:Name="Ca_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="20"></Label>
+				<Label x:Name="Zr_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="21"></Label>
+				<Label x:Name="As_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="22"></Label>
+				<Label x:Name="Bi_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="23"></Label>
+				<Label x:Name="Sb_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="24"></Label>
+				<Label x:Name="Zn_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="25"></Label>
+				<Label x:Name="Mg_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="26"></Label>
+				<Label x:Name="N_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="27"></Label>
+				<Label x:Name="H_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="28"></Label>
+				<Label x:Name="O_min" Style="{StaticResource Styl_lbl2}" Grid.Column="1" Grid.Row="29"></Label>
 
-				<Label x:Name="Fe_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="1"></Label>
-				<Label x:Name="C_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="2"></Label>
-				<Label x:Name="Si_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="3"></Label>
-				<Label x:Name="Mn_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="4"></Label>
-				<Label x:Name="P_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="5"></Label>
-				<Label x:Name="S_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="6"></Label>
-				<Label x:Name="Cr_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="7"></Label>
-				<Label x:Name="Mo_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="8"></Label>
-				<Label x:Name="Ni_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="9"></Label>
-				<Label x:Name="Al_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="10"></Label>
-				<Label x:Name="Co_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="11"></Label>
-				<Label x:Name="Cu_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="12"></Label>
-				<Label x:Name="Nb_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="13"></Label>
-				<Label x:Name="Ti_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="14"></Label>
-				<Label x:Name="V_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="15"></Label>
-				<Label x:Name="W_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="16"></Label>
-				<Label x:Name="Pb_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="17"></Label>
-				<Label x:Name="Sn_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="18"></Label>
-				<Label x:Name="B_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="19"></Label>
-				<Label x:Name="Ca_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="20"></Label>
-				<Label x:Name="Zr_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="21"></Label>
-				<Label x:Name="As_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="22"></Label>
-				<Label x:Name="Bi_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="23"></Label>
-				<Label x:Name="Sb_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="24"></Label>
-				<Label x:Name="Zn_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="25"></Label>
-				<Label x:Name="Mg_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="26"></Label>
-				<Label x:Name="N_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="27"></Label>
-				<Label x:Name="H_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="28"></Label>
-				<Label x:Name="O_evo" VerticalOptions="Center" HorizontalOptions="End" Grid.Column="3" Grid.Row="29"></Label>
+				<Label x:Name="Fe_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="1"></Label>
+				<Label x:Name="C_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="2"></Label>
+				<Label x:Name="Si_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="3"></Label>
+				<Label x:Name="Mn_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="4"></Label>
+				<Label x:Name="P_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="5"></Label>
+				<Label x:Name="S_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="6"></Label>
+				<Label x:Name="Cr_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="7"></Label>
+				<Label x:Name="Mo_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="8"></Label>
+				<Label x:Name="Ni_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="9"></Label>
+				<Label x:Name="Al_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="10"></Label>
+				<Label x:Name="Co_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="11"></Label>
+				<Label x:Name="Cu_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="12"></Label>
+				<Label x:Name="Nb_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="13"></Label>
+				<Label x:Name="Ti_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="14"></Label>
+				<Label x:Name="V_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="15"></Label>
+				<Label x:Name="W_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="16"></Label>
+				<Label x:Name="Pb_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="17"></Label>
+				<Label x:Name="Sn_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="18"></Label>
+				<Label x:Name="B_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="19"></Label>
+				<Label x:Name="Ca_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="20"></Label>
+				<Label x:Name="Zr_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="21"></Label>
+				<Label x:Name="As_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="22"></Label>
+				<Label x:Name="Bi_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="23"></Label>
+				<Label x:Name="Sb_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="24"></Label>
+				<Label x:Name="Zn_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="25"></Label>
+				<Label x:Name="Mg_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="26"></Label>
+				<Label x:Name="N_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="27"></Label>
+				<Label x:Name="H_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="28"></Label>
+				<Label x:Name="O_max" Style="{StaticResource Styl_lbl2}" Grid.Column="2" Grid.Row="29"></Label>
+
+				<Label x:Name="Fe_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="1"></Label>
+				<Label x:Name="C_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="2"></Label>
+				<Label x:Name="Si_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="3"></Label>
+				<Label x:Name="Mn_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="4"></Label>
+				<Label x:Name="P_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="5"></Label>
+				<Label x:Name="S_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="6"></Label>
+				<Label x:Name="Cr_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="7"></Label>
+				<Label x:Name="Mo_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="8"></Label>
+				<Label x:Name="Ni_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="9"></Label>
+				<Label x:Name="Al_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="10"></Label>
+				<Label x:Name="Co_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="11"></Label>
+				<Label x:Name="Cu_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="12"></Label>
+				<Label x:Name="Nb_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="13"></Label>
+				<Label x:Name="Ti_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="14"></Label>
+				<Label x:Name="V_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="15"></Label>
+				<Label x:Name="W_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="16"></Label>
+				<Label x:Name="Pb_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="17"></Label>
+				<Label x:Name="Sn_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="18"></Label>
+				<Label x:Name="B_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="19"></Label>
+				<Label x:Name="Ca_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="20"></Label>
+				<Label x:Name="Zr_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="21"></Label>
+				<Label x:Name="As_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="22"></Label>
+				<Label x:Name="Bi_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="23"></Label>
+				<Label x:Name="Sb_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="24"></Label>
+				<Label x:Name="Zn_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="25"></Label>
+				<Label x:Name="Mg_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="26"></Label>
+				<Label x:Name="N_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="27"></Label>
+				<Label x:Name="H_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="28"></Label>
+				<Label x:Name="O_evo" Style="{StaticResource Styl_lbl2}" Grid.Column="3" Grid.Row="29"></Label>
 			</Grid>
 		</ScrollView>
 	</ContentPage.Content>

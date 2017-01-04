@@ -9,11 +9,17 @@ using SQLite.Net.Attributes;
 
 namespace OMIKAS
 {
+	/// <summary>
+	/// Wytop
+	/// </summary>
 	public class Smelt
 	{
 		[PrimaryKey, AutoIncrement]
 		public int ID { get; set; }
 
+		/// <summary>
+		/// nazwa wytopu
+		/// </summary>
 		public string name { get; set; }
 		public double Weight { get; set; }
 
@@ -117,10 +123,24 @@ namespace OMIKAS
 		public double O_evo { get; set; }
 		#endregion
 
+		/// <summary>
+		/// Tablica z minimalnymi normami
+		/// </summary>
 		public double[] min_Norm;
+
+		/// <summary>
+		/// Tablica z maksymalnymi normami
+		/// </summary>
 		public double[] max_Norm;
+
+		/// <summary>
+		/// Tablica zawierajaca wsp parowania
+		/// </summary>
 		public double[] evoporation;
 
+		/// <summary>
+		/// Konstruktor wytopu. Inicjalizacja 3 tablic
+		/// </summary>
 		public Smelt()
 		{
 			min_Norm = new double[29];
@@ -128,6 +148,10 @@ namespace OMIKAS
 			evoporation = new double[29];
 		}
 
+		/// <summary>
+		/// Wypelnia tablice maksimow z danego wytopu
+		/// </summary>
+		/// <param name="s">wytop z ktorego brane sa dane</param>
 		public void createTabofMaxNorm(Smelt s)
 		{
 			max_Norm[0] = s.Fe_max;
@@ -162,6 +186,10 @@ namespace OMIKAS
 			max_Norm[28] = s.O_max;
 		}
 
+		/// <summary>
+		/// Wypelnia tablice minimow z danego wytopu
+		/// </summary>
+		/// <param name="s">Wytop z ktorego brane sa dane</param>
 		public void createTabofMinNorm(Smelt s)
 		{
 			min_Norm[0] = s.Fe_min;
@@ -196,6 +224,10 @@ namespace OMIKAS
 			min_Norm[28] = s.O_min;
 		}
 
+		/// <summary>
+		/// Wypelnia tablice wsp parowania z danego wytopu
+		/// </summary>
+		/// <param name="s">Wytop z ktorego brane sa dane</param>
 		public void createTabofEvoporation(Smelt s)
 		{
 			evoporation[0] = s.Fe_evo;
@@ -230,6 +262,99 @@ namespace OMIKAS
 			evoporation[28] = s.O_evo;
 		}
 
+		/// <summary>
+		/// Funkcja tworzaca nowy wytop z danymi
+		/// </summary>
+		/// <param name="page">Strona na ktorej jest wyswietlany ewentualny error</param>
+		/// <param name="name">Nazwa wytopu</param>
+		/// <param name="femin">Minimalna zawartosc zelaza w wytopie</param>
+		/// <param name="femax">Maks. zaw. zelaza w wytopie</param>
+		/// <param name="feevo">Wsp. parowania zelaza</param>
+		/// <param name="cmin"></param>
+		/// <param name="cmax"></param>
+		/// <param name="cevo">Wsp. parowania wegla</param>
+		/// <param name="simin"></param>
+		/// <param name="simax">Max. zaw. krzemu</param>
+		/// <param name="sievo"></param>
+		/// <param name="mnmin"></param>
+		/// <param name="mnmax"></param>
+		/// <param name="mnevo">Wsp. parowania manganu</param>
+		/// <param name="pmin"></param>
+		/// <param name="pmax">Max. zaw.fosforu</param>
+		/// <param name="pevo"></param>
+		/// <param name="smin"></param>
+		/// <param name="smax"></param>
+		/// <param name="sevo">Wsp. parowania krzemu</param>
+		/// <param name="crmin"></param>
+		/// <param name="crmax">Max. zaw. chromu</param>
+		/// <param name="crevo"></param>
+		/// <param name="momin">Min. zaw. molibdenu</param>
+		/// <param name="momax">Max. zaw. molibdenu</param>
+		/// <param name="moevo"></param>
+		/// <param name="nimin">Min. zaw. niklu</param>
+		/// <param name="nimax">Max. zaw. niklu</param>
+		/// <param name="nievo"></param>
+		/// <param name="almin">Min. zaw. aluminium</param>
+		/// <param name="almax">Max. zaw. alum</param>
+		/// <param name="alevo">Wsp. parowania aluminium</param>
+		/// <param name="comin"></param>
+		/// <param name="comax"></param>
+		/// <param name="coevo"></param>
+		/// <param name="cumin"></param>
+		/// <param name="cumax"></param>
+		/// <param name="cuevo">Wsp. parowania miedzi</param>
+		/// <param name="nbmin"></param>
+		/// <param name="nbmax"></param>
+		/// <param name="nbevo"></param>
+		/// <param name="timin">Min. zaw. tytanu</param>
+		/// <param name="timax"></param>
+		/// <param name="tievo"></param>
+		/// <param name="vmin"></param>
+		/// <param name="vmax"></param>
+		/// <param name="vevo"></param>
+		/// <param name="wmin"></param>
+		/// <param name="wmax"></param>
+		/// <param name="wevo"></param>
+		/// <param name="pbmin"></param>
+		/// <param name="pbmax"></param>
+		/// <param name="pbevo">Wsp. parowania olowiu</param>
+		/// <param name="snmin"></param>
+		/// <param name="snmax"></param>
+		/// <param name="snevo"></param>
+		/// <param name="bmin"></param>
+		/// <param name="bmax"></param>
+		/// <param name="bevo"></param>
+		/// <param name="camin">Min. zaw. wapnia</param>
+		/// <param name="camax"></param>
+		/// <param name="caevo"></param>
+		/// <param name="zrmin"></param>
+		/// <param name="zrmax"></param>
+		/// <param name="zrevo"></param>
+		/// <param name="asmin"></param>
+		/// <param name="asmax"></param>
+		/// <param name="asevo"></param>
+		/// <param name="bimin"></param>
+		/// <param name="bimax"></param>
+		/// <param name="bievo"></param>
+		/// <param name="sbmin"></param>
+		/// <param name="sbmax"></param>
+		/// <param name="sbevo"></param>
+		/// <param name="znmin"></param>
+		/// <param name="znmax"></param>
+		/// <param name="znevo"></param>
+		/// <param name="mgmin"></param>
+		/// <param name="mgmax"></param>
+		/// <param name="mgevo">Wsp. parowania magnezu</param>
+		/// <param name="nmin">Min. zaw. azotu</param>
+		/// <param name="nmax"></param>
+		/// <param name="nevo"></param>
+		/// <param name="hmin">Min. zaw. wodoru</param>
+		/// <param name="hmax"></param>
+		/// <param name="hevo"></param>
+		/// <param name="omin"></param>
+		/// <param name="omax"></param>
+		/// <param name="oevo"></param>
+		/// <returns>Stop z danymi</returns>
 		public static Smelt addNewSmelt(Xamarin.Forms.Page page, string name,
 			string femin, string femax, string feevo,
 			string cmin, string cmax, string cevo,
@@ -264,6 +389,7 @@ namespace OMIKAS
 			Smelt sm = new Smelt();
 			try
 			{
+				//nazwa z pola jest nazwa wytopu
 				sm.name = name;
 				sm.Fe_min = sm.parseThatValue(page, femin, false);
 				sm.Fe_max = sm.parseThatValue(page, femax, true);
@@ -381,31 +507,47 @@ namespace OMIKAS
 				sm.O_max = sm.parseThatValue(page, omax, true);
 				sm.O_evo = sm.parseThatValue(page, oevo, false);
 
-
+				//wypelnij tablice wszystkich danych
 				sm.createTabofMinNorm(sm);
 				sm.createTabofMaxNorm(sm);
-				sm.checkifNormOK(page);
 				sm.createTabofEvoporation(sm);
 
+				//Spprawdzenie czy zawartosci w wytopie sa poprawne [min < max]
+				sm.checkifNormOK(page);
 			}
 			catch(Exception ex)
 			{
+				//Jezeli cokolwiek pojdzie zle to wyswietl blad
 				page.DisplayAlert("Dziwny error", ex.ToString(), "OK");
 			}
+			//zwroc wytop
 			return sm;
 		}
 
+		/// <summary>
+		/// Sprawdza czy dane sa w porzadku
+		/// </summary>
+		/// <param name="page">Strona na ktorej jest wyswietlany komunikat o bledzie</param>
 		private void checkifNormOK(Xamarin.Forms.Page page)
 		{
 			for(int i = 0; i < min_Norm.Count(); i++)
 			{
+				//Dla kazdego elementu sprawdz czy wartosc minalna jest mniejsza niz maksymalna
 				if(min_Norm[i] > max_Norm[i])
 				{
+					//Jezeli jest zle pokaz komunikat
 					page.DisplayAlert("Warning!", "W " + (i + 1).ToString() + " pierwiastku norma minimalna jest większa od maksymalnej.", "Zrozumiałem");
 				}
 			}
 		}
 
+		/// <summary>
+		/// Funkcja zamieniajaca stringi na double, jezeli to mozliwe
+		/// </summary>
+		/// <param name="page">Strona na ktorej wyswietlany bedzie komunikat</param>
+		/// <param name="element">tekst ktory ma byc zmieniony na liczbe</param>
+		/// <param name="isMax">Jezeli true to zwraca 100% (maks), a nie 0</param>
+		/// <returns>Zmieniona liczba</returns>
 		private Double parseThatValue(Xamarin.Forms.Page page, string element, bool isMax)
 		{
 			double num = 0;
@@ -435,6 +577,5 @@ namespace OMIKAS
 				return 0;
 			}
 		}
-
 	}
 }

@@ -22,7 +22,7 @@
 	<ContentPage.Content>
 		<!-- Stacklayout - elementy jeden pod drugim na srodku -->
 		<StackLayout VerticalOptions="Center" HorizontalOptions="Center">
-			<Label x:Name="lbl_welcome" Style="{StaticResource Styl_lbl}"></Label>
+			<Label x:Name="lbl_welcome" Style="{StaticResource Styl_lbl}" FontSize="25"></Label>
 			<Label x:Name="lbl_all_stat" Style="{StaticResource Styl_lbl}"></Label>
 			<Label x:Name="lbl_smel_stat" Style="{StaticResource Styl_lbl}"></Label>
 		</StackLayout>

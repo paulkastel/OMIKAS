@@ -10,6 +10,9 @@ namespace OMIKAS
 {
     public partial class SettingInfoForm : ContentPage
     {
+		/// <summary>
+		/// Konstruktor. Nothing to do here.
+		/// </summary>
         public SettingInfoForm()
         {
             InitializeComponent();

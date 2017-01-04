@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-    <!-- Okno laczace ze soba wszystkie okna dostepne w ustawieniach -->
+<!-- Okno laczace ze soba wszystkie okna dostepne w ustawieniach -->
 <TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:settpage="clr-namespace:OMIKAS"
@@ -7,9 +7,13 @@
             Title="O Aplikacji"
              x:Class="OMIKAS.SetTabbForm"
             BarBackgroundColor="#00693C">
+	
+	<!-- Przycisk powrotu do poprzedniej strony -->
 	<ContentPage.ToolbarItems>
 		<ToolbarItem Text="Powrót" x:Name="btntool" Clicked="ToolbarItem_Clicked"/>
 	</ContentPage.ToolbarItems>
+
+	<!-- Strona tabbed sklada sie z dwoch poddstron -->
 	<settpage:SettingInfoForm></settpage:SettingInfoForm>
-    <settpage:SettingSetForm></settpage:SettingSetForm>
+	<settpage:SettingSetForm></settpage:SettingSetForm>
 </TabbedPage>

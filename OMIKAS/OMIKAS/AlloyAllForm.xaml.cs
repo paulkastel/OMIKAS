@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -66,6 +65,7 @@ namespace OMIKAS
 			//Konstruktor okna bez argumentow = dodaj nowy element
 			await Navigation.PushAsync(new AlloyEditForm());
 		}
+
 		/// <summary>
 		/// Pokazuje okno edycji skladnika stopowego
 		/// </summary>
@@ -77,7 +77,7 @@ namespace OMIKAS
 			var signal = sender as Button;
 			var metal = signal.BindingContext as Alloy;
 
-			//Konstruktor okna z dwoma elementami = edycja istniejacego elementu
+			//Konstruktor okna z dwoma argumentami = edycja istniejacego elementu
 			await Navigation.PushAsync(new AlloyEditForm(metal, App.alloymetals.IndexOf(metal)));
 		}
 
@@ -93,13 +93,17 @@ namespace OMIKAS
 		}
 
 		/// <summary>
-		/// Jak sie pojawia ekran z lista stopow/wytopow to wczytaj odpowiednia liste
+		/// Po pojawieniu się ekranu, odświeża listę i sortuje ją alfabetycznie
 		/// </summary>
 		protected override void OnAppearing()
 		{
 			//Dla poprawnego dzialania zeruje widok listy i cala liste laduje z bazy
 			alloymetalView.ItemsSource = null;
-			alloymetalView.ItemsSource = App.DAUtil.GetAllAlloys();
+
+			var currentList = App.DAUtil.GetAllAlloys();
+			this.alloymetalView.ItemsSource = currentList;
+			var newList = currentList.OrderBy(x => x.name).ToList();
+			this.alloymetalView.ItemsSource = newList;
 		}
 	}
 }
