@@ -12,11 +12,6 @@ namespace OMIKAS.iOS
 	/// </summary>
 	public class Save_iOS : ISave
 	{
-		/// <summary>
-		/// Sciezka do pliku z PDF
-		/// </summary>
-		string path;
-
 		public void saveFile(List<Alloy> alloys, List<Smelt> smelt, List<ProcessResults.Solution> solut)
 		{
 			throw new NotImplementedException();

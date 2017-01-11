@@ -57,7 +57,7 @@ namespace OMIKAS
 		{
 			//Wczytaj do strony liste stopów i ją wyświetl
 			if(multiPageAlloys == null)
-				multiPageAlloys = new SelectMultipleBasePage<Alloy>(App.DAUtil.GetAllAlloys()) { Title = "Wybór stopów" };
+				multiPageAlloys = new SelectMultipleBasePage<Alloy>(App.DAUtil.GetAllAlloys()) { Title = "Wybór składników" };
 
 			await Navigation.PushAsync(multiPageAlloys);
 		}
@@ -300,12 +300,12 @@ namespace OMIKAS
 					solver.SetCoefficient(tabEq[30], tabVar[i], 1);
 				}
 
-				double tmpW = -1 * smelt.ElementAt(0).Weight;
-				int m;
+				//double tmpW = -1 * smelt.ElementAt(0).Weight;
+				//int m;
 				
-				solver.AddVariable("m", out m);
-				solver.SetBounds(m, smelt.ElementAt(0).Weight, smelt.ElementAt(0).Weight);
-				solver.SetCoefficient(tabEq[30], m , tmpW);
+				//solver.AddVariable("m", out m);
+				//solver.SetBounds(m, smelt.ElementAt(0).Weight, smelt.ElementAt(0).Weight);
+				//solver.SetCoefficient(tabEq[30], m , tmpW);
 				solver.SetBounds(tabEq[29], smelt.ElementAt(0).Weight, smelt.ElementAt(0).Weight);
 				solver.AddGoal(tabEq[30], 1, true);
 

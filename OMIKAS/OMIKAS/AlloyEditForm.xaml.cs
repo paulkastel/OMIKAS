@@ -32,7 +32,7 @@ namespace OMIKAS
 		{
 			InitializeComponent();
 			isEdited = false;
-			this.btn_action.Text = this.Title = "Dodaj stop";
+			this.btn_action.Text = this.Title = "Dodaj składnik stopowy";
 		}
 
 		/// <summary>

@@ -19,7 +19,7 @@
 
 	<ContentPage.Content>
 		<StackLayout Orientation="Vertical">
-			<Button Text="Importuj dane" x:Name="btn_importData" Clicked="btn_importData_Clicked" Style="{StaticResource Styl_btn}"></Button>
+			<Button Text="Importuj dane" x:Name="btn_importData" Clicked="btn_importData_Clicked" Style="{StaticResource Styl_btn}" IsEnabled="False"></Button>
 			<Button Text="Eksportuj dane" x:Name="btn_exportData" Clicked="btn_exportData_Clicked" Style="{StaticResource Styl_btn}"></Button>
 		</StackLayout>
 	</ContentPage.Content>

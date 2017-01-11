@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="OMIKAS.SettingInfoForm"
+             xmlns:local="clr-namespace:OMIKAS;assembly=OMIKAS"
+			 x:Class="OMIKAS.SettingInfoForm"
              BackgroundColor="#FFFFFF"
              Title="INFORMACJE">
 
@@ -15,7 +16,7 @@
 				<Setter Property="VerticalOptions" Value="Center"></Setter>
 				<Setter Property="HorizontalOptions" Value="Center"></Setter>
 			</Style>
-			
+
 			<Style x:Key="Styl_lbl2" TargetType="Label">
 				<Setter Property="TextColor" Value="#1E1E1E"></Setter>
 				<Setter Property="FontSize" Value="25"></Setter>
@@ -27,12 +28,15 @@
 	</ContentPage.Resources>
 
 	<ContentPage.Content>
-        <StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-			<Label Text="O PROGRAMIE"									Style="{StaticResource Styl_lbl2}"></Label>
-			<Label Text="Praca inżynierska Pawła Kastelika 2016/2017"	Style="{StaticResource Styl_lbl1}"></Label>
-			<Label Text="pod patronatem dr inż. Krzysztofa Sołka"		Style="{StaticResource Styl_lbl1}"></Label>
-			<Label Text="Optymalizator mieszanek hutniczych OMIKAS"		Style="{StaticResource Styl_lbl1}"></Label>
-			<Label Text="Akademia Górniczo-Hutnicza WIMiIP Kraków"		Style="{StaticResource Styl_lbl1}"></Label>
-        </StackLayout>
-    </ContentPage.Content>
+		<ScrollView>
+			<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
+				<Label Text="O PROGRAMIE"									Style="{StaticResource Styl_lbl2}"></Label>
+				<Label Text="Praca inżynierska Pawła Kastelika 2016/2017"	Style="{StaticResource Styl_lbl1}"></Label>
+				<Label Text="pod patronatem dr inż. Krzysztofa Sołka"		Style="{StaticResource Styl_lbl1}"></Label>
+				<Label Text="Optymalizator mieszanek hutniczych OMIKAS"		Style="{StaticResource Styl_lbl1}"></Label>
+				<Label Text="Akademia Górniczo-Hutnicza WIMiIP Kraków"		Style="{StaticResource Styl_lbl1}"></Label>
+				<Image Source="{local:ImageResource OMIKAS.agh_logo.jpg}" Aspect="AspectFit" />
+			</StackLayout>
+		</ScrollView>
+	</ContentPage.Content>
 </ContentPage>

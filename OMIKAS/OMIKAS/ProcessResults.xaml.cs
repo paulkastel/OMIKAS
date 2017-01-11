@@ -95,21 +95,46 @@ namespace OMIKAS
 			this.smelt = smelt;
 			isWeightType = isWeightFun;
 			total = 0;
-			string x;
 
 			//jezeli typ optymalizacji masowy, odpowiedni komunikat i stworzenie listy z rozwiązaniami
 			if(isWeightFun)
 			{
 				lblintro.Text = "Minimalna ilość składników potrzebnych do wytopienia " + smelt.ElementAt(0).Weight.ToString() + " [g] wytopu " + smelt.ElementAt(0).name.ToString() + " spełniających normy:";
-				this.solutionView.ItemsSource = solut = createSolution(alloys, solver);
+				this.solutionView.ItemsSource= solut = createSolution(alloys, solver);
+				foreach(Solution s in solut)
+				{
+					if(double.IsNaN(s.solNum))
+					{
+						btn_raport.IsEnabled = false;
+						lblTotal.Text = "Brak rozwiązań - niepoprawne dane wejściowe";
+					}
+					else
+					{
+						btn_raport.IsEnabled = true;
+						//suma wszystkich rozwiązań
+						lblTotal.Text = total.ToString("0.00");
+					}
+				}
 			}
 			else
 			{
 				lblintro.Text = "Minimalna ilość składników potrzebnych do wytopienia " + smelt.ElementAt(0).Weight.ToString() + " [g] wytopu " + smelt.ElementAt(0).name.ToString() + " przy możliwie najniższych kosztach:";
 				this.solutionView.ItemsSource = solut = createSolution(alloys, solver);
+				foreach(Solution s in solut)
+				{
+					if(double.IsNaN(s.solNum))
+					{
+						btn_raport.IsEnabled = false;
+						lblTotal.Text = "Brak rozwiązań - niepoprawne dane wejściowe";
+					}
+					else
+					{
+						btn_raport.IsEnabled = true;
+						//suma wszystkich rozwiązań
+						lblTotal.Text = total.ToString("0.00");
+					}
+				}
 			}
-			//suma wszystkich rozwiązań
-			lblTotal.Text = total.ToString("0.00");
 		}
 
 		/// <summary>

@@ -29,5 +29,7 @@ namespace OMIKAS
 		/// <param name="smelt">Jednoelementowa lista wytopów zawierająca dane o wytopie do umieszczenia na raporcie</param>
 		/// <param name="solut">Lista rozwiązań dla każdego z stopów</param>
 		void saveFileAndNotice(ProcessResults processResults, List<Alloy> alloys, List<Smelt> smelt, List<ProcessResults.Solution> solut);
+
+		void exportXMLData(Xamarin.Forms.Page page);
 	}
 }

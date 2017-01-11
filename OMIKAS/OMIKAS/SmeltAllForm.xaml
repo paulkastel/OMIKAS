@@ -35,7 +35,7 @@
 	<!-- Zawartosc strony -->
 	<ContentPage.Content>
 		<StackLayout>
-			<Button Style="{StaticResource Styl_btn}" Text="Dodaj wytop" x:Name="btn_addSmelt" Clicked="btn_addSmelt_Clicked"></Button>
+			<Button Style="{StaticResource Styl_btn}" Text="Dodaj" x:Name="btn_addSmelt" Clicked="btn_addSmelt_Clicked"></Button>
 			<ListView x:FieldModifier="public" x:Name="smeltsmetalView" HasUnevenRows="True">
 				<ListView.ItemTemplate>
 					<DataTemplate>

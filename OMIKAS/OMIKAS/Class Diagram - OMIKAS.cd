@@ -1,0 +1,218 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Comment CommentText="Klasy odpowiedzialne za pracę z składnikami stopowymi. Klasa &quot;Alloy&quot; reprezentujaca składnik stopowy oraz trzy klasy imitujace ekrany do pracy z składnikami: dodawanie, edycja, wyświetlanie danych i listy stopów.">
+    <Position X="0.5" Y="0.5" Height="0.75" Width="4.235" />
+  </Comment>
+  <Comment CommentText="Klasy odpowiedzialne za pracę z wytopami. Klasa &quot;Wytop&quot; reprezentujaca wytop oraz trzy klasy imitujace ekrany do pracy z wytopami: dodawanie, edycja, wyświetlanie danych i listy stopów.">
+    <Position X="5.5" Y="0.5" Height="0.75" Width="4.462" />
+  </Comment>
+  <Comment CommentText="Trzy klasy odpowiedzialne za opcję Ustawienia. SetTabbForm trzyma w zakladkach dwa ekrany Informacje (SettingInfoForm) i Ustawienia (SettingSetForm).">
+    <Position X="0.5" Y="6.75" Height="0.75" Width="3.952" />
+  </Comment>
+  <Comment CommentText="Trzy klasy odpowiedzialne za opcję &quot;Profil&quot;. Klasa User przetrzymuje informacje o uzytkowniku aplikacji, a klasy ProfileForm i ProfileEditForm słuza do edycji i wyświetlania tych danych.">
+    <Position X="8.5" Y="7" Height="0.75" Width="6.001" />
+  </Comment>
+  <Comment CommentText="Baza danych i funkcje do manipulowania danymi.">
+    <Position X="15.004" Y="0.5" Height="0.75" Width="1.528" />
+  </Comment>
+  <Comment CommentText="Ekran glowny aplikacji, oraz menu glowne oraz klasa uruchamiajaca aplikacje.">
+    <Position X="10.75" Y="0.5" Height="0.75" Width="3.492" />
+  </Comment>
+  <Comment CommentText="Klasy odpowiadajace za ekrany obliczeń. Ekran na którym wybierane sa dane do obliczeń, oraz ekran na którym wyświetlane sa wyniki. Interfejs ISave zawiera metody do zapisu plików w pamięci urzadzenia.">
+    <Position X="17.25" Y="0.5" Height="0.75" Width="3.792" />
+  </Comment>
+  <Class Name="OMIKAS.Alloy">
+    <Position X="0.5" Y="1.5" Width="1.75" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AgQAAACAAQSAgAAgiGAEAwCAAAUEQAACAIAEgFvcCQA=</HashCode>
+      <FileName>Alloy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.AlloyAllForm">
+    <Position X="2.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAEAAgAAAAAAAAAACAAAAAAAAAAQAAAAAQAAAA=</HashCode>
+      <FileName>AlloyAllForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.AlloyDetailForm">
+    <Position X="0.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AlloyDetailForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.AlloyEditForm">
+    <Position X="2.5" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAACQAAg=</HashCode>
+      <FileName>AlloyEditForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.App">
+    <Position X="12.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAgAEAQQgAAAAEAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>App.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.DataAccess">
+    <Position X="15" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACCAAAggAAAAAAAAIAAAAQQAAAAgEABAABAAAAA=</HashCode>
+      <FileName>DataAccess.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.MainForm">
+    <Position X="10.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.MainMenuSliderForm">
+    <Position X="10.5" Y="3" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>BAAAAUAAAAgAAAQAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>MainMenuSliderForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.ProcessChooseForm">
+    <Position X="17.5" Y="1.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AYAAAAAAAAgAAAAAAAQACAAAAAIACEAQAQAAAAAgAEA=</HashCode>
+      <FileName>ProcessChooseForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.ProcessResults">
+    <Position X="19.5" Y="3.25" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="OMIKAS.ProcessResults.Solution">
+        <TypeIdentifier>
+          <NewMemberFileName>ProcessResults.xaml.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAACAAAQgAQAAAAAAAAACAAAAEAAAAAAAAg=</HashCode>
+      <FileName>ProcessResults.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.ProfileEditForm">
+    <Position X="8.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAIAAAAAAAAAAAAA=</HashCode>
+      <FileName>ProfileEditForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.ProfileForm">
+    <Position X="12.5" Y="8" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAgAAAAAAAAAACAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>ProfileForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SelectMultipleBasePage&lt;T&gt;">
+    <Position X="17" Y="5.75" Width="2.25" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="OMIKAS.SelectMultipleBasePage&lt;T&gt;.WrappedSelection&lt;T&gt;" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SelectMultipleBasePage.cs</NewMemberFileName>
+        </TypeIdentifier>
+        <Lollipop Position="0.2" />
+      </Class>
+      <Class Name="OMIKAS.SelectMultipleBasePage&lt;T&gt;.WrappedItemSelectionTemplate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>SelectMultipleBasePage.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAQAAAAAAAAAAAAAAAAAAAAABAAACAAAA=</HashCode>
+      <FileName>SelectMultipleBasePage.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SetTabbForm">
+    <Position X="1.75" Y="7.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SetTabbForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SettingInfoForm">
+    <Position X="3" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SettingInfoForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SettingSetForm">
+    <Position X="0.75" Y="9" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>SettingSetForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.Smelt">
+    <Position X="5.5" Y="1.5" Width="2" />
+    <Compartments>
+      <Compartment Name="Properties" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>hDQhmWPACCYao0UhEhkaEhoCNbqdiKKVVBEAhIOECGE=</HashCode>
+      <FileName>Smelt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SmeltAllForm">
+    <Position X="7.75" Y="1.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAEAAgAAAAAAAAAACAAAAAAAAABAAAAAAAAAIA=</HashCode>
+      <FileName>SmeltAllForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SmeltDetailForm">
+    <Position X="5.75" Y="5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACCAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SmeltDetailForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.SmeltEditForm">
+    <Position X="7.75" Y="4" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAEAAAAAACAAAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>SmeltEditForm.xaml.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OMIKAS.User">
+    <Position X="10.75" Y="8" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQgAAAAAAAAAAAgAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="OMIKAS.ISave">
+    <Position X="19.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAgIAAAAAAAIAAAA=</HashCode>
+      <FileName>ISave.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="OMIKAS.ISQLite">
+    <Position X="15" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>ISQLite.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

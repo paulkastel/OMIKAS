@@ -77,7 +77,7 @@
 					<ColumnDefinition Width="140"/>
 				</Grid.ColumnDefinitions>
 				
-				<Label Text="NAZWA STOPU*" Style="{StaticResource Styl_lblH1}"	Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
+				<Label Text="NAZWA*" Style="{StaticResource Styl_lblH1}"	Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"></Label>
 				<Entry Placeholder="Nazwa" x:Name="entName" Style="{StaticResource Styl_ent}"	Grid.Column="2" Grid.Row="0" Grid.ColumnSpan="2"></Entry>
 
 				<Label Text="CENA:"  Style="{StaticResource Styl_lbl}" HorizontalOptions="Center"	Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2"></Label>

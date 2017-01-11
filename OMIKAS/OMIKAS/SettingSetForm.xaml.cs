@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
@@ -25,7 +21,7 @@ namespace OMIKAS
 		/// <param name="e"></param>
 		private void btn_importData_Clicked(object sender, EventArgs e)
 		{
-
+			var filesc = DependencyService.Get<ISave>();
 		}
 		
 		/// <summary>
@@ -35,7 +31,8 @@ namespace OMIKAS
 		/// <param name="e"></param>
 		private void btn_exportData_Clicked(object sender, EventArgs e)
 		{
-
+			var filesc = DependencyService.Get<ISave>();
+			filesc.exportXMLData(this);
 		}
 	}
 }
